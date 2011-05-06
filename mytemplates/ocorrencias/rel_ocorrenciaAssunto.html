@@ -13,36 +13,50 @@
 
 <td><input type="SUBMIT" value="Buscar"></td>
 <td><input type="BUTTON" value="Voltar" ONCLICK="window.location.href='/ocorrencias/relatorios'"/></td></tr>
+
+
+
+<script type="text/css">
+.texto1{
+width:100%;
+display:block;
+text-align:left;
+float:right;
+font-size:20px;
+
+}
+.texto2{
+width:80%;
+display:block;
+text-align:left;
+float:right;
+margin-left:10px;
+font-size:12px;
+}
+
+
+
+</script>    
+
+
+
+
 </form>
-    
-    <table border="0" width="60%">
-     <thead>
-     	<th>Assunto</th>
-     	<th>Numero de Ocorrencias</th>
-     </thead>       
-    {%for a in lista_assuntos%}
-        <tr>
-                <th>{{a}}</th>
-                <td>{{a.ocorrencias}}</td>
-       </tr>
+    <ul>
+     {%for a in lista_assuntos%}
+                <li class="texto1">Assunto: {{a}} Ocorrencias: {{a.ocorrencias}}
+       	<ul>	
      	 {%for o in ocorrencias%}
        		{%if o.assunto = a%}
-       		<tr>
-                <td>-></td><td class="texto">{{o.bairro}}</td>
-                <td class="texto">{{o.ocorrencias}}
-        	</tr>
+       		    <li class="texto2">Bairro: {{o.bairro}} Ocorrencias: {{o.ocorrencias}}</li>
+        	
        		{%endif%}
-    	{%endfor%}   
+    	{%endfor%}
+    	</ul></li>   
     {%endfor%}  
-       
-        </table>
-    
-<script type="text/css">
-.texto{
-display: inline;
-padding:10px 0 0 0;
-}
-</script>    
+          </ul>
+      
+
     
     
     
