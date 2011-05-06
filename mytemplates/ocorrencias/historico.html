@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block "titulo" %}Cadastro de Novos dados de Edificacao - {{ block.super }}{% endblock "titulo" %}
+
+{% block "conteudo" %}
+            <h1>Historico da Ocorrencia </h1>
+            {%for item in lista_historico%}
+            
+            	<p class = "historico">{{item.texto}}   -    Data : {{item.data}}</p>
+            {%endfor%}
+                         <input type="BUTTON" value="Voltar" ONCLICK="window.location.href='/ocorrencia/buscar'"></input>
+                
+                
+{% endblock "conteudo" %}

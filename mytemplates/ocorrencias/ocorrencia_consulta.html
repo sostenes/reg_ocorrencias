@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+{% block "titulo" %}{{titulo}} - {{ block.super }}{% endblock "titulo" %}
+
+{% block "conteudo" %}
+<table border="0"  width="60%">
+  <form action="" method="POST">
+	<tr><th><label for="solicitante">Nome do Solicitante:</label></th>
+	<td><input type="textbox" id="solicitante" name="solicitante" size="30"/></td></tr>
+	<tr><th><label for="Endereço">Endereço:</label>
+	<td><input type="textbox" id="endRua"  name="endRua" size="30"></input></td>
+	<th><label for="Numero">Número:</label></th>
+	<td><input type="textbox" id="endNum" name="endNum" size="5"></input></td></tr>
+	<tr><th><label for="id_status">Status da Ocorrencia:</label></th>
+	<td><SELECT id ="status" name="status" title="status">
+		<option value="0">-----</option>
+		{%for status in lista_status%}		
+		<option value="{{status.id}}">{{status.nome}}</option>
+		{%endfor%}
+	</SELECT></td>
+	<th><label for="id_situacao">Situação:</label></th>
+	<td><SELECT id ="situacao" name="situacao" title="situacao">
+		<option value="0">-----</option>
+		{%for situacao in lista_situacao%}		
+		<option value="{{situacao.id}}">{{situacao.nome}}</option>
+		{%endfor%}
+	</SELECT></td></tr>
+	<tr><th><label for="id_dataOcorrencia">Entre as Datas:</label></th>
+	<td><input type="textbox" id="dataOcorrencia" name="dataOcorrencia" size="8"></input>
+	<input type="textbox" id="dataFinal" name="dataFinal" size="8"></input></td>
+	<th><label for="id_assunto">Assunto:</label></th>
+	<td><SELECT id ="assunto" name="assunto" title="assunto">
+		<option value="0">-----</option>
+		{%for assunto in lista_assunto%}		
+		<option value="{{assunto.id}}">{{assunto.nome}}</option>
+		{%endfor%}
+	</SELECT></td></tr>
+	<tr><th><label for="id_usuario">Usuario:</label></th>
+	<td><SELECT id ="usuario" name="usuario" title="usuario">
+		<option value="0">-----</option>
+		{%for usuario in lista_users%}		
+		<option value="{{usuario.id}}">{{usuario.username}}</option>
+		{%endfor%}
+	</SELECT></td>
+	<th><label for="id_bairro">Bairro:</label></th>
+	<td><SELECT id ="bairro" name="bairro" title="bairro">
+		<option value="0">-----</option>
+		{%for bairro in lista_bairros%}		
+		<option value="{{bairro.id}}">{{bairro.nome}}</option>
+		{%endfor%}
+	</SELECT></td></tr>
+<tr><th><input type="SUBMIT" value="Buscar"/></th>
+	<td><SELECT id ="saida" name="saida" title="saida">
+		<option value="0">Pesquisa Comum</option>
+		<option value="1">Tabela de Relatorio</option>
+	</SELECT></td></tr>
+</tr>
+</form>	
+</table>
+
+{% if n_registros != 0%}
+<ul class="messagelist">
+          <li class="sucess">{{mensagem}}</li>
+	</ul>
+{%else%}
+<ul class="messagelist">
+          <li class="error">{{mensagem}}</li>
+	</ul>
+{%endif%}
+    <table border="0" width="60%">
+	<thead>
+		<tr>
+			<th>Codigo</th>
+			<th>Solicitante</th>
+			<th>Status</th>
+			<th>Situação</th>
+			<th>Data Ocorrencia</th>
+			<th>Usuario Registrador</th>
+			<th>Ação</th>	
+		</tr>
+	</thead>
+	{% ifnotequal n_registros '0'%}
+	{%for object in lista_ocorrencias%}
+	<tr>			
+        <td>{{ object.id }}</td>
+		<td>{{ object.solicitante }}</td>
+		<td>{{ object.status}}</td>
+		<td>{{ object.situacao}}</td>
+		<td>{{ object.dataOcorrencia}}</td>
+		<td>{{ object.usuario}}</td>
+	    <td><a href="{% url editar_ocorrencia object.id %}">Editar</a></td>
+		<td><a href="{% url ver_ocorrencia object.id %}">Imprimir</a></td>
+	</tr>
+	{% endfor %}
+    </table>
+	{% endifnotequal %}
+
+<br/>
+<form><INPUT TYPE="BUTTON" VALUE="Cadastrar Nova Ocorrencia" ONCLICK="window.location.href='{% url nova_ocorrencia %}'"></td></tr></th> </form>
+{% endblock "conteudo" %}

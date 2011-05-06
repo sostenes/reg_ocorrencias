@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block "titulo" %}Cadastro de Novos dados de Edificacao - {{ block.super }}{% endblock "titulo" %}
+
+{% block "conteudo" %}
+    <form action="" method="post">
+        <table border="0" width="60%">
+            {{ formset }}
+            <tr>
+                <th> </th>
+                <td><input type="submit" value="Cadastrar!" /></td>
+            </tr>
+        </table>
+    </form>
+{% endblock "conteudo" %}

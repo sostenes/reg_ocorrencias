@@ -1,0 +1,31 @@
+<html>
+<head><title>{% block "titulo" %}Defesa Civil{% endblock "titulo" %}</title>
+
+
+<link rel="stylesheet" type="text/css" href="/site_media/css/estilo.css" /><body>
+<div class="tudo">
+	<div class="header">
+		<h1 id="defesaCivil">Registro de Ocorrencias - Defesa Civil</h1>
+	</div>
+	<div class="navbar">
+		<ul>
+			<li><a href="/ocorrencia/buscar/">Inicio</a></li> / 
+            <li><a href="#">Relatórios</a></li> / 
+            <li><a href="/admin/">Admin</a></li> / 
+            <li><a href="/logout/">Encerrar sessão</a></li>
+		</ul>
+	</div>
+	<div class="conteudo">
+		 {% block "conteudo" %}
+        {% endblock "conteudo" %}
+	</div>
+	<div class="rodape">
+	</div>
+	
+	
+	
+	
+	
+</div>
+</body>
+</html>

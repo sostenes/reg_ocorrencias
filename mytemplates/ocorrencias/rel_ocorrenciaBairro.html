@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block "titulo" %}Relatorio -Ocorrencias Por bairro - {{ block.super }}{% endblock "titulo" %}
+
+{% block "conteudo" %}
+    
+    <form>
+<table>
+<tr>
+<th><label for="data1" >De:</label></th>
+<td><input class="texto" type="textbox" size="10" name="data1" id="data1"/></td>
+<th><label for="data2" >Até:</label></th>
+<td><input type="textbox" size="10" name="data2" id="data2"/></td>
+
+<td><input type="SUBMIT" value="Buscar"></td>
+<td><input type="BUTTON" value="Voltar" ONCLICK="window.location.href='/ocorrencias/relatorios'"/></td></tr>
+</form>
+
+    
+    
+    
+    
+    <table border="0" width="60%">
+     <thead>
+     	<th>Bairro</th>
+     	<th>Numero de Ocorrencias</th>
+     </thead>       
+    {%for b in lista_bairros%}
+        <tr>
+                <th>{{b}}</th>
+                <td>{{b.ocorrencias}}</td>
+       </tr>
+       
+     	 {%for o in ocorrencias%}
+       		{%if o.bairro = b%}
+       		<tr>
+                <td>{{o.assunto}}</td>
+                <td>{{o.ocorrencias}}</td>
+        	</tr>
+       		{%endif%}
+    	{%endfor%}   
+    {%endfor%}  
+       
+        </table>
+    
+{% endblock "conteudo" %}

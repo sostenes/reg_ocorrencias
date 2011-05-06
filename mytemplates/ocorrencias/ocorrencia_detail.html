@@ -1,0 +1,139 @@
+<html>
+<head>
+<title>Detalhes da Ocorrencia Numero: {{ object.id}} - Defesa Civil - Registro de Ocorrencias</title>
+
+<style type="text/css">
+#header{
+width:750px;
+height:100px;
+background:#FFF;
+border:2px solid;
+text-align:center;
+font-size:12px;
+display:block;
+}
+
+body{
+margin:0;
+padding:0;
+background:#fff;
+}
+
+.todo{
+margin:0 auto;
+width:760px;
+}
+
+
+h1{
+padding:5px;
+}
+
+h2{
+font-size:13px;
+text-decoration:underline;
+}
+
+.caixa{
+display:inline;
+border:1px;
+}
+
+.tabela{
+border: 0px;
+text-align:left;
+font-size:11px;
+padding-left: 10px; 
+}
+
+.tabela2{
+border:1px solid;
+ padding-left: 10px;
+  border:1px solid #000;  
+}
+.tabela3{
+width:750px;
+font-size:11px;
+ padding-left: 10px;
+ border:1px solid #000; 
+}
+
+.imagem{
+align:right;
+}
+
+.rodape{
+font-size:10px;
+text-align:center
+}
+
+
+</style>
+
+</head>
+<body >
+<div class="todo">
+<div id="header"><h1>Defesa Civil</h1></div>
+
+<table class="tabela">
+<tr><td>
+
+    <table class="tabela">
+    <thead><h2>Dados do Solicitante</h2></thead>
+    <tr><th>Numero:</th><td>{{ object.id }}</td></tr>
+	<tr><th>Solicitante:</th><td>{{ object.solicitante }}</td></tr>
+	<tr><th>Bairro:</th><td>{{ object.bairro }}</td></tr>
+	<tr><th>Endereço:</th><td>{{ object.enderecoSolicitante }}</td><th>Numero:</th><td>{{ object.numero }}</td></tr>
+	<tr><th>Status:</th><td>{{ object.status }}</td><th>Situação:</th><td>{{ object.situacao }}</td></tr>
+	<tr><th>Endereço da Ocorrencia:</th><td>{{ object.endRua }}</td><th>Numero:</th><td>{{ object.endNumero }}</td></tr>
+	<tr><th>Registrada no Sistema por:</th><td>{{ object.usuario }}</td></tr>
+	<tr><th>Data da Ocorrencia:</th><td>{{ object.dataOcorrencia }}</td></tr>
+	<tr><th>Data de Finalização:</th><td>{{ object.dataFinal }}</td></tr>
+    <tr><th>Assunto:</th><td>{{ object.assunto }}</td></tr>
+    
+    </table></td></tr>
+
+
+<td>
+<table class="tabela">
+    
+    <thead><h2>Dados da Edificação</h2></thead>
+    <tr><th>Tipo de Obra:</th><td>{{ object.tipoObra }}</td></tr>
+	<tr><th>Modo Construtivo:</th><td>{{ object.modoConstrutivo }}</td></tr>
+	<tr><th>Cobertura:</th><td>{{ object.cobertura }}</td></tr>
+	<tr><th>Número de Pavimentos:</th><td>{{ object.numeroPavimentos }}</td></tr>
+	<tr><th>Área Construída:</th><td>{{ object.areaConstruida }}</td></tr>
+	<tr><th>Construção em Encosta:</th><td>{{ object.construcaoEncosta }}</td></tr>
+    <tr><th>Estado da Construção:</th><td>{{ object.estadoConstrucao }}</td></tr>
+	</tr>
+    </table>
+</td>
+<td>
+<table class="tabela">
+<thead><h2>Patologias Estruturais</h2></thead>
+<tr><th>Parede:</th><td>{{ object.parede }}</td></tr>
+	<tr><th>Piso:</th><td>{{ object.piso }}</td></tr>
+	<tr><th>Laje:</th><td>{{ object.laje }}</td></tr>
+	<tr><th>Viga:</th><td>{{ object.viga }}</td></tr>
+	<tr><th>Coluna:</th><td>{{ object.coluna }}</td></tr>
+	<tr><th>Estrutura do Telhado:</th><td>{{ object.telhado }}</td></tr>
+	<tr><td>   </td></tr>
+
+</td>
+</table>
+</table>
+<table class="tabela3">
+<thead><h2>Historico</h2></thead>
+<tr><td><p>	{{ object.historico}}</p></td></tr>
+</td>
+</table>    
+</div>    
+    <br/>
+    
+ <p class="rodape">Defesa Civil,Rua Galileu, 25, Parque Residencial Laranjeiras - Serra - ES, CEP 29165-040
+ <br/>Email: defesacivil@serra.es.gov.br, Telefones:3338-1736 / 9938-9500 ou 199 Emergências</p> 
+    <a href="{% url editar_ocorrencia object.id %}">Editar</a>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,151 @@
+{% extends "base.html" %}
+
+{% block "titulo" %}Cadastro de nova Ocorrencia - {{ block.super }}{% endblock "titulo" %}
+
+{% block "conteudo" %}
+   	<form action="" method="post" class="form">
+   	
+   		<fieldset>
+   			<legend>Dados do Solicitante</legend>
+   		   <label for="id_solicitante">Nome do Solicitante:</label>{{form.solicitante}}</br>
+           <label for="id_endereco">Endereço:</label>{{form.enderecoSolicitante}}</br>
+           <label for="id_numero">Numero:</label>{{form.numero}}</br>
+            <label for="situacao" class="label2">Situacao:</label><div class="div_texbox">{{form.situacao}}</div><br/>
+	    	<label for="id_bairro">Bairro:</label><div class="div_texbox">{{form.bairro}}<a href="/admin/ocorrencias/bairro/add/" class="add-another" id="add_id_tipoObra" onclick="return showAddAnotherPopup(this);"> <img src="/media/img/admin/icon_addlink.gif" width="10" height="10" alt="Adicionar Outro(a)"/></a></div><br/>
+	    	<label for="id_pReferencia">Ponto de Referencia:</label>{{form.pReferencia}}</br>
+	    	<label for="id_Usuario">Usuario:</label><div class="div_texbox">{{form.usuario}}</div><br/>
+            <label for="id_Status">Status:</label><div class="div_texbox">{{form.status}}</div><br/>
+	    	
+	    </fieldset>	
+	    	
+	<fieldset>
+		<legend>Dados da Ocorrencia</legend>    	
+	    <label for="end_ocorrencia">Endereço da Ocorrencia:</label>{{form.endRua}}<br/>
+	    <label for="num_end_ocorr">Numero:</label>{{form.endNumero}}<br/>
+	    <label for="assunto">Assunto:</label>{{form.assunto}}<a href="/admin/ocorrencias/assunto/add/" class="add-another" id="add_id_assunto" onclick="return showAddAnotherPopup(this);"> <img src="/media/img/admin/icon_addlink.gif" width="10" height="10" alt="Adicionar Outro(a)"/></a><br/>
+	    <label for="num_end_ocorr">Origem:</label>{{form.origem}}<br/>
+            <label for="data_ocorrencia">Data da Ocorrencia:</label>{{form.dataOcorrencia}}<span class="datetimeshortcuts"><a href="javascript:DateTimeShortcuts.openCalendar(0);" id="calendarlink0"></span></a><br/>
+	    <label for="id_solicitante">Finalizada Em:</label>{{form.dataFinal}}<span class="datetimeshortcuts"><a href="javascript:DateTimeShortcuts.openCalendar(0);" id="calendarlink0"><img src="/media/img/admin/icon_calendar.gif" alt="Calendário"></a></span><br/>
+	</fieldset>
+	
+	
+	<fieldset>
+		<legend>Dados da Edificação</legend>
+	    <label for="num_pavimentos">Numero de Pavimentos:</label>{{form.numeroPavimentos}}<br/>
+	    <label for="area_const">Área Construída:</label>{{form.areaConstruida}}</br>
+	    <label for="area_const">Modo Construtivo:</label>{{form.modoConstrutivo}}<a href="/admin/ocorrencias/modoconstrutivo/add/" class="add-another" id="add_id_modoConstrutivo" onclick="return showAddAnotherPopup(this);"> <img src="/media/img/admin/icon_addlink.gif" width="10" height="10" alt="Adicionar Outro(a)"/></a><br/>
+	    <label for="tipo_obra">Tipo de Obra:</label>{{form.tipoObra}}<a href="/admin/ocorrencias/tipoobra/add/" class="add-another" id="add_id_tipoObra" onclick="return showAddAnotherPopup(this);"> <img src="/media/img/admin/icon_addlink.gif" width="10" height="10" alt="Adicionar Outro(a)"/></a><br/>   
+	    <label for="cobertura">cobertura:</label>{{form.cobertura}}<a href="/admin/ocorrencias/cobertura/add/" class="add-another" id="add_id_cobertura" onclick="return showAddAnotherPopup(this);"> <img src="/media/img/admin/icon_addlink.gif" width="10" height="10" alt="Adicionar Outro(a)"/></a><br/>
+          <label for="constr_encosta">Construção em Encosta:</label>{{form.construcaoEncosta}}<a href="/admin/ocorrencias/construcaoencosta/add/" class="add-another" id="add_id_construcaoEncosta" onclick="return showAddAnotherPopup(this);"> <img src="/media/img/admin/icon_addlink.gif" width="10" height="10" alt="Adicionar Outro(a)"/></a><br/>
+	    <label for="estado_constr">Estado da Construção:</label>{{form.estadoConstrucao}}<a href="/admin/ocorrencias/estadoconstrucao/add/" class="add-another" id="add_id_estadoConstrucao" onclick="return showAddAnotherPopup(this);"> <img src="/media/img/admin/icon_addlink.gif" width="10" height="10" alt="Adicionar Outro(a)"/></a><br/>
+
+
+ </fieldset>
+
+<fieldset>
+	<legend>Patologias Estruturais</legend>
+        <label for="parede">Paredes:</label>{{form.parede}}<a href="/admin/ocorrencias/parede/add/" class="add-another" id="add_id_parede" onclick="return showAddAnotherPopup(this);"> <img src="/media/img/admin/icon_addlink.gif" width="10" height="10" alt="Adicionar Outro(a)"/></a><br/>
+
+<label for="viga">Viga:</label>{{form.viga}}<a href="/admin/ocorrencias/viga/add/" class="add-another" id="add_id_parede" onclick="return showAddAnotherPopup(this);"> <img src="/media/img/admin/icon_addlink.gif" width="10" height="10" alt="Adicionar Outro(a)"/></a><br/>
+
+
+
+	    <label for="piso">Pisos:</label>{{form.piso}}<a href="/admin/ocorrencias/piso/add/" class="add-another" id="add_id_piso" onclick="return showAddAnotherPopup(this);"> <img src="/media/img/admin/icon_addlink.gif" width="10" height="10" alt="Adicionar Outro(a)"/></a><br/>
+
+	    <label for="laje">Laje:</label>{{form.laje}}<a href="/admin/ocorrencias/laje/add/" class="add-another" id="add_id_laje" onclick="return showAddAnotherPopup(this);"> <img src="/media/img/admin/icon_addlink.gif" width="10" height="10" alt="Adicionar Outro(a)"/></a><br/>
+
+	    <label for="coluna">Coluna:</label>{{form.coluna}}<a href="/admin/ocorrencias/coluna/add/" class="add-another" id="add_id_coluna" onclick="return showAddAnotherPopup(this);"> <img src="/media/img/admin/icon_addlink.gif" width="10" height="10" alt="Adicionar Outro(a)"/></a><br/>
+	    <label for="telhado">Telhado:</label>{{form.telhado}}<a href="/admin/ocorrencias/telhado/add/" class="add-another" id="add_id_telhado" onclick="return showAddAnotherPopup(this);"> <img src="/media/img/admin/icon_addlink.gif" width="10" height="10" alt="Adicionar Outro(a)"/></a><br/>
+
+</fieldset>
+<fieldset>
+
+	<legend>Histórico</legend>
+		<label for="historico">Historico:</label>{{form.historico}}<br/>
+
+</fieldset>		
+		    <input type="submit" value="Cadastrar" />
+            <input type="BUTTON" value="Voltar" ONCLICK="window.location.href='/ocorrencia/buscar'"/>
+            
+ </form>
+
+
+<script type="text/javascript">
+	
+</script>
+
+
+<style type="text/css">
+body {
+	background-color:#F7F7F7;
+}
+fieldset {
+	border:1px dashed #CCC;
+	padding:10px;
+	margin-top:20px;
+	margin-bottom:20px;
+}
+legend {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size: 90%;
+	letter-spacing: -1px;
+	font-weight: bold;
+	line-height: 1.1;
+	color:#fff;
+	background: #666;
+	border: 1px solid #333;
+	padding: 2px 6px;
+}
+h1 {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size: 175%;
+	letter-spacing: -1px;
+	font-weight: normal;
+	line-height: 1.1;
+	color:#333;
+}
+label{
+float: left;
+width: 120px;
+font-weight: bold;
+}
+
+.label2{
+float:center;
+width:120px;
+font-weight:bold;
+
+}
+
+
+
+
+input, textarea{
+width: 180px;
+margin-bottom: 5px;
+}
+
+textarea{
+width: 250px;
+height: 150px;
+}
+
+.boxes{
+width: 1em;
+}
+
+#submitbutton{
+margin-left: 120px;
+margin-top: 5px;
+width: 90px;
+}
+
+br{
+clear: left;
+}
+
+</style>  
+
+
+
+{% endblock "conteudo" %}

@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block "titulo" %}{{titulo}} - {{ block.super }}{% endblock "titulo" %}
+
+{% block "conteudo" %}
+
+<h1>Pareceres da Ocorrencia-{{ocorrencia_id}}</h1> <br/>
+    
+    {%for object in lista_parecer%}
+			
+        <p>{{ object.texto }}</p><br/>		
+        <p>Status: {{ object.status}}</br>
+           {{object.usuarioRegistrador}},  {{ object.data}}</p>
+        <p>---------------------------------------------------------------------------------------</p>
+	{% endfor %}
+    
+	<form>
+	<fieldset><legend>Cadastrar Novo Parecer</legend>
+	<table border="0">
+		<tr><textarea rows = "30" cols="10000" id="texto" name="texto"></textarea><tr/>
+		<tr><th><label for="txt_Parecer">Usuario Registrador:</label></th>
+		<td><SELECT id ="registrador" name="registrador" title="registrador">
+		{%for user in registradores%}
+		<option value={{user.id}}>{{user.nome}}</option>
+		{% endfor %}</td></tr>
+		
+		<tr><td><input type="submit" value="Cadastrar"></input></td></tr>
+		
+		</table>
+		
+	</fieldset>
+	</form>
+
+{% endblock "conteudo" %}

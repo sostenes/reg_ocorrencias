@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block "titulo" %}Relatorio -Ocorrencias Por bairro - {{ block.super }}{% endblock "titulo" %}
+
+{% block "conteudo" %}
+    
+    <form>
+    <label for="relatorio">Tipo de Relatorio:</label>
+    
+     <input type="BUTTON" value="Relatorio de Ocorrencias Por Bairro" ONCLICK="window.location.href='/ocorrencias/relatorio/bairro'"/>
+      <input type="BUTTON" value="Relatorio de Ocorrencias Por Assunto" ONCLICK="window.location.href='/ocorrencias/relatorio/assunto'"/>
+      <input type="BUTTON" value="Voltar" ONCLICK="window.location.href='/ocorrencia/buscar'"/>
+    </form>	
+    
+{% endblock "conteudo" %}

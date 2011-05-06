@@ -1,0 +1,15 @@
+<h1>{{usuario}}</h1>
+{% if Lista_de_bairros %}
+	<ul>
+	{% for bairros in Lista_de_bairros %}
+		<li>{{ bairros.nome }}</li>
+	{% endfor %}
+	</ul>
+	{% else %}
+	<p>Não Hé bairros Cadastrados</p>
+{% endif %}
+
+
+
+
+

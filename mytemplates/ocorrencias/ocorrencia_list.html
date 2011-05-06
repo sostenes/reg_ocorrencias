@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block "titulo" %}Listagem de Ocorrencias - {{ block.super }}{% endblock "titulo" %}
+
+{% block "conteudo" %}
+{%if is_paginated%}
+<p>Exibindo ocorrencias {{first_on_page}} ate {{last_on_page}} de {{hits}}
+{%endif%}
+{% for object in object_list %}
+ <table border="0" width="60%">
+        <tr><th>Numero:</th><td>{{ object.id }}</td></tr>
+	<tr><th>Solicitante:</th><td>{{ object.solicitante }}</td></tr>
+	<tr><th>Registrada no Sistema por:</th><td>{{ object.usuario }}</td></tr>
+	<tr><th>Data da Ocorrencia:</th><td>{{ object.dataOcorrencia }}</td></tr>
+        <tr><th>Status:</th><td>{{ object.status }}</td></tr>
+        <tr>
+            <th>Opções:</th>
+            <td><INPUT TYPE="BUTTON" VALUE="Editar" ONCLICK="window.location.href='{% url editar_ocorrencia object.id %}'"></td><td><INPUT TYPE="BUTTON" VALUE="Historico de Modificações" ONCLICK="window.location.href='/admin/ocorrencias/ocorrencia/{{ object.id }}/history/'">
+	</tr>
+    </table><hr size='30'>
+{% endfor %}
+
+</br><td><tr><th><form><INPUT TYPE="BUTTON" VALUE="Cadastrar Nova Ocorrencia" ONCLICK="window.location.href='{% url nova_ocorrencia %}'"></td></tr></th> </form>
+</table>
+{%if is_paginated%}
+	{%if has_previous%}
+ 		{% for pagenumber in page_range %}
+			<a href="?page={{ pagenumber }}"><<{{pagenumber}}</a>
+		{%endfor%}
+	{%endif%}
+	
+	{% if has_next %}
+      <a href="?page={{ next }}">>>></a>
+    {% endif %}
+{%endif%}
+
+
+{% endblock "conteudo" %}
