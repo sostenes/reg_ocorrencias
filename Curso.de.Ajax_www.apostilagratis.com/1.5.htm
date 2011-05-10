@@ -1,0 +1,214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br">
+
+<head>
+	<title>Curso iMasters - Web Sites com Ajax - Cap&iacute;tulo 1 - Popup Boxes</title>
+	<meta http-equiv="Content-Type"  content="application/xhtml+xml; charset=iso-8859-1" />
+	<meta name="author" content="Leandro Vieira Pinho [ leandro@plugsites.net ]" />
+	<meta name="language" content="pt-br" />
+	<script type="text/javascript" src="js/perform.js"></script>
+	<style type="text/css" media="screen">
+		/*<![CDATA[*/
+		<!--
+			@import "css/style.css";
+		-->
+		/*]]>*/
+	</style>
+	<link rel="shortcut icon" href="img/favicon_imasters.gif" type="image/x-icon" />
+</head>
+
+<body>
+
+<div id="global">
+
+<h1 id="header">Web Sites com Ajax</h1>
+
+<div id="conteudo">
+	<h3 id="txtJavaScript">JavaScript</h3>
+
+	<div id="curso">
+		<h2>Popup Boxes</h2>
+		
+		<p>Os popup boxes no JavaScript nos permitem alertar o usuário sobre algum acontecimento, pedir-lhe uma confirmação para que uma determinada ação possa ser executada e pedir-lhe que nos informe algum dado.</p>
+		
+		<p>Assim, podemos criar três tipos de popup boxes. S&atilde;o eles: Alert box, Confirm box e Prompt box. </p>
+		<p>Vamos conhecer cada um deles.</p>
+		<h3>Alert box</h3>
+		
+		<h4>Sintaxe</h4>
+		
+		<code>
+			alert("Curso iMasters - Web Sites com Ajax");
+		</code>
+		
+		<p>Vejamos o resultado abaixo na imagem de exemplo:</p>
+		
+		<p><img src="img_curso/cap1/exemplo_box_alert.gif" alt="Exemplo de um Alert Box" width="326" height="125" /></p>
+		
+		<p>Esse tipo de popup box tem o objetivo de alertar o usuário sobre algo que ocorreu durante alguma ação por ele executada. </p>
+		<p>Um botão de OK é exibido junto a ela. Para prosseguir com a navegação é necessário que o usuário clique nesse bot&atilde;o.</p>
+		<h3>Confirm box</h3>
+		
+		<h4>Sintaxe</h4>
+		
+		<code>
+			confirm("Você está cursando o curso: Web Sites com Ajax");
+		</code>
+		
+		<p>Vejamos uma imagem de exemplo desse tipo de popup box:</p>
+		
+		<p><img src="img_curso/cap1/exemplo_box_confirm.gif" alt="Exemplo de um Confirm Box" width="327" height="126" />
+
+		<p>Com o Confirm Box, podemos ter a certeza se o usuário deseja ou não executar determinada ação, uma vez que  esse box exibe dois botões: <strong>OK</strong> e <strong>Cancel</strong>. </p>
+		<p>Ao clicar em OK o box retorna true e ao clicar em Cancel o box retorna false.</p>
+		<h3>Prompt Box</h3>
+		
+		<h4>Sintaxe</h4>
+		
+		<code>
+			// Sem sugestão de resposta.<br />
+			prompt("Qual o curso você está fazendo no momento?",""); <br /><br />
+			// Com sugestão de resposta.<br />
+			prompt("Qual o curso você está fazendo no momento?","Web Sites com Ajax"); 
+		</code>	
+		
+		
+		<p>Vejamos os respectivos resultados nas imagens abaixo:</p>
+		
+		<p><img src="img_curso/cap1/exemplo_box_prompt.gif" alt="Exemplo de um Prompt Box" width="328" height="150" /></p>
+		
+		<p><img src="img_curso/cap1/exemplo_box_prompt_com_value.gif" alt="Exemplo de um Prompt Box com value" width="328" height="150" /></p>
+		
+		<p>Ambos possuem a mesma característica e função: solicitar uma informação do usuário. </p>
+		<p>Por&eacute;m, eles se diferenciam por um único detalhe: o segundo prompt box exibe uma sugestão de resposta, já o primeiro não.</p>
+		<p>Vejamos um exemplo integrando variável, condição, operadores, confirm box, alert box e prompt box:</p>
+		
+		<code>		
+			var querMsg = confirm(&quot;Gostaria de receber uma mensagem de boas vindas?&quot;);<br /><br />
+			if(querMsg) {<br />
+			<span class="codeSpace">&nbsp;</span>var nome = prompt(&quot;Por favor, qual o seu nome?&quot;,&quot;&quot;);<br />
+			<span class="codeSpace">&nbsp;</span>if(nome != null &amp;&amp; nome != &quot;&quot;) {<br />
+			<span class="codeSpace">&nbsp;</span><span class="codeSpace">&nbsp;</span>alert(&quot;Ol&aacute; &quot; + nome + &quot;, seja bem vindo.&quot;);<br />
+			<span class="codeSpace">&nbsp;</span>}<br />
+			}<br />
+		</code>
+		
+		<p><a href="exe_scripts/cap1/ex_popup_box.htm">Vejamos a demonstração desse exemplo.</a></p>
+		
+		<p>Vamos compreender esse exemplo. Definimos a variável <strong>querMsg</strong> com um valor proveniente de um confirm box, ou seja, essa variável poderá ter o valor true ou false. O primeiro valor é obtido quando o usuário clica no botão <strong>OK</strong>, já o segundo valor quando acioona o botão <strong>Cancel</strong>.</p>
+		
+		<p>Em seguida, utilizamos a condição if (se) para verificar se a variável <strong>querMsg</strong> terá o valor true, o que significa dizer que o usuário clicou no botão <strong>OK</strong>, concordando em receber uma mensagem de boas vindas.</p>
+		
+		<p>Logo ap&oacute;s, criamos a variável nome, a qual  terá seu valor informado pelo usuário através de um prompt box. </p>
+		<p>Através da condição if (se) verificamos se a variável nome não está <em>null</em> ou em branco. Caso essa verificação seja verdadeira, exibiremos a mensagem de boas vindas ao usuário.</p>
+		<ul id="navigation">
+			<li><a href="1.4.htm" title="JavaScript - Condições">&laquo; Condições</a></li>
+			<li>|</li>
+			<li><a href="1.6.htm" id="linkNavCap1" title="JavaScript - Loops">Loops &raquo;</a></li>
+		</ul>
+	</div>
+</div>
+<!-- conteudo -->
+
+<div id="sideBar">
+	<ul id="menu">
+		<li><a href="index.htm" class="itemMenu" title="Introdução do curso">Introdução</a></li>
+		<li><a href="1.htm" class="itemMenu" id="linkCap1" title="JavaScript">Capítulo 1</a>
+			<ul id="cap1">
+				<li class="titCap">JavaScript</li>
+				<li><a href="1.htm" title="Prefácio">Prefácio</a></li>
+				<li><a href="1.1.htm" title="Introdução ao JavaScript">Introdução ao JavaScript</a></li>
+				<li><a href="1.2.htm" title="Variáveis">Variáveis</a></li>
+				<li><a href="1.3.htm" title="Operadores">Operadores</a></li>
+				<li><a href="1.4.htm" title="Condições">Condições</a></li>
+				<li><a href="1.5.htm" title="Popup Boxes">Popup Boxes</a></li>
+				<li><a href="1.6.htm" title="Loops">Loops</a></li>
+				<li><a href="1.7.htm" title="Funções">Funções</a></li>
+				<li><a href="1.8.htm" title="Eventos">Eventos</a></li>
+				<li><a href="1.9.htm" title="Array">Array</a></li>
+				<li><a href="1.10.htm" title="Data">Data</a></li>
+				<li><a href="1.11.htm" title="String">String</a></li>
+				<li><a href="1.12.htm" title="Math">Math</a></li>
+				<li><a href="1.13.htm" title="Validação de formulários">Validação de formulários</a>
+			</ul>
+		</li>
+		<li><a href="2.htm" class="itemMenu" id="linkCap2" title="DOM e DHTML">Capítulo 2</a>
+			<ul id="cap2">
+				<li class="titCap">DOM e DHTML</li>
+				<li><a href="2.htm" title="Prefácio">Prefácio</a></li>
+				<li><a href="2.1.htm" title="Introdução ao DOM">Introdução ao DOM</a></li>
+				<li><a href="2.2.htm" title="Introdução ao DHTML">Introdução ao DHTML</a></li>
+				<li><a href="2.3.htm" title="Método: getElementById">Método: getElementById</a></li>
+				<li><a href="2.4.htm" title="Método: getElementsByTagName">Método: getElementsByTagName</a></li>
+				<li><a href="2.5.htm" title="Método: style">Método: style</a></li>
+				<li><a href="2.6.htm" title="Método: className">Método: className</a></li>
+				<li><a href="2.7.htm" title="Método: innerHTML">Método: innerHTML</a></li>
+				<li><a href="2.8.htm" title="Método: appendChild">Método: appendChild</a></li>
+				<li><a href="2.9.htm" title="Método: createElement">Método: createElement</a></li>
+				<li><a href="2.10.htm" title="Método: insertBefore">Método: insertBefore</a></li>
+				<li><a href="2.11.htm" title="Método: insertAfter">Método: insertAfter</a></li>
+				<li><a href="2.12.htm" title="Método: setAttribute">Método: setAttribute</a></li>
+				<li><a href="2.13.htm" title="Método: getAttribute">Método: getAttribute</a></li>
+
+			</ul>
+		</li>
+		<li><a href="3.htm" class="itemMenu" id="linkCap3" title="JavaScript não-obstrutivo">Capítulo 3</a>
+			<ul id="cap3">
+				<li class="titCap">JavaScript não-obstrutivo</li>
+				<li><a href="3.htm" title="Prefácio">Prefácio</a></li>
+				<li><a href="3.1.htm" title="Introdução ao JavaScript não-obstrutivo">Introdução ao JavaScript não-obstrutivo</a></li>
+			</ul>
+		</li>
+		<li><a href="4.htm" class="itemMenu" id="linkCap4" title="Ajax">Capítulo 4</a>
+			<ul id="cap4">
+				<li class="titCap">Ajax</li>
+				<li><a href="4.htm" title="Prefácio">Prefácio</a></li>
+				<li><a href="4.1.htm" title="Introdução ao Ajax">Introdução ao Ajax</a></li>
+				<li><a href="4.2.htm" title="O Objeto XMLHttpRequest">O Objeto XMLHttpRequest</a>
+				<li><a href="4.3.htm" title="Pés no chão">Pés no chão</a>
+			</ul>
+		</li>
+		<li><a href="5.htm" class="itemMenu" id="linkCap5" title="Projeto final">Capítulo 5</a>
+			<ul id="cap5">
+				<li class="titCap">Projeto final</li>
+				<li><a href="5.htm" title="Prefácio">Prefácio</a></li>
+				<li><a href="5.1.htm" title="Introdução ao Projeto final">Introdução ao Projeto final</a></li>
+				<li><a href="5.2.htm" title="Tabela do banco de dados">Tabela do banco de dados</a></li>
+				<li><a href="5.3.htm" title="Visão geral">Visão geral</a></li>
+				<li><a href="5.4.htm" title="Visão geral sobre as páginas">Visão geral sobre as páginas</a></li>
+				<li><a href="5.5.htm" title="Compreendendo o espírito da 'coisa'">Compreendendo o espírito da 'coisa'</a></li>
+				<li><a href="5.6.htm" title="Compreendendo a página index.php">Compreendendo a página index.php</a></li>
+				<li><a href="5.7.htm" title="Compreendendo a página actions.php">Compreendendo a página action.php</a></li>
+				<li><a href="5.8.htm" title="Compreendendo a página formulario.php">Compreendendo a página formulario.php</a></li>
+				<li><a href="5.9.htm" title="Compreendendo a página relatorio.php">Compreendendo a página relatorio.php</a></li>
+				<li><a href="5.10.htm" title="Compreendendo a página comportamentos.js">Compreendendo a página comportamentos.js</a></li>
+				<li><a href="5.11.htm" title="Considerações finais">Considerações finais</a></li>			
+			</ul>
+		</li>
+		<li><a href="6.htm" class="itemMenu" id="linkCap6" title="Bibliografia">Bibliografia</a>
+			<ul id="cap6">
+				<li class="titCap">Bibliografia</li>
+				<li><a href="6.htm" title="">Referências bibliográficas</a></li>
+			</ul>
+		</li>
+	</ul>
+	<p id="changeFontSize"><a href="javascript:changeFontSize();" title="Alterar o tamanho da fonte">&raquo; Tamanho da fonte</a></p>
+</div>
+<!-- / Sidebar -->
+	
+<div id="frameScroll">
+	<a href="#" title="Ocultar / Exibir o menu" id="optFrameScroll">
+		<img src="img/icn/icone_frame_scroll_hide.jpg" width="6" height="50" alt="" />
+	</a>
+</div>
+
+<div id="rodape">
+
+</div>
+<!-- Rodape -->
+
+</div>
+<!-- / Global -->
+
+</body>
+</html>

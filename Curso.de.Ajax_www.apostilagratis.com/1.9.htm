@@ -1,0 +1,218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br">
+
+<head>
+	<title>Curso iMasters - Web Sites com Ajax - Cap&iacute;tulo 1 - Array</title>
+	<meta http-equiv="Content-Type"  content="application/xhtml+xml; charset=iso-8859-1" />
+	<meta name="author" content="Leandro Vieira Pinho [ leandro@plugsites.net ]" />
+	<meta name="language" content="pt-br" />
+	<script type="text/javascript" src="js/perform.js"></script>
+	<style type="text/css" media="screen">
+		/*<![CDATA[*/
+		<!--
+			@import "css/style.css";
+		-->
+		/*]]>*/
+	</style>
+	<link rel="shortcut icon" href="img/favicon_imasters.gif" type="image/x-icon" />
+</head>
+
+<body>
+
+<div id="global">
+
+<h1 id="header">Web Sites com Ajax</h1>
+
+<div id="conteudo">
+	<h3 id="txtJavaScript">JavaScript</h3>
+
+	<div id="curso">
+	
+		<h2>Array</h2>
+		
+		<p>Você certamente já deve ter ouvido falar neste nome: Array. </p>
+		<p>Se formos traduzir esse nome ao pé-da-letra, teríamos: pôr em ordem, fileira, arranjo e por aí vai.</p>
+		<p>Entretanto, o que ele realmente significa para nós é a possibilidade de armazenarmos diversos valores em uma única variável. Dessa forma, seria uma variável com vários valores e esses valores são armazenados e acessados através de uma ordem.</p>
+		
+		<p>Como exemplo, imagine uma variável com o nome <em>diasDaSemana</em>. Para ela, precisaremos armazenar sete valores, uma vez que os dia da semana vão de domingo a sábado. Então, a solução nesse caso é utilizarmos o Array para definirmos sete valores em uma única variável.</p>
+		<p>O objeto Array é definido através da palavra-chave <em>new</em>. </p>
+		<p>Vejamos um exemplo:</p>
+		<code>
+		var diasDaSemana = new Array();<br />
+		var diasDaSemana = new Array(7);
+		</code>
+		
+		<p>Ambos os exemplos acima estão corretos. A diferença entre eles  é que o segundo informa o tamanho (valor total) que o Array terá atrav&eacute;s do número inteiro (integer) 7 (sete).</p>
+		
+		<p>Agora, vamos conhecer duas formas para criarmos um Array contendo os dias da semana.</p>
+		
+		<code>
+			var diasDaSemana = new Array();<br />
+			diasDaSemana[0] = &quot;Domingo&quot;;<br />
+			diasDaSemana[1] = &quot;Segunda&quot;;<br />
+			diasDaSemana[2] = &quot;Ter&ccedil;a&quot;;<br />
+			diasDaSemana[3] = &quot;Quarta&quot;;<br />
+			diasDaSemana[4] = &quot;Quinta&quot;;<br />
+			diasDaSemana[5] = &quot;Sexta&quot;;<br />
+			diasDaSemana[6] = &quot;S&aacute;bado&quot;;<br />
+			<br />
+			var diasDaSemana = new Array(&quot;Domingo&quot;, &quot;Segunda&quot;, &quot;Ter&ccedil;a&quot;, &quot;Quarta&quot;, &quot;Quinta&quot;, &quot;Sexta&quot;, &quot;S&aacute;bado&quot;);
+		</code>
+		
+		<p>Tanto os valores contidos na primeira forma quanto na segunda, são acessados assim:</p>
+		
+		<code>
+		alert(diasDaSemana[6]); // Exibir&aacute;: S&aacute;bado.
+		</code>
+		
+		<p>Portanto,  para referenciarmos a um valor dentro de um Array, basta indicarmos o nome do Array e o índice númerico do valor. </p>
+		<p>&Eacute; importante lembrar que o índice númerico se inicia com 0 (zero).</p>
+		<p>Se você especificar algum número ou os valores true/false (verdadeiro/falso) como o valor de um Array, o tipo da variável será númerica e Booleana respectivamente, ao invés de string.</p>
+		
+		<h3>Os métodos do objeto Array()</h3>
+		
+		<table summary="Rela&ccedil;&atilde;o dos m&eacute;todos mais utilizados.">
+				<caption>Relação dos métodos mais utilizados.</caption>
+				<tr>
+						<th scope="col">Método</th>
+						<th scope="col">Descrição</th>
+				</tr>
+				<tr>
+						<td>join()</td>
+						<td>Coloca todos os elementos de um Array em uma string e os separam por um delimitador especificado.</td>
+				</tr>
+				<tr>
+						<td>shift()</td>
+						<td>Retorna o primeiro valor de um Array e remove os demais.</td>
+				</tr>
+				<tr>
+						<td>pop()</td>
+						<td>Retorna o último elemento de um Array e remove os demais.</td>
+				</tr>
+				<tr>
+						<td>reverse()</td>
+						<td>Inverte a ordem dos elementos de um Array.</td>
+				</tr>
+				<tr>
+					<td>slice()</td>
+					<td>Retorna os elementos selecionados de um Array.</td>
+				</tr>
+				<tr>
+					<td>sort()</td>
+					<td>Ordena os elementos de um Array.</td>
+				</tr>
+		</table>
+
+		<p><a href="exe_scripts/cap1/ex_array.htm">Demonstração dos métodos utilizados ao se trabalhar com Array.</a></p>
+	
+		<ul id="navigation">
+			<li><a href="1.8.htm" title="JavaScript - Eventos">&laquo; Eventos</a></li>
+			<li>|</li>
+			<li><a href="1.10.htm" id="linkNavCap1" title="JavaScript - Data">Data &raquo;</a></li>
+		</ul>
+	</div>
+</div>
+<!-- conteudo -->
+
+<div id="sideBar">
+	<ul id="menu">
+		<li><a href="index.htm" class="itemMenu" title="Introdução do curso">Introdução</a></li>
+		<li><a href="1.htm" class="itemMenu" id="linkCap1" title="JavaScript">Capítulo 1</a>
+			<ul id="cap1">
+				<li class="titCap">JavaScript</li>
+				<li><a href="1.htm" title="Prefácio">Prefácio</a></li>
+				<li><a href="1.1.htm" title="Introdução ao JavaScript">Introdução ao JavaScript</a></li>
+				<li><a href="1.2.htm" title="Variáveis">Variáveis</a></li>
+				<li><a href="1.3.htm" title="Operadores">Operadores</a></li>
+				<li><a href="1.4.htm" title="Condições">Condições</a></li>
+				<li><a href="1.5.htm" title="Popup Boxes">Popup Boxes</a></li>
+				<li><a href="1.6.htm" title="Loops">Loops</a></li>
+				<li><a href="1.7.htm" title="Funções">Funções</a></li>
+				<li><a href="1.8.htm" title="Eventos">Eventos</a></li>
+				<li><a href="1.9.htm" title="Array">Array</a></li>
+				<li><a href="1.10.htm" title="Data">Data</a></li>
+				<li><a href="1.11.htm" title="String">String</a></li>
+				<li><a href="1.12.htm" title="Math">Math</a></li>
+				<li><a href="1.13.htm" title="Validação de formulários">Validação de formulários</a>
+			</ul>
+		</li>
+		<li><a href="2.htm" class="itemMenu" id="linkCap2" title="DOM e DHTML">Capítulo 2</a>
+			<ul id="cap2">
+				<li class="titCap">DOM e DHTML</li>
+				<li><a href="2.htm" title="Prefácio">Prefácio</a></li>
+				<li><a href="2.1.htm" title="Introdução ao DOM">Introdução ao DOM</a></li>
+				<li><a href="2.2.htm" title="Introdução ao DHTML">Introdução ao DHTML</a></li>
+				<li><a href="2.3.htm" title="Método: getElementById">Método: getElementById</a></li>
+				<li><a href="2.4.htm" title="Método: getElementsByTagName">Método: getElementsByTagName</a></li>
+				<li><a href="2.5.htm" title="Método: style">Método: style</a></li>
+				<li><a href="2.6.htm" title="Método: className">Método: className</a></li>
+				<li><a href="2.7.htm" title="Método: innerHTML">Método: innerHTML</a></li>
+				<li><a href="2.8.htm" title="Método: appendChild">Método: appendChild</a></li>
+				<li><a href="2.9.htm" title="Método: createElement">Método: createElement</a></li>
+				<li><a href="2.10.htm" title="Método: insertBefore">Método: insertBefore</a></li>
+				<li><a href="2.11.htm" title="Método: insertAfter">Método: insertAfter</a></li>
+				<li><a href="2.12.htm" title="Método: setAttribute">Método: setAttribute</a></li>
+				<li><a href="2.13.htm" title="Método: getAttribute">Método: getAttribute</a></li>
+
+			</ul>
+		</li>
+		<li><a href="3.htm" class="itemMenu" id="linkCap3" title="JavaScript não-obstrutivo">Capítulo 3</a>
+			<ul id="cap3">
+				<li class="titCap">JavaScript não-obstrutivo</li>
+				<li><a href="3.htm" title="Prefácio">Prefácio</a></li>
+				<li><a href="3.1.htm" title="Introdução ao JavaScript não-obstrutivo">Introdução ao JavaScript não-obstrutivo</a></li>
+			</ul>
+		</li>
+		<li><a href="4.htm" class="itemMenu" id="linkCap4" title="Ajax">Capítulo 4</a>
+			<ul id="cap4">
+				<li class="titCap">Ajax</li>
+				<li><a href="4.htm" title="Prefácio">Prefácio</a></li>
+				<li><a href="4.1.htm" title="Introdução ao Ajax">Introdução ao Ajax</a></li>
+				<li><a href="4.2.htm" title="O Objeto XMLHttpRequest">O Objeto XMLHttpRequest</a>
+				<li><a href="4.3.htm" title="Pés no chão">Pés no chão</a>
+			</ul>
+		</li>
+		<li><a href="5.htm" class="itemMenu" id="linkCap5" title="Projeto final">Capítulo 5</a>
+			<ul id="cap5">
+				<li class="titCap">Projeto final</li>
+				<li><a href="5.htm" title="Prefácio">Prefácio</a></li>
+				<li><a href="5.1.htm" title="Introdução ao Projeto final">Introdução ao Projeto final</a></li>
+				<li><a href="5.2.htm" title="Tabela do banco de dados">Tabela do banco de dados</a></li>
+				<li><a href="5.3.htm" title="Visão geral">Visão geral</a></li>
+				<li><a href="5.4.htm" title="Visão geral sobre as páginas">Visão geral sobre as páginas</a></li>
+				<li><a href="5.5.htm" title="Compreendendo o espírito da 'coisa'">Compreendendo o espírito da 'coisa'</a></li>
+				<li><a href="5.6.htm" title="Compreendendo a página index.php">Compreendendo a página index.php</a></li>
+				<li><a href="5.7.htm" title="Compreendendo a página actions.php">Compreendendo a página action.php</a></li>
+				<li><a href="5.8.htm" title="Compreendendo a página formulario.php">Compreendendo a página formulario.php</a></li>
+				<li><a href="5.9.htm" title="Compreendendo a página relatorio.php">Compreendendo a página relatorio.php</a></li>
+				<li><a href="5.10.htm" title="Compreendendo a página comportamentos.js">Compreendendo a página comportamentos.js</a></li>
+				<li><a href="5.11.htm" title="Considerações finais">Considerações finais</a></li>			
+			</ul>
+		</li>
+		<li><a href="6.htm" class="itemMenu" id="linkCap6" title="Bibliografia">Bibliografia</a>
+			<ul id="cap6">
+				<li class="titCap">Bibliografia</li>
+				<li><a href="6.htm" title="">Referências bibliográficas</a></li>
+			</ul>
+		</li>
+	</ul>
+	<p id="changeFontSize"><a href="javascript:changeFontSize();" title="Alterar o tamanho da fonte">&raquo; Tamanho da fonte</a></p>
+</div>
+<!-- / Sidebar -->
+	
+<div id="frameScroll">
+	<a href="#" title="Ocultar / Exibir o menu" id="optFrameScroll">
+		<img src="img/icn/icone_frame_scroll_hide.jpg" width="6" height="50" alt="" />
+	</a>
+</div>
+
+<div id="rodape">
+
+</div>
+<!-- Rodape -->
+
+</div>
+<!-- / Global -->
+
+</body>
+</html>

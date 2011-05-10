@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br">
+
+<head>
+	<meta http-equiv="Content-Type"  content="application/xhtml+xml; charset=iso-8859-1" />
+	<meta name="author" content="Leandro Vieira Pinho [ leandro@plugsites.net ]" />
+	<meta name="language" content="pt-br" />
+	
+	<title>Exemplo do m&eacute;todo: setAttribute</title>
+
+	<script type="text/javascript" src="../../js/perform.js"></script>
+	
+	<style type="text/css" media="screen">
+		/*<![CDATA[*/
+		<!--
+			@import "../../css/style.css";
+		-->
+		/*]]>*/
+		#box {
+			border: 3px double #f00;
+			padding: 10px;
+			margin-bottom: 10px;
+			width: 90%;
+			background-color: #fcc;
+		}
+		#box h1 {
+			margin-bottom: 10px;
+		}
+		#bla {
+			background-color: #FFFFCC;
+			padding: 10px;
+			border: 1px solid #000;
+		}
+		.destaque {
+			font-weight: bold;
+			font-size: 2em;
+		}
+	</style>
+<script type="text/javascript">
+<!--
+function newTag(what) {
+	var conteudo = document.getElementById("box");
+	var newElement = document.createElement(what);
+	newElement.appendChild(document.createTextNode("Curso iMasters - Web Sites com Ajax"));
+	newElement.setAttribute('id','bla');
+	newElement.setAttribute('class','destaque');
+	conteudo.appendChild(newElement);
+}
+
+//-->
+</script>
+</head>
+
+<body>
+
+<div id="global">
+
+<h1 id="header">Web Sites com Ajax</h1>
+
+<div id="conteudo">
+	<h3 id="txtDemo">Introdução</h3>
+
+	<div id="curso">
+		
+		<h2>Exemplo do método: setAttribute</h2>
+		
+		<noscript>
+			<p>O exemplo está impossibilitado de ser executado.</p>
+			<p>Motivo: o JavaScript do seu browser está desativado.</p>
+			<p><a href="../../noscript.htm" title="Ative o JavaScript do seu browser">Saiba como ativá-lo.</a></p>
+		</noscript>
+		
+		<p><a href="../../noscript.htm" onclick="newTag('p'); return false;">Criar novo elemento</a></p>
+		
+		<div id="box">
+			<h1 id="tit">Lorem ipsum dolor sit amet</h1>
+		</div>
+		
+		<p>Script utilizado:</p>
+		
+		<code>			
+			&lt;script type=&quot;text/javascript&quot;&gt;<br />
+			&lt;!--<br />
+			function newTag(what) {<br />
+			var conteudo = document.getElementById(&quot;box&quot;);<br />
+			var newElement = document.createElement(what);<br />
+			newElement.appendChild(document.createTextNode(&quot;Curso iMasters - Web Sites com Ajax&quot;));<br />
+			newElement.setAttribute('id','bla');<br />
+			newElement.setAttribute('class','destaque');<br />
+			conteudo.appendChild(newElement);<br />
+			}</p>
+			//--&gt;<br />
+			&lt;/script&gt;<br />
+		</code>	
+			
+		<p>
+			<a href="../../2.12.htm" onclick="javascript:history.back(); return false;" title="Voltar ao método: setAttribute.">&laquo; Voltar ao método: setAttribute.</a>
+		</p>
+
+	</div>
+</div>
+<!-- conteudo -->
+
+	<div id="sideBar">
+		<ul id="menu">
+			<li><a href="../../index.htm" class="itemMenu" title="Introdução do curso">Introdução</a></li>
+			<li><a href="../../1.htm" class="itemMenu" id="linkCap1" title="JavaScript">Capítulo 1</a>
+				<ul id="cap1">
+					<li class="titCap">JavaScript</li>
+					<li><a href="../../1.htm" title="Prefácio">Prefácio</a></li>
+					<li><a href="../../1.1.htm" title="Introdução ao JavaScript">Introdução ao JavaScript</a></li>
+					<li><a href="../../1.2.htm" title="Variáveis">Variáveis</a></li>
+					<li><a href="../../1.3.htm" title="Operadores">Operadores</a></li>
+					<li><a href="../../1.4.htm" title="Condições">Condições</a></li>
+					<li><a href="../../1.5.htm" title="Popup Boxes">Popup Boxes</a></li>
+					<li><a href="../../1.6.htm" title="Loops">Loops</a></li>
+					<li><a href="../../1.7.htm" title="Funções">Funções</a></li>
+					<li><a href="../../1.8.htm" title="Eventos">Eventos</a></li>
+					<li><a href="../../1.9.htm" title="Array">Array</a></li>
+					<li><a href="../../1.10.htm" title="Data">Data</a></li>
+					<li><a href="../../1.11.htm" title="String">String</a></li>
+					<li><a href="../../1.12.htm" title="Math">Math</a></li>
+					<li><a href="../../1.13.htm" title="Validação de formulários">Validação de formulários</a>
+				</ul>
+			</li>
+			<li><a href="../../2.htm" class="itemMenu" id="linkCap2" title="DOM e DHTML">Capítulo 2</a>
+				<ul id="cap2">
+					<li class="titCap">DOM e DHTML</li>
+					<li><a href="../../2.htm" title="Prefácio">Prefácio</a></li>
+					<li><a href="../../2.1.htm" title="Introdução ao DOM">Introdução ao DOM</a></li>
+					<li><a href="../../2.2.htm" title="Introdução ao DHTML">Introdução ao DHTML</a></li>
+					<li><a href="../../2.3.htm" title="Método: getElementById">Método: getElementById</a></li>
+					<li><a href="../../2.4.htm" title="Método: getElementsByTagName">Método: getElementsByTagName</a></li>
+					<li><a href="../../2.5.htm" title="Método: style">Método: style</a></li>
+					<li><a href="../../2.6.htm" title="Método: className">Método: className</a></li>
+					<li><a href="../../2.7.htm" title="Método: innerHTML">Método: innerHTML</a></li>
+					<li><a href="../../2.8.htm" title="Método: appendChild">Método: appendChild</a></li>
+					<li><a href="../../2.9.htm" title="Método: createElement">Método: createElement</a></li>
+					<li><a href="../../2.10.htm" title="Método: insertBefore">Método: insertBefore</a></li>
+					<li><a href="../../2.11.htm" title="Método: insertAfter">Método: insertAfter</a></li>
+					<li><a href="../../2.12.htm" title="Método: setAttribute">Método: setAttribute</a></li>
+					<li><a href="../../2.13.htm" title="Método: getAttribute">Método: getAttribute</a></li>
+	
+				</ul>
+			</li>
+			<li><a href="../../3.htm" class="itemMenu" id="linkCap3" title="JavaScript não-obstrutivo">Capítulo 3</a>
+				<ul id="cap3">
+					<li class="titCap">JavaScript não-obstrutivo</li>
+					<li><a href="../../3.htm" title="Prefácio">Prefácio</a></li>
+					<li><a href="../../3.1.htm" title="Introdução ao JavaScript não-obstrutivo">Introdução ao JavaScript não-obstrutivo</a></li>
+				</ul>
+			</li>
+			<li><a href="../../4.htm" class="itemMenu" id="linkCap4" title="Ajax">Capítulo 4</a>
+				<ul id="cap4">
+					<li class="titCap">Ajax</li>
+					<li><a href="../../4.htm" title="Prefácio">Prefácio</a></li>
+					<li><a href="../../4.1.htm" title="Introdução ao Ajax">Introdução ao Ajax</a></li>
+					<li><a href="../../4.2.htm" title="O Objeto XMLHttpRequest">O Objeto XMLHttpRequest</a>
+					<li><a href="../../4.3.htm" title="Pés no chão">Pés no chão</a>
+				</ul>
+			</li>
+			<li><a href="../../5.htm" class="itemMenu" id="linkCap5" title="Projeto final">Capítulo 5</a>
+				<ul id="cap5">
+					<li class="titCap">Projeto final</li>
+					<li><a href="../../5.htm" title="Prefácio">Prefácio</a></li>
+					<li><a href="../../5.1.htm" title="Introdução ao Projeto final">Introdução ao Projeto final</a></li>
+					<li><a href="../../5.2.htm" title="Tabela do banco de dados">Tabela do banco de dados</a></li>
+					<li><a href="../../5.3.htm" title="Visão geral">Visão geral</a></li>
+					<li><a href="../../5.4.htm" title="Visão geral sobre as páginas">Visão geral sobre as páginas</a></li>
+					<li><a href="../../5.5.htm" title="Compreendendo o espírito da 'coisa'">Compreendendo o espírito da 'coisa'</a></li>
+					<li><a href="../../5.6.htm" title="Compreendendo a página index.php">Compreendendo a página index.php</a></li>
+					<li><a href="../../5.7.htm" title="Compreendendo a página actions.php">Compreendendo a página action.php</a></li>
+					<li><a href="../../5.8.htm" title="Compreendendo a página formulario.php">Compreendendo a página formulario.php</a></li>
+					<li><a href="../../5.9.htm" title="Compreendendo a página relatorio.php">Compreendendo a página relatorio.php</a></li>
+					<li><a href="../../5.10.htm" title="Compreendendo a página comportamentos.js">Compreendendo a página comportamentos.js</a></li>
+					<li><a href="../../5.11.htm" title="Considerações finais">Considerações finais</a></li>			
+				</ul>
+			</li>
+			<li><a href="../../6.htm" class="itemMenu" id="linkCap6" title="Bibliografia">Bibliografia</a>
+				<ul id="cap6">
+					<li class="titCap">Bibliografia</li>
+					<li><a href="../../6.htm" title="">Referências bibliográficas</a></li>
+				</ul>
+			</li>
+		</ul>
+		<p id="changeFontSize"><a href="javascript:changeFontSize();" title="Alterar o tamanho da fonte">&raquo; Tamanho da fonte</a></p>
+	</div>
+	<!-- / Sidebar -->
+	
+<div id="frameScroll">
+	<a href="#" title="Ocultar / Exibir o menu" id="optFrameScroll">
+		<img src="img/icn/icone_frame_scroll_hide.jpg" width="6" height="50" alt="" />
+	</a>
+</div>
+
+<div id="rodape">
+
+</div>
+<!-- Rodape -->
+
+</div>
+<!-- / Global -->
+
+</body>
+</html>

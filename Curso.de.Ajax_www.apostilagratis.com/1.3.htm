@@ -1,0 +1,357 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br">
+
+<head>
+	<title>Curso iMasters - Web Sites com Ajax - Cap&iacute;tulo 1 - Operadores</title>
+	<meta http-equiv="Content-Type"  content="application/xhtml+xml; charset=iso-8859-1" />
+	<meta name="author" content="Leandro Vieira Pinho [ leandro@plugsites.net ]" />
+	<meta name="language" content="pt-br" />
+	<script type="text/javascript" src="js/perform.js"></script>
+	<style type="text/css" media="screen">
+		/*<![CDATA[*/
+		<!--
+			@import "css/style.css";
+		-->
+		/*]]>*/
+	</style>
+	<link rel="shortcut icon" href="img/favicon_imasters.gif" type="image/x-icon" />
+</head>
+
+<body>
+
+<div id="global">
+
+<h1 id="header">Web Sites com Ajax</h1>
+
+<div id="conteudo">
+	<h3 id="txtJavaScript">JavaScript</h3>
+
+	<div id="curso">
+		<h2>Operadores</h2>
+		
+		<p>Operadores são símbolos utilizados para atuar sobre valores. Conheceremos os diferentes operadores utilizados no JavaScript.</p>
+		
+		<h3>Operadores aritméticos</h3>
+		
+		<table summary="Operadores aritméticos">
+			<thead>
+				<tr>
+					<th scope="col">Operador</th>
+					<th scope="col">Descrição</th>
+					<th scope="col">Exemplo</th>
+					<th scope="col">Resultado</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>+</td>
+					<td>Adição</td>
+					<td>x=2<br />y=8<br />x+y</td>
+					<td>10</td>
+				</tr>
+				<tr class="otherBgColor">
+					<td>-</td>
+					<td>Subtração</td>
+					<td>x=10<br />y=3<br />x-y</td>
+					<td>7</td>
+				</tr>
+				<tr>
+					<td>*</td>
+					<td>Multiplicação</td>
+					<td>x=4<br />x*5</td>
+					<td>20</td>
+				</tr>
+				<tr class="otherBgColor">
+					<td>/</td>
+					<td>Divisão</td>
+					<td>15/5</td>
+					<td>3</td>
+				</tr>
+				<tr>
+					<td>%</td>
+					<td>Módulo (restante da divisão)</td>
+					<td>5%2<br />10%8<br />10%2</td>
+					<td>1<br />2<br />0</td>
+				</tr>
+				<tr class="otherBgColor">
+					<td>++</td>
+					<td>Incrementos</td>
+					<td>x=5<br />x++</td>
+					<td>x=6</td>
+				</tr>
+	
+				<tr>
+					<td>--</td>
+					<td>Decrementos</td>
+					<td>x=5<br />x--</td>
+					<td>x=4</td>
+				</tr>
+	
+			</tbody>
+		</table>
+			
+		<h3>Operadores de comparação</h3>
+	
+		<table summary="Relação dos operadores de comparação">
+			<thead>
+				<tr>
+					<th scope="col">Operador</th>
+					<th scope="col">Descrição</th>
+					<th scope="col">Exemplo</th>
+					<th scope="col">Resultado</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>==</td>
+					<td>é igual a</td>
+					<td>5==8</td>
+					<td>falso</td>
+				</tr>
+				<tr class="otherBgColor">
+					<td>===</td>
+					<td>é igual a (compara o valor e o tipo)</td>
+					<td>x=5 e y="5"<br />x==5<br />x===5</td>
+					<td><br />verdadeiro<br />falso</td>
+				<tr>
+					<td>!=</td>
+					<td>não é igual</td>
+					<td>5!=8</td>
+					<td>verdadeiro</td>
+				</tr>
+				<tr class="otherBgColor">
+					<td>&gt;</td>
+					<td>é maior que</td>
+					<td>5&gt;8</td>
+					<td>falso</td>
+				</tr>
+				<tr>
+					<td>&lt;</td>
+					<td>é menor que</td>
+					<td>5&lt;8</td>
+					<td>verdadeiro</td>
+				</tr>
+				<tr class="otherBgColor">
+					<td>&gt;=</td>
+					<td>é maior que ou igual a</td>
+					<td>5&gt;=8</td>
+					<td>falso</td>
+				</tr>
+				<tr>
+					<td>&lt;</td>
+					<td>é menor que ou igual a</td>
+					<td>5&lt;=8</td>
+					<td>verdadeiro</td>
+				</tr>
+			</tbody>
+		</table>
+			
+		<h3>Operadores lógicos</h3>
+		
+		<table summary="Relação dos operadores lógicos">
+			<thead>
+				<tr>
+					<th scope="col">Operador</th>
+					<th scope="col">Descrição</th>
+					<th scope="col">Exemplo</th>
+					<th scope="col">Resultado</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>&amp;&amp;</td>
+					<td>e</td>
+					<td>x=6<br />y=3<br />(x &lt; 10 &amp;&amp; y &gt; 1)</td>
+					<td>verdadeiro</td>
+				</tr>
+				<tr class="otherBgColor">
+					<td>||</td>
+					<td>ou</td>
+					<td>x=6<br />y=3<br />(x==5 || y==5)</td>
+					<td>falso</td>
+				</tr>
+				<tr>
+					<td>!</td>
+					<td>não</td>
+					<td>x=6<br />y=3<br />!(x==y)</td>
+					<td>verdadeiro</td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<h3>Operadores de atribuição</h3>
+		
+		<table summary="Relação dos operadores de atribuição">
+			<thead>
+				<tr>
+					<th scope="col">Operador</th>
+					<th scope="col">Exemplo</th>
+					<th scope="col">É o mesmo que</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>=</td>
+					<td>x=y</td>
+					<td>x=y</td>
+				</tr>
+				<tr class="otherBgColor">
+					<td>+=</td>
+					<td>x+=y</td>
+					<td>x=x+y</td>
+				</tr>
+				<tr>
+					<td>-=</td>
+					<td>x-=y</td>
+					<td>x=x-y</td>
+				</tr>
+				<tr class="otherBgColor">
+					<td>*=</td>
+					<td>x*=y</td>
+					<td>x=x*y</td>
+				</tr>
+				<tr>
+					<td>/=</td>
+					<td>x/=y</td>
+					<td>x=x/y</td>
+				</tr>
+				<tr class="otherBgColor">
+					<td>%=</td>
+					<td>x%=Y</td>
+					<td>x=x%y</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<h3>Operador condicional</h3>
+		
+		<p>Operador condicional é aquele que atribui um valor a uma determinada variável com base em uma condição, ou seja, se a condição for verdadeira, teremos um valor x, caso contrário um valor y.</p>
+		
+		<p>Conheça a sintaxe desse tipo de condição:</p>
+		
+		<code>
+			nomeDaVariável = (condição) ? valorSeVerdadeiro : valorSeFalso;</code>
+		
+		<p>Agora observe um exemplo para uma melhor compreensão:</p>
+		
+		<code>
+			var fruta = "Maçã";<br />
+			var resposta = (fruta == "Maçã") ? "A fruta é a Maçã." : "Não sei qual é a fruta.";
+		</code>
+		
+		<p>No exemplo acima fizemos  o seguinte processo: inicialmente temos uma variável denominada fruta com o valor Maçã;  em seguida, a variável resposta com um valor condicional, ou seja, se o valor da variável fruta for igual a Maçã, teremos o valor <strong>A fruta é a Maçã</strong>, caso contrário, teremos <strong>Não sei qual é a fruta</strong>.</p>
+
+
+		
+		<ul id="navigation">
+			<li><a href="1.2.htm" title="JavaScript - Variáveis">&laquo; Variáveis</a></li>
+			<li>|</li>
+			<li><a href="1.4.htm" id="linkNavCap1" title="JavaScript - Condições">Condições &raquo;</a></li>
+		</ul>
+	</div>
+</div>
+<!-- conteudo -->
+
+
+<div id="sideBar">
+	<ul id="menu">
+		<li><a href="index.htm" class="itemMenu" title="Introdução do curso">Introdução</a></li>
+		<li><a href="1.htm" class="itemMenu" id="linkCap1" title="JavaScript">Capítulo 1</a>
+			<ul id="cap1">
+				<li class="titCap">JavaScript</li>
+				<li><a href="1.htm" title="Prefácio">Prefácio</a></li>
+				<li><a href="1.1.htm" title="Introdução ao JavaScript">Introdução ao JavaScript</a></li>
+				<li><a href="1.2.htm" title="Variáveis">Variáveis</a></li>
+				<li><a href="1.3.htm" title="Operadores">Operadores</a></li>
+				<li><a href="1.4.htm" title="Condições">Condições</a></li>
+				<li><a href="1.5.htm" title="Popup Boxes">Popup Boxes</a></li>
+				<li><a href="1.6.htm" title="Loops">Loops</a></li>
+				<li><a href="1.7.htm" title="Funções">Funções</a></li>
+				<li><a href="1.8.htm" title="Eventos">Eventos</a></li>
+				<li><a href="1.9.htm" title="Array">Array</a></li>
+				<li><a href="1.10.htm" title="Data">Data</a></li>
+				<li><a href="1.11.htm" title="String">String</a></li>
+				<li><a href="1.12.htm" title="Math">Math</a></li>
+				<li><a href="1.13.htm" title="Validação de formulários">Validação de formulários</a>
+			</ul>
+		</li>
+		<li><a href="2.htm" class="itemMenu" id="linkCap2" title="DOM e DHTML">Capítulo 2</a>
+			<ul id="cap2">
+				<li class="titCap">DOM e DHTML</li>
+				<li><a href="2.htm" title="Prefácio">Prefácio</a></li>
+				<li><a href="2.1.htm" title="Introdução ao DOM">Introdução ao DOM</a></li>
+				<li><a href="2.2.htm" title="Introdução ao DHTML">Introdução ao DHTML</a></li>
+				<li><a href="2.3.htm" title="Método: getElementById">Método: getElementById</a></li>
+				<li><a href="2.4.htm" title="Método: getElementsByTagName">Método: getElementsByTagName</a></li>
+				<li><a href="2.5.htm" title="Método: style">Método: style</a></li>
+				<li><a href="2.6.htm" title="Método: className">Método: className</a></li>
+				<li><a href="2.7.htm" title="Método: innerHTML">Método: innerHTML</a></li>
+				<li><a href="2.8.htm" title="Método: appendChild">Método: appendChild</a></li>
+				<li><a href="2.9.htm" title="Método: createElement">Método: createElement</a></li>
+				<li><a href="2.10.htm" title="Método: insertBefore">Método: insertBefore</a></li>
+				<li><a href="2.11.htm" title="Método: insertAfter">Método: insertAfter</a></li>
+				<li><a href="2.12.htm" title="Método: setAttribute">Método: setAttribute</a></li>
+				<li><a href="2.13.htm" title="Método: getAttribute">Método: getAttribute</a></li>
+
+			</ul>
+		</li>
+		<li><a href="3.htm" class="itemMenu" id="linkCap3" title="JavaScript não-obstrutivo">Capítulo 3</a>
+			<ul id="cap3">
+				<li class="titCap">JavaScript não-obstrutivo</li>
+				<li><a href="3.htm" title="Prefácio">Prefácio</a></li>
+				<li><a href="3.1.htm" title="Introdução ao JavaScript não-obstrutivo">Introdução ao JavaScript não-obstrutivo</a></li>
+			</ul>
+		</li>
+		<li><a href="4.htm" class="itemMenu" id="linkCap4" title="Ajax">Capítulo 4</a>
+			<ul id="cap4">
+				<li class="titCap">Ajax</li>
+				<li><a href="4.htm" title="Prefácio">Prefácio</a></li>
+				<li><a href="4.1.htm" title="Introdução ao Ajax">Introdução ao Ajax</a></li>
+				<li><a href="4.2.htm" title="O Objeto XMLHttpRequest">O Objeto XMLHttpRequest</a>
+				<li><a href="4.3.htm" title="Pés no chão">Pés no chão</a>
+			</ul>
+		</li>
+		<li><a href="5.htm" class="itemMenu" id="linkCap5" title="Projeto final">Capítulo 5</a>
+			<ul id="cap5">
+				<li class="titCap">Projeto final</li>
+				<li><a href="5.htm" title="Prefácio">Prefácio</a></li>
+				<li><a href="5.1.htm" title="Introdução ao Projeto final">Introdução ao Projeto final</a></li>
+				<li><a href="5.2.htm" title="Tabela do banco de dados">Tabela do banco de dados</a></li>
+				<li><a href="5.3.htm" title="Visão geral">Visão geral</a></li>
+				<li><a href="5.4.htm" title="Visão geral sobre as páginas">Visão geral sobre as páginas</a></li>
+				<li><a href="5.5.htm" title="Compreendendo o espírito da 'coisa'">Compreendendo o espírito da 'coisa'</a></li>
+				<li><a href="5.6.htm" title="Compreendendo a página index.php">Compreendendo a página index.php</a></li>
+				<li><a href="5.7.htm" title="Compreendendo a página actions.php">Compreendendo a página action.php</a></li>
+				<li><a href="5.8.htm" title="Compreendendo a página formulario.php">Compreendendo a página formulario.php</a></li>
+				<li><a href="5.9.htm" title="Compreendendo a página relatorio.php">Compreendendo a página relatorio.php</a></li>
+				<li><a href="5.10.htm" title="Compreendendo a página comportamentos.js">Compreendendo a página comportamentos.js</a></li>
+				<li><a href="5.11.htm" title="Considerações finais">Considerações finais</a></li>			
+			</ul>
+		</li>
+		<li><a href="6.htm" class="itemMenu" id="linkCap6" title="Bibliografia">Bibliografia</a>
+			<ul id="cap6">
+				<li class="titCap">Bibliografia</li>
+				<li><a href="6.htm" title="">Referências bibliográficas</a></li>
+			</ul>
+		</li>
+	</ul>
+	<p id="changeFontSize"><a href="javascript:changeFontSize();" title="Alterar o tamanho da fonte">&raquo; Tamanho da fonte</a></p>
+</div>
+<!-- / Sidebar -->
+	
+<div id="frameScroll">
+	<a href="#" title="Ocultar / Exibir o menu" id="optFrameScroll">
+		<img src="img/icn/icone_frame_scroll_hide.jpg" width="6" height="50" alt="" />
+	</a>
+</div>
+
+<div id="rodape">
+
+</div>
+<!-- Rodape -->
+
+</div>
+<!-- / Global -->
+
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br">
+
+<head>
+	<title>Curso iMasters - Web Sites com Ajax - Cap&iacute;tulo 1 - Fun&ccedil;&otilde;es</title>
+	<meta http-equiv="Content-Type"  content="application/xhtml+xml; charset=iso-8859-1" />
+	<meta name="author" content="Leandro Vieira Pinho [ leandro@plugsites.net ]" />
+	<meta name="language" content="pt-br" />
+	<script type="text/javascript" src="js/perform.js"></script>
+	<style type="text/css" media="screen">
+		/*<![CDATA[*/
+		<!--
+			@import "css/style.css";
+		-->
+		/*]]>*/
+	</style>
+	<link rel="shortcut icon" href="img/favicon_imasters.gif" type="image/x-icon" />
+</head>
+
+<body>
+
+<div id="global">
+
+<h1 id="header">Web Sites com Ajax</h1>
+
+<div id="conteudo">
+	<h3 id="txtJavaScript">JavaScript</h3>
+
+	<div id="curso">
+		<h2>Funções</h2>
+		
+		<p>As funções são blocos de códigos reutilizáveis, uma verdadeira "mão na roda". Elas são executadas através de algum evento ou quando são invocadas.</p>
+
+		<p>Você pode chamar uma função de qualquer lugar da página ou até mesmo de outras páginas contanto que  o script esteja em um arquivo externo (.js).</p>
+		
+		<p>As funções podem conter parâmetros ou não e, quando eles existem, são informados &agrave; função quando a chamamos.</p>
+		
+		<h3>Sintaxes</h3>
+		
+		<h4>Sintaxe - sem parâmetros</h4>
+		
+		<code>
+			function nomeDaFuncao() {<br />
+				<span class="codeSpace">&nbsp;</span>//códigos referente à função.<br />
+			}
+		</code>
+		
+		<h4>Sintaxe - com parâmetros</h4>
+		
+		<code>
+			function nomeDaFuncao(varivel 1, variavel 2, variavel 3, ...) {
+				<span class="codeSpace">&nbsp;</span>//códigos referente à função.<br />
+			}
+		</code>				
+
+		<h3>Exemplos</h3>
+		
+		<p>Veja alguns exemplos para uma melhor compreensão.</p>
+		
+		<h4>Exemplo - sem parâmetros</h4>
+		
+	  <code>
+			function boasVindas() {<br />
+			<span class="codeSpace">&nbsp;</span>alert(&quot;Ol&aacute;, seja bem vindo.\nEspero que goste do nosso site.&quot;);<br />
+			}
+			<br /><br />
+			// Um exemplo para chamá-la.<br />
+			&lt;a ... onclick=&quot;javascript:boasVindas();&quot;&gt;Chamar a Função&lt;/a&gt;<br />
+	  </code>
+		
+		<p>Essa função é bem simples e, ao ser chamada, exibirá uma mensagem  <a href="1.5.htm?pg=1.7.htm">alert()</a>. </p>
+		<p>Ela é invocada através do evento <em>onclick</em> inserido na tag <em>a</em> (link).</p>
+		<p><a href="exe_scripts/cap1/ex_function_sem_parametros.htm">Demonstração de uma função sem parâmetros</a>.</p>
+		
+		<h4>	    Exemplo - com parâmetros</h4>
+		
+		<code>
+			function boasVindas(nome) {<br />
+			<span class="codeSpace">&nbsp;</span>alert(&quot;Ol&aacute; &quot; + nome + &quot;, seja bem vindo.\nEspero que goste do nosso site.&quot;);<br />
+			<span class="codeSpace">&nbsp;</span>window.location.href = &quot;http://www.imasters.com.br&quot;;<br />
+			}
+			<br /><br />
+			// Um exemplo para utilizá-la.<br />
+			&lt;input type=&quot;button&quot; value=&quot;Mensagem de boas vindas&quot; onclick=&quot;boasVindas(document.nomeForm.nomeCampo.value);&quot; /&gt;<br />
+		</code>
+		
+		<p>Acima temos o exemplo de uma função com parâmetro. </p>
+		<p>Esta mensagem pode ser personalizada uma vez que o par&acirc;metro passado a ela &eacute; o nome de algum usu&aacute;rio. Após, temos uma forma de redirecionar o usuário para um site específico, no exemplo, o portal iMasters.</p>
+		<p>Para chamarmos a função utilizamos um campo de formulário do tipo texto (text) para que o usuário possa digitar o seu nome. </p>
+		<p>Ao clicar no botão intitulado <strong>Mensagem de boas vindas</strong> é invocada a função <em>boasVindas</em>, passando a ela o nome digitado.</p>
+		<p>Para enviarmos o nome digitado à função fazemos assim: <em>document.nomeForm.nomeCampo.value.</em> </p>
+		<p>Interpretamos essa declaração da seguinte forma:</p>
+		<p><em>document</em> é igual ao documento, ou seja, a página em si; <em>nomeForm</em> é igual ao nome do <em>form</em>, concedido a ele através do atributo <em>name</em> da tag <em>form</em>;  <em>nomeCampo</em> é o nome do campo no qual o usuário informou o seu nome; já o <em>nomeCampo.value</em> é o valor contido no campo, no caso, o nome informado.</p>
+		
+		<p><a href="exe_scripts/cap1/ex_function_com_parametros.htm">Demonstração de uma função com parâmetro</a>.</p>
+		
+		<h3>A declaração return</h3>
+		
+		<p>Quando queremos que uma função retorne algum valor, utilizamos a declaração <em>return</em>, a qual tem o papel de especificar o valor retornado pela função.</p>
+		
+		<h4>Exemplo</h4>
+		
+		<code>
+		function calculo(valor1,valor2) {<br />
+		<span class="codeSpace">&nbsp;</span>total = valor1 * valor2;<br />
+		<span class="codeSpace">&nbsp;</span>return total;<br />
+		}
+		<br /><br />
+		// Chamando a função através do alert().<br />
+		alert(calculo(58,10));<br />
+		</code>
+		
+		<p>No exemplo acima, chamamos a função <em>calculo</em> fornecendo a  ela dois parâmetros - valor1 (58) e valor2 (10).</p>
+		<p>Nessa função temos a variável <em>total </em>que multiplica os dois parâmetros informados.</p>
+		<p><a href="exe_scripts/cap1/ex_function_com_return.htm">Demonstração da função com return.</a></p>
+		
+		<p>Algumas importantes considerações sobre as funções:</p>
+		
+		<ul>
+			<li>A palavra <em>function</em> sempre deve ser escrita com letras minúsculas;</li>
+			<li>O nome da função pode conter letras minúsculas e/ou maiúsculas;</li>
+			<li>As chaves {  } indicam o início e o término da função;</li>
+			<li>Mesmo que uma função não contenha parâmetros, os parentêses ( ) devem ser incluídos após o nome da função.</li>
+		</ul>
+		
+		<ul id="navigation">
+			<li><a href="1.6.htm" title="JavaScript - Loops">&laquo; Loops</a></li>
+			<li>|</li>
+			<li><a href="1.8.htm" id="linkNavCap1" title="JavaScript - Eventos">Eventos &raquo;</a></li>
+		</ul>
+	</div>
+</div>
+<!-- conteudo -->
+
+<div id="sideBar">
+	<ul id="menu">
+		<li><a href="index.htm" class="itemMenu" title="Introdução do curso">Introdução</a></li>
+		<li><a href="1.htm" class="itemMenu" id="linkCap1" title="JavaScript">Capítulo 1</a>
+			<ul id="cap1">
+				<li class="titCap">JavaScript</li>
+				<li><a href="1.htm" title="Prefácio">Prefácio</a></li>
+				<li><a href="1.1.htm" title="Introdução ao JavaScript">Introdução ao JavaScript</a></li>
+				<li><a href="1.2.htm" title="Variáveis">Variáveis</a></li>
+				<li><a href="1.3.htm" title="Operadores">Operadores</a></li>
+				<li><a href="1.4.htm" title="Condições">Condições</a></li>
+				<li><a href="1.5.htm" title="Popup Boxes">Popup Boxes</a></li>
+				<li><a href="1.6.htm" title="Loops">Loops</a></li>
+				<li><a href="1.7.htm" title="Funções">Funções</a></li>
+				<li><a href="1.8.htm" title="Eventos">Eventos</a></li>
+				<li><a href="1.9.htm" title="Array">Array</a></li>
+				<li><a href="1.10.htm" title="Data">Data</a></li>
+				<li><a href="1.11.htm" title="String">String</a></li>
+				<li><a href="1.12.htm" title="Math">Math</a></li>
+				<li><a href="1.13.htm" title="Validação de formulários">Validação de formulários</a>
+			</ul>
+		</li>
+		<li><a href="2.htm" class="itemMenu" id="linkCap2" title="DOM e DHTML">Capítulo 2</a>
+			<ul id="cap2">
+				<li class="titCap">DOM e DHTML</li>
+				<li><a href="2.htm" title="Prefácio">Prefácio</a></li>
+				<li><a href="2.1.htm" title="Introdução ao DOM">Introdução ao DOM</a></li>
+				<li><a href="2.2.htm" title="Introdução ao DHTML">Introdução ao DHTML</a></li>
+				<li><a href="2.3.htm" title="Método: getElementById">Método: getElementById</a></li>
+				<li><a href="2.4.htm" title="Método: getElementsByTagName">Método: getElementsByTagName</a></li>
+				<li><a href="2.5.htm" title="Método: style">Método: style</a></li>
+				<li><a href="2.6.htm" title="Método: className">Método: className</a></li>
+				<li><a href="2.7.htm" title="Método: innerHTML">Método: innerHTML</a></li>
+				<li><a href="2.8.htm" title="Método: appendChild">Método: appendChild</a></li>
+				<li><a href="2.9.htm" title="Método: createElement">Método: createElement</a></li>
+				<li><a href="2.10.htm" title="Método: insertBefore">Método: insertBefore</a></li>
+				<li><a href="2.11.htm" title="Método: insertAfter">Método: insertAfter</a></li>
+				<li><a href="2.12.htm" title="Método: setAttribute">Método: setAttribute</a></li>
+				<li><a href="2.13.htm" title="Método: getAttribute">Método: getAttribute</a></li>
+
+			</ul>
+		</li>
+		<li><a href="3.htm" class="itemMenu" id="linkCap3" title="JavaScript não-obstrutivo">Capítulo 3</a>
+			<ul id="cap3">
+				<li class="titCap">JavaScript não-obstrutivo</li>
+				<li><a href="3.htm" title="Prefácio">Prefácio</a></li>
+				<li><a href="3.1.htm" title="Introdução ao JavaScript não-obstrutivo">Introdução ao JavaScript não-obstrutivo</a></li>
+			</ul>
+		</li>
+		<li><a href="4.htm" class="itemMenu" id="linkCap4" title="Ajax">Capítulo 4</a>
+			<ul id="cap4">
+				<li class="titCap">Ajax</li>
+				<li><a href="4.htm" title="Prefácio">Prefácio</a></li>
+				<li><a href="4.1.htm" title="Introdução ao Ajax">Introdução ao Ajax</a></li>
+				<li><a href="4.2.htm" title="O Objeto XMLHttpRequest">O Objeto XMLHttpRequest</a>
+				<li><a href="4.3.htm" title="Pés no chão">Pés no chão</a>
+			</ul>
+		</li>
+		<li><a href="5.htm" class="itemMenu" id="linkCap5" title="Projeto final">Capítulo 5</a>
+			<ul id="cap5">
+				<li class="titCap">Projeto final</li>
+				<li><a href="5.htm" title="Prefácio">Prefácio</a></li>
+				<li><a href="5.1.htm" title="Introdução ao Projeto final">Introdução ao Projeto final</a></li>
+				<li><a href="5.2.htm" title="Tabela do banco de dados">Tabela do banco de dados</a></li>
+				<li><a href="5.3.htm" title="Visão geral">Visão geral</a></li>
+				<li><a href="5.4.htm" title="Visão geral sobre as páginas">Visão geral sobre as páginas</a></li>
+				<li><a href="5.5.htm" title="Compreendendo o espírito da 'coisa'">Compreendendo o espírito da 'coisa'</a></li>
+				<li><a href="5.6.htm" title="Compreendendo a página index.php">Compreendendo a página index.php</a></li>
+				<li><a href="5.7.htm" title="Compreendendo a página actions.php">Compreendendo a página action.php</a></li>
+				<li><a href="5.8.htm" title="Compreendendo a página formulario.php">Compreendendo a página formulario.php</a></li>
+				<li><a href="5.9.htm" title="Compreendendo a página relatorio.php">Compreendendo a página relatorio.php</a></li>
+				<li><a href="5.10.htm" title="Compreendendo a página comportamentos.js">Compreendendo a página comportamentos.js</a></li>
+				<li><a href="5.11.htm" title="Considerações finais">Considerações finais</a></li>			
+			</ul>
+		</li>
+		<li><a href="6.htm" class="itemMenu" id="linkCap6" title="Bibliografia">Bibliografia</a>
+			<ul id="cap6">
+				<li class="titCap">Bibliografia</li>
+				<li><a href="6.htm" title="">Referências bibliográficas</a></li>
+			</ul>
+		</li>
+	</ul>
+	<p id="changeFontSize"><a href="javascript:changeFontSize();" title="Alterar o tamanho da fonte">&raquo; Tamanho da fonte</a></p>
+</div>
+<!-- / Sidebar -->
+	
+<div id="frameScroll">
+	<a href="#" title="Ocultar / Exibir o menu" id="optFrameScroll">
+		<img src="img/icn/icone_frame_scroll_hide.jpg" width="6" height="50" alt="" />
+	</a>
+</div>
+
+<div id="rodape">
+
+</div>
+<!-- Rodape -->
+
+</div>
+<!-- / Global -->
+
+</body>
+</html>

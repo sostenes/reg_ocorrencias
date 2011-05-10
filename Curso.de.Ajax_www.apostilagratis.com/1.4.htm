@@ -1,0 +1,290 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br">
+
+<head>
+	<title>Curso iMasters - Web Sites com Ajax - Cap&iacute;tulo 1 - Condi&ccedil;&otilde;es</title>
+	<meta http-equiv="Content-Type"  content="application/xhtml+xml; charset=iso-8859-1" />
+	<meta name="author" content="Leandro Vieira Pinho [ leandro@plugsites.net ]" />
+	<meta name="language" content="pt-br" />
+	<script type="text/javascript" src="js/perform.js"></script>
+	<style type="text/css" media="screen">
+		/*<![CDATA[*/
+		<!--
+			@import "css/style.css";
+		-->
+		/*]]>*/
+	</style>
+	<link rel="shortcut icon" href="img/favicon_imasters.gif" type="image/x-icon" />
+</head>
+
+<body>
+
+<div id="global">
+
+<h1 id="header">Web Sites com Ajax</h1>
+
+<div id="conteudo">
+	<h3 id="txtJavaScript">JavaScript</h3>
+
+	<div id="curso">
+		<h2>Condições</h2>
+		
+		<p>Declarações condicionais no JavaScript, assim como em outras linguagens, são utilizadas para executar diferentes ações baseadas em determinadas condições.</p>
+
+		<h3>Declarações condicionais</h3>
+		
+		<p>Durante o desenvolvimento dos nossos scripts, sentimos a necessidade de executar determinadas ações baseados em uma determinada condição, ou seja,   se uma condição for verdadeira (true) será executada a ação X, caso contrário, se for falsa (false), a ação Y.</p>
+		
+		<p>Em JavaScript temos as seguintes declarações condicionais:</p>
+		<dl>
+			<dt>Declaração if</dt>
+			<dd>Utilizamos essa declara&ccedil;&atilde;o quando necessitamos que somente uma parte do c&oacute;digo seja executada e quando uma determinada condi&ccedil;&atilde;o for verdadeira.</dd>
+			<dt>Declaração if...else</dt>
+			<dd>Utilizamos essa declara&ccedil;&atilde;o para que somente uma parte do código seja executada quando determinada condição for verdadeira e, outra parte, quando a condição for falsa.</dd>
+			<dt>Declaração if...else if...else</dt>
+			<dd>Utilizamos essa declaração quando desejamos selecionar um bloco de código entre vários outros.</dd>
+			<dt>Declaração switch</dt>
+			<dd>Utilizamos também essa declaração quando desejamos selecionar um bloco de código entre vários outros. &Eacute; uma forma mais pr&aacute;tica para alguns casos. </dd>
+		</dl>
+	
+		<h3>Declaração if</h3>
+		
+		<h4>Sintaxe</h4>
+		
+		<code>
+			<strong>if</strong> (condição) {<br />
+				<span class="codeSpace">&nbsp;</span>//código a ser executado quando a condição for verdadeira.<br />
+			}
+		</code>
+		
+		<h4>Exemplo</h4>
+		
+		<p>O exemplo abaixo exibirá o texto <strong>Olá brazuca!</strong> se a variável <strong>pais</strong> for igual a Brasil.</p>
+		
+		<code>
+			var pais = "Brasil";<br /><br />
+			<strong>if</strong>(pais == "Brasil") {<br />
+				<span class="codeSpace">&nbsp;</span>alert("Olá brazuca!");<br />
+			}
+		</code>
+		
+		<p>No exemplo acima, a declaração if (se) verifica se a variável <em>pais</em> é igual a Brasil. Como a condição é verdadeira, ou seja, a variável <em>pais</em> tem o valor Brasil, será exibido o texto <strong>Olá brazuca!</strong> via <a href="1.5.htm?pg=1.4.htm">alert()</a>.</p>
+
+
+		<h3>Declaração if...else</h3>
+		
+		<h4>Sintaxe</h4>
+		
+		<code>
+			<strong>if</strong> (condição) {<br />
+				<span class="codeSpace">&nbsp;//</span>código a ser executado quando a condição for verdadeira.<br />
+			} <strong>else</strong> {<br />
+				<span class="codeSpace">&nbsp;</span>//código a ser executado quando a condição for falsa.<br />
+			}
+		</code>
+		
+		<h4>Exemplo</h4>
+		
+		<p>O exemplo abaixo exibirá o texto <strong>Você não é um brazuca!</strong> se a variável <em>pais</em> não for igual a Brasil.</p>
+		
+	  <code>
+			var pais = "China";<br /><br />
+			<strong>if</strong>(pais == "Brasil") {<br />
+				<span class="codeSpace">&nbsp;</span>alert("Olá brazuca!");<br />
+			} <strong>else</strong> {<br />
+<span class="codeSpace">&nbsp;</span>alert("Você não é um brazuca!");<br />
+			}		</code>
+		
+		<p>No exemplo acima, a declaração if (se) verifica se a variável <em>pais</em> é igual a Brasil. Como a condição é falsa, ou seja, a variável <em>pais</em> n&atilde;o tem o valor Brasil e sim China, será exibido o texto <strong>Você não é um brazuca!</strong> via <a href="1.5.htm?pg=1.4.htm">alert()</a>.</p>
+
+		<h3>Declaração if...else if...else</h3>
+		
+		<h4>Sintaxe</h4>
+		
+		<code>
+			<strong>if</strong> (condição) {<br />
+				<span class="codeSpace">&nbsp;//</span>código a ser executado quando a condição for verdadeira.<br />
+			} <strong>else if</strong> (2º condição) {<br />
+				<span class="codeSpace">&nbsp;</span>//código a ser executado quando a 2º condição for verdadeira.<br />
+			} <strong>else</strong> {<br />
+				<span class="codeSpace">&nbsp;</span>//código a ser executado quando a primeira e a segunda condição forem falsas.<br />
+			}
+		</code>
+
+		<h4>Exemplo</h4>
+		
+		<code> var pais = "China";<br />
+		<br />
+			<strong>if</strong>(pais == "Brasil") {<br />
+				<span class="codeSpace">&nbsp;</span>alert("Olá brazuca!");<br />
+			} <strong>else if</strong>(pais == "China") {<br />
+				<span class="codeSpace">&nbsp;</span>alert("Olá chinês!");<br />
+			} <strong>else</strong> {<br />
+				<span class="codeSpace">&nbsp;</span>alert("Você não é um brazuca e nem chinês!");<br />
+			}
+		</code>
+		
+		<p>No exemplo acima, realizamos duas verificações: perguntamos se a variável <em>pais</em> tem o valor Brasil (a primeira). Caso verdadeiro, exibiremos o texto <strong>Olá brazuca!</strong>; ou perguntamos se a mesma variável tem o valor China (a segunda). Neste caso, exibiremos o texto <strong>Olá chinês!</strong>.</p>
+		<p>Caso a variável não tenha nenhum dos dois valores - Brasil ou China - exibir&aacute; o texto <strong>Você não é um brazuca e nem chinês!</strong></p>
+		<h3>Declaração switch</h3>
+		
+		<h4>Sintaxe</h4>
+		
+		<code>
+			<strong>switch</strong>(expressão) {<br />
+			<span class="codeSpace">&nbsp;</span><strong>case</strong> valor 1:<br />
+			<span class="codeSpace">&nbsp;</span><span class="codeSpace">&nbsp;//</span>código a ser executado se a expressão = valor 1;<br />
+			<span class="codeSpace">&nbsp;</span><span class="codeSpace">&nbsp;</span><strong>break</strong><br />
+			<span class="codeSpace">&nbsp;</span><strong>case</strong> valor 2:<br />
+			<span class="codeSpace">&nbsp;</span><span class="codeSpace">&nbsp;//</span>código a ser executado se a expressão = valor 2;<br />
+			<span class="codeSpace">&nbsp;</span><span class="codeSpace">&nbsp;</span><strong>break</strong><br />
+			<span class="codeSpace">&nbsp;</span><strong>default:</strong><br />
+			<span class="codeSpace">&nbsp;</span><span class="codeSpace">&nbsp;</span>//código a ser executado se a expressão for diferente do valor 1 e valor 2;<br />
+			}
+		</code>
+
+		<h4>Exemplo</h4>
+		
+		<p>O exemplo abaixo dirá ao usuário o estado em que ele reside. Observe:</p>
+		
+		<code>
+		var estado = &quot;MG&quot;;<br /><br />
+		<strong>switch</strong>(estado) {<br />
+		<span class="codeSpace">&nbsp;</span><strong>case</strong> &quot;MG&quot;:<br />
+		<span class="codeSpace">&nbsp;</span><span class="codeSpace">&nbsp;</span>alert(&quot;Voc&ecirc; mora em Minas Gerais.&quot;);<br />
+		<span class="codeSpace">&nbsp;</span><span class="codeSpace">&nbsp;</span><strong>break</strong><br />
+		<span class="codeSpace">&nbsp;</span><strong>case</strong> &quot;SP&quot;:<br />
+		<span class="codeSpace">&nbsp;</span><span class="codeSpace">&nbsp;</span>alert(&quot;Voc&ecirc; mora em S&atilde;o Paulo.&quot;);<br />
+		<span class="codeSpace">&nbsp;</span><span class="codeSpace">&nbsp;</span><strong>break</strong><br />
+		<span class="codeSpace">&nbsp;</span><strong>case</strong> &quot;ES&quot;:<br />
+		<span class="codeSpace">&nbsp;</span><span class="codeSpace">&nbsp;</span>alert(&quot;Voc&ecirc; mora no Esp&iacute;rito Santo.&quot;);<br />
+		<span class="codeSpace">&nbsp;</span><span class="codeSpace">&nbsp;</span><strong>break</strong><br />
+		<span class="codeSpace">&nbsp;</span><strong>default:</strong><br />
+		<span class="codeSpace">&nbsp;</span><span class="codeSpace">&nbsp;</span>alert(&quot;Onde moras?&quot;);<br />
+		}
+		</code>
+
+		<p><a href="exe_scripts/cap1/ex_condicao_switch.htm">Veja a demonstração desse exemplo.</a></p>
+		
+		<p>Vamos compreender o exemplo. Temos a variável <em>estado</em> com o valor <strong>MG</strong>. Logo após, iniciamos nossa declaração condicional com o switch, passando a ele como parâmetro a expressão (variável) <strong>estado</strong>.         
+		<p>Então, utilizamos o case (caso). Para isso &eacute; necess&aacute;rio verificar o seguinte: se o valor da variável for <strong>MG</strong> exibimos um texto, se for <strong>SP</strong> exibimos outro, e assim por diante; se o valor da variável não coincidir com nenhum dos valores nos cases, exibimos um texto padrão (default).
+		<p>Algumas considerações a cerca do switch.</p>
+		
+		<ul>
+			<li>A expressão na maioria das vezes será uma variável;</li>
+			<li>O valor da expressão é comparado com os valores de cada caso (case) da estrutura. Caso ocorra um valor semelhante, o código a ele associado é executado;</li>
+			<li>O break previne que o próximo caso (case) seja executado automaticamente;</li>
+			<li>O valor padrão (default) é utilizado caso nenhum dos valores dos cases coincidam com o valor da expressão.</li>
+		</ul>
+		
+		<ul id="navigation">
+			<li><a href="1.3.htm" title="JavaScript - Operadores">&laquo; Operadores</a></li>
+			<li>|</li>
+			<li><a href="1.5.htm" id="linkNavCap1" title="JavaScript - Popup Boxes">Popup Boxes &raquo;</a></li>
+		</ul>
+	</div>
+</div>
+<!-- conteudo -->
+
+<div id="sideBar">
+	<ul id="menu">
+		<li><a href="index.htm" class="itemMenu" title="Introdução do curso">Introdução</a></li>
+		<li><a href="1.htm" class="itemMenu" id="linkCap1" title="JavaScript">Capítulo 1</a>
+			<ul id="cap1">
+				<li class="titCap">JavaScript</li>
+				<li><a href="1.htm" title="Prefácio">Prefácio</a></li>
+				<li><a href="1.1.htm" title="Introdução ao JavaScript">Introdução ao JavaScript</a></li>
+				<li><a href="1.2.htm" title="Variáveis">Variáveis</a></li>
+				<li><a href="1.3.htm" title="Operadores">Operadores</a></li>
+				<li><a href="1.4.htm" title="Condições">Condições</a></li>
+				<li><a href="1.5.htm" title="Popup Boxes">Popup Boxes</a></li>
+				<li><a href="1.6.htm" title="Loops">Loops</a></li>
+				<li><a href="1.7.htm" title="Funções">Funções</a></li>
+				<li><a href="1.8.htm" title="Eventos">Eventos</a></li>
+				<li><a href="1.9.htm" title="Array">Array</a></li>
+				<li><a href="1.10.htm" title="Data">Data</a></li>
+				<li><a href="1.11.htm" title="String">String</a></li>
+				<li><a href="1.12.htm" title="Math">Math</a></li>
+				<li><a href="1.13.htm" title="Validação de formulários">Validação de formulários</a>
+			</ul>
+		</li>
+		<li><a href="2.htm" class="itemMenu" id="linkCap2" title="DOM e DHTML">Capítulo 2</a>
+			<ul id="cap2">
+				<li class="titCap">DOM e DHTML</li>
+				<li><a href="2.htm" title="Prefácio">Prefácio</a></li>
+				<li><a href="2.1.htm" title="Introdução ao DOM">Introdução ao DOM</a></li>
+				<li><a href="2.2.htm" title="Introdução ao DHTML">Introdução ao DHTML</a></li>
+				<li><a href="2.3.htm" title="Método: getElementById">Método: getElementById</a></li>
+				<li><a href="2.4.htm" title="Método: getElementsByTagName">Método: getElementsByTagName</a></li>
+				<li><a href="2.5.htm" title="Método: style">Método: style</a></li>
+				<li><a href="2.6.htm" title="Método: className">Método: className</a></li>
+				<li><a href="2.7.htm" title="Método: innerHTML">Método: innerHTML</a></li>
+				<li><a href="2.8.htm" title="Método: appendChild">Método: appendChild</a></li>
+				<li><a href="2.9.htm" title="Método: createElement">Método: createElement</a></li>
+				<li><a href="2.10.htm" title="Método: insertBefore">Método: insertBefore</a></li>
+				<li><a href="2.11.htm" title="Método: insertAfter">Método: insertAfter</a></li>
+				<li><a href="2.12.htm" title="Método: setAttribute">Método: setAttribute</a></li>
+				<li><a href="2.13.htm" title="Método: getAttribute">Método: getAttribute</a></li>
+
+			</ul>
+		</li>
+		<li><a href="3.htm" class="itemMenu" id="linkCap3" title="JavaScript não-obstrutivo">Capítulo 3</a>
+			<ul id="cap3">
+				<li class="titCap">JavaScript não-obstrutivo</li>
+				<li><a href="3.htm" title="Prefácio">Prefácio</a></li>
+				<li><a href="3.1.htm" title="Introdução ao JavaScript não-obstrutivo">Introdução ao JavaScript não-obstrutivo</a></li>
+			</ul>
+		</li>
+		<li><a href="4.htm" class="itemMenu" id="linkCap4" title="Ajax">Capítulo 4</a>
+			<ul id="cap4">
+				<li class="titCap">Ajax</li>
+				<li><a href="4.htm" title="Prefácio">Prefácio</a></li>
+				<li><a href="4.1.htm" title="Introdução ao Ajax">Introdução ao Ajax</a></li>
+				<li><a href="4.2.htm" title="O Objeto XMLHttpRequest">O Objeto XMLHttpRequest</a>
+				<li><a href="4.3.htm" title="Pés no chão">Pés no chão</a>
+			</ul>
+		</li>
+		<li><a href="5.htm" class="itemMenu" id="linkCap5" title="Projeto final">Capítulo 5</a>
+			<ul id="cap5">
+				<li class="titCap">Projeto final</li>
+				<li><a href="5.htm" title="Prefácio">Prefácio</a></li>
+				<li><a href="5.1.htm" title="Introdução ao Projeto final">Introdução ao Projeto final</a></li>
+				<li><a href="5.2.htm" title="Tabela do banco de dados">Tabela do banco de dados</a></li>
+				<li><a href="5.3.htm" title="Visão geral">Visão geral</a></li>
+				<li><a href="5.4.htm" title="Visão geral sobre as páginas">Visão geral sobre as páginas</a></li>
+				<li><a href="5.5.htm" title="Compreendendo o espírito da 'coisa'">Compreendendo o espírito da 'coisa'</a></li>
+				<li><a href="5.6.htm" title="Compreendendo a página index.php">Compreendendo a página index.php</a></li>
+				<li><a href="5.7.htm" title="Compreendendo a página actions.php">Compreendendo a página action.php</a></li>
+				<li><a href="5.8.htm" title="Compreendendo a página formulario.php">Compreendendo a página formulario.php</a></li>
+				<li><a href="5.9.htm" title="Compreendendo a página relatorio.php">Compreendendo a página relatorio.php</a></li>
+				<li><a href="5.10.htm" title="Compreendendo a página comportamentos.js">Compreendendo a página comportamentos.js</a></li>
+				<li><a href="5.11.htm" title="Considerações finais">Considerações finais</a></li>			
+			</ul>
+		</li>
+		<li><a href="6.htm" class="itemMenu" id="linkCap6" title="Bibliografia">Bibliografia</a>
+			<ul id="cap6">
+				<li class="titCap">Bibliografia</li>
+				<li><a href="6.htm" title="">Referências bibliográficas</a></li>
+			</ul>
+		</li>
+	</ul>
+	<p id="changeFontSize"><a href="javascript:changeFontSize();" title="Alterar o tamanho da fonte">&raquo; Tamanho da fonte</a></p>
+</div>
+<!-- / Sidebar -->
+	
+<div id="frameScroll">
+	<a href="#" title="Ocultar / Exibir o menu" id="optFrameScroll">
+		<img src="img/icn/icone_frame_scroll_hide.jpg" width="6" height="50" alt="" />
+	</a>
+</div>
+
+<div id="rodape">
+
+</div>
+<!-- Rodape -->
+
+</div>
+<!-- / Global -->
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<?php
+function formatData($data) { 
+	// Esta função tem o objetivo de evitar o SQL Injection
+	// Consulte o Google [http://www.google.com.br/search?hl=pt-BR&q=sql+injection] para mais informações sobre o assunto.
+	$data = strip_tags($data);
+	$data = trim($data);
+	$data = get_magic_quotes_gpc() == 0 ? addslashes($data) : $data;
+	$data = preg_replace("@(--|\#|\*|;)@s", "", $data);
+	return $data;
+}
+function formatDataAjax($data) {
+	// Esta função tem o objetivo de evitar o SQL Injection
+	// Consulte o Google [http://www.google.com.br/search?hl=pt-BR&q=sql+injection] para mais informações sobre o assunto.
+	// E trata os acentos que poderão conter nos dados enviados através da URL
+	$data = strip_tags($data);
+	$data = trim($data);
+	$data = get_magic_quotes_gpc() == 0 ? addslashes($data) : $data;
+	$data = preg_replace("@(--|\#|\*|;)@s", "", $data);
+	$data = urldecode($data);   // específico no caso do Ajax
+	$data = utf8_decode($data); // específico no caso do Ajax
+	return $data;
+}
+?>

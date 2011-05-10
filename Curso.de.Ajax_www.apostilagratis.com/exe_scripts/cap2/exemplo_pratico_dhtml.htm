@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br">
+
+<head>
+	<meta http-equiv="Content-Type"  content="application/xhtml+xml; charset=iso-8859-1" />
+	<meta name="author" content="Leandro Vieira Pinho [ leandro@plugsites.net ]" />
+	<meta name="language" content="pt-br" />
+	
+	<title>Exemplo pr&aacute;tico de DHTML</title>
+
+	<script type="text/javascript" src="../../js/perform.js"></script>
+	
+	<style type="text/css" media="screen">
+		/*<![CDATA[*/
+		<!--
+			@import "../../css/style.css";
+		-->
+		/*]]>*/
+	#box {
+		width: 450px;
+		padding: 15px;
+		line-height: 1.5em;
+		margin-bottom: 10px;
+	}
+	.destaque {
+		background-color: #ffc;
+		border: 1px solid #fc6;
+	}
+	.nodestaque {
+		background-color: #fff;
+		border: 1px solid #000;
+	}
+	</style>
+	<script type="text/javascript">
+	<!--
+	function changeClass(nomeClasse) {
+		var obj = document.getElementById("box");
+		obj.className = nomeClasse;
+	}
+	//-->
+	</script>
+</head>
+
+<body>
+
+<div id="global">
+
+<h1 id="header">Web Sites com Ajax</h1>
+
+<div id="conteudo">
+	<h3 id="txtDemo">Introdução</h3>
+
+	<div id="curso">
+		
+		<h2>Exemplo prático de DHTML</h2>
+		
+		<noscript>
+			<p>O exemplo está impossibilitado de ser executado.</p>
+			<p>Motivo: o JavaScript do seu browser está desativado.</p>
+			<p><a href="../../noscript.htm" title="Ative o JavaScript do seu browser">Saiba como ativá-lo.</a></p>
+		</noscript>
+		
+		<p><a href="../../noscript.htm" onclick="changeClass('nodestaque'); return false;">Altere minha aparência</a>
+
+		<div id="box" class="destaque">
+			<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
+		</div>
+		
+		<p>Script utilizado:</p>
+		
+		<code>
+			&lt;script type=&quot;text/javascript&quot;&gt;<br />
+			&lt;!--<br />
+			function changeClass(nomeClasse) {<br />
+			<span class="codeSpace">&nbsp;</span>var obj = document.getElementById(&quot;box&quot;);<br />
+			<span class="codeSpace">&nbsp;</span>obj.className = nomeClasse;<br />
+			}<br />
+			//--&gt;<br />
+			&lt;/script&gt;<br />			
+		</code>			
+		
+		<p>
+			<a href="../../2.2.htm" onclick="javascript:history.back(); return false;" title="Voltar a introdução do DHTML.">&laquo; Voltar a introdução do DHTML.</a>
+		</p>
+
+	</div>
+</div>
+<!-- conteudo -->
+
+<div id="sideBar">
+
+</div>
+<!-- / Sidebar -->
+	
+<div id="frameScroll">
+	<a href="#" title="Ocultar / Exibir o menu" id="optFrameScroll">
+		<img src="img/icn/icone_frame_scroll_hide.jpg" width="6" height="50" alt="" />
+	</a>
+</div>
+
+<div id="rodape">
+
+</div>
+<!-- Rodape -->
+
+</div>
+<!-- / Global -->
+
+</body>
+</html>

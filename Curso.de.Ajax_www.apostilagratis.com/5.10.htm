@@ -1,0 +1,392 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br">
+
+<head>
+	<title>Curso iMasters - Web Sites com Ajax - Cap&iacute;tulo 5 - Compreendendo a página comportamentos.js</title>
+	<meta http-equiv="Content-Type"  content="application/xhtml+xml; charset=iso-8859-1" />
+	<meta name="author" content="Leandro Vieira Pinho [ leandro@plugsites.net ]" />
+	<meta name="language" content="pt-br" />
+	<script type="text/javascript" src="js/perform.js"></script>
+	<style type="text/css" media="screen">
+		/*<![CDATA[*/
+		<!--
+			@import "css/style.css";
+		-->
+		/*]]>*/
+	</style>
+	<link rel="shortcut icon" href="img/favicon_imasters.gif" type="image/x-icon" />
+</head>
+
+<body>
+
+<div id="global">
+
+<h1 id="header">Web Sites com Ajax</h1>
+
+<div id="conteudo">
+	<h3 id="txtProjetoFinal">JavaScript</h3>
+
+	<div id="curso">
+		<h2>Compreendendo a página comportamentos.js</h2>
+		
+		<p>A página	comportamentos.js, que  abordaremos  nesta unidade, &eacute; a nossa camada de comportamento e será a responsável por toda interatividade do aplicativo e interpretação da marcação HTML que desenvolvemos nas páginas anteriores. Então, vamos lá!</p>
+		
+		<p>A página é composta por 16 funções. Veremos cada uma delas para você compreender suas respectivas funcionalidades. </p>
+		<p>Vejamos a lista com o nome das funções contidas na página:</p>
+		<ol>
+			<li><a href="#openAjax" title="Função openAjax()">openAjax()</a></li>
+			<li><a href="#loadFunctions" title="Função loadFunctions()">loadFunctions()</a></li>
+			<li><a href="#gEgEs" title="Funções gE() e gEs()">gE()</a></li>
+			<li><a href="#gEgEs" title="Funções gE() e gEs()">gEs()</a></li>
+			<li><a href="#ativarBtnCadastro" title="Função ativarBtnCadastro()">ativarBtnCadastro()</a></li>
+			<li><a href="#exibirBgBody" title="Função exibirBgBody()">exibirBgBody()</a></li>
+			<li><a href="#boxCad" title="Função boxCad()">boxCad()</a></li>
+			<li><a href="#loading" title="Função loading()">loading()</a></li>
+			<li><a href="#btnOkBtnCancelar" title="Função btnOkBtnCancelar()">btnOkBtnCancelar()</a></li>
+			<li><a href="#focusNome" title="Função focusNome()">focusNome()</a></li>
+			<li><a href="#validarForm" title="Função validarForm()">validarForm()</a></li>
+			<li><a href="#validaEmail" title="Função validaEmail()">validaEmail()</a></li>
+			<li><a href="#atualizaRelatorio" title="Função atualizaRelatorio()">atualizaRelatorio()</a></li>
+			<li><a href="#ativarBtnEditarBtnExcluir" title="Função ativarBtnEditarBtnExcluir">ativarBtnEditarBtnExcluir()</a></li>
+			<li><a href="#removerDivs" title="Função removerDivs()">removerDivs()</a></li>
+			<li><a href="#getPageSize" title="Função getPageSize()">getPageSize()</a></li>
+		</ol>
+		
+		<hr id="openAjax" />
+		
+		<p>Repare a primeira função da nossa lista na imagem abaixo:</p>
+		
+		<p><img src="img_curso/cap5/pg_comportamentos_openAjax.gif" width="439" height="273" alt="Função openAjax();" title="Função openAjax();" /></p>
+		
+		<p>Essa função nomeada como <strong>openAjax()</strong> é a responsável em instanciar o objeto <a href="4.2.htm?pg=5.10.htm">XMLHttpRequest</a> e essa instância do objeto será atribuída a variável <strong>ajax</strong>. </p>
+		<p>Repare que através do <strong>try / catch</strong> estamos verificando qual o método suportado pelo browser:  <a href="4.2.htm?pg=5.10.htm">XMLHttpRequest</a>, presente no Mozila, Firefox, Safari, entre outros; ou   <a href="4.2.htm?pg=5.10.htm">XMLHTTP</a>, utilizado no Internet Explorer como um objeto <strong>ActiveX</strong>.</p>
+		<hr id="loadFunctions" />
+		
+		<p>Observe que  nossa marcação HTML está limpa e separada do JavaScript de forma que não temos atribuições de eventos em objetos como o exemplo seguinte:</p>
+		
+		<code>... onclick=&quot;funcaoX('parametroY');&quot; ... </code>
+		
+		<p>Responsável em chamar as funções JavaScript, precisamos chamar essas funções de outra forma, e uma delas é quando a página é carregada. </p>
+		<p>Observemos:</p>
+		<p><img src="img_curso/cap5/pg_comportamentos_loadFunctions.gif" width="251" height="131" alt="Função loadFunctions();" title="Função loadFunctions();" /></p>
+		
+		<p>Ao carregar a página - <strong>window.onload</strong> - será chamada a função <strong>loadFunctions</strong>, que por sua vez chama outras funções - focusNome(), ativarBtnCadastro(), ativarBtnEditarBtnExcluir(). </p>
+		<p>Você pode se perguntar: se temos dezesseis funções, por qu&ecirc; somente 3 dessas são chamadas? Simples, porque inicialmente ao carregar a página precisamos somente dessas três. </p>
+		<p>Falaremos sobre cada uma especificamente para uma melhor compreensão.</p>
+		<hr id="gEgEs" />
+		
+		<p>As funções gE() e gEs() além de facilitar o nosso trabalho, são benéficas para a saúde, ajudando-nos a evitar a <acronym title="Lesão por Esforço Repetitivo">LER</acronym> e a tendinite, acredite. </p>
+		<p>Observe-as para que eu possa lhe explicar melhor:</p>
+		<p><img src="img_curso/cap5/pg_comportamentos_gEgEs.gif" width="331" height="119" alt="Funções gE(); e gEs();" title="Funções gE(); e gEs();" /></p>
+		
+		<p>Quando precisamos acessar um objeto através do valor atribuído em seu atributo ID, procedemos assim:</p>
+		
+		<code>document.getElementById('valorDoAtributoID');</code>
+		
+		<p>Agora, imagine acessar inúmeros elementos. Imaginou? Então, é cansativo, chato e não há mãos que aguente. </p>
+		<p>A função gE() foi criada para solucionar este problema, de forma que basta chamá-la assim:</p>
+		<code>gE('valorDoAtributoID');</code>
+		
+		<p>O que seria o equivalente ao que fizemos no exemplo anterior. </p>
+		<p>A função gEs() tem o mesmo próposito, mas, ao invés do método <a href="2.3.htm?pg=5.10.htm">getElementById</a>, ela trabalha com o método <a href="2.4.htm?pg=5.10.htm">getElementsByTagName</a>.</p>
+		<hr id="ativarBtnCadastro" />
+		
+		<p>Bom, nossa próxima função - <strong>ativarBtnCadastro()</strong>  já utiliza o Ajax. </p>
+		<p>Vejamos:</p>
+		<p><img src="img_curso/cap5/pg_comportamentos_ativarBtnCadastro.gif" width="480" height="402" alt="Função ativarBtnCadastro();" title="Função ativarBtnCadastro();" /></p>
+		
+		<p>Ela inicia verificando se há algum objeto cujo atributo <strong>ID</strong> tem o valor <strong>btnNovoCadastro</strong>. Lembra-se dele? &Eacute; aquele link que dizemos que quando clicarmos nele seria chamado o formulário de cadastro. Então, observe a <strong>linha 45</strong> na imagem acima. Estamos dizendo que ao clicar no link - <strong>onclick</strong> - iremos executar uma função.</p>
+		
+		<p>Iniciamos tal função chamando outras três funções - exibirBgBody(), boxCad() e openAjax() - essa última foi atribuída a variável que chamamos de ajax. Mais adiante abordaremos as outras duas funções. </p>
+		<p>Na <strong>linha 49</strong> criamos a variável <strong>recipiente</strong>, a qual terá como valor um objeto cujo <strong>ID</strong> foi definido como<strong> boxCad</strong>.</p>
+		<p>Na <strong>linha 50</strong>, começamos a maravilha do Ajax, utilizando o método <strong>open</strong> do objeto <a href="4.2.htm?pg=5.10.htm">XMLHttpRequest</a>. Informamos a esse método que trabalharemos com o método <strong>GET</strong> de requisição HTTP, que a página <strong>    formulario.php?ajax=true</strong> ser&aacute; requisitado e que trabalharemos de forma assíncrona - <strong>true</strong>.</p>
+		<p>O endereço da página foi utilizado desta forma: <strong>formulario.php?ajax=true</strong> para que a página - formulário.php - saiba que ela está sendo acessada via Ajax. </p>
+		<p>Na abordagem que realizamos referente a página formulario.php, vimos a importância de se informar a ela que tal acesso ocorrerá via Ajax.</p>
+		<p>A <strong>linha 51</strong> demonstra a utilização do evento <a href="4.2.htm?pg=5.10.htm">onreadystatechange</a> do objeto <a href="4.2.htm?pg=5.10.htm">XMLHttpRequest</a>. Assim, dizemos que ele será igual a uma função.</p>
+		
+		<p>Na <strong>linha 52</strong>, verificamos se o estado da propriedade <a href="4.2.htm?pg=5.10.htm">readyState</a> é igual a 1 (um), ou seja, se estamos no estágio de carregamento. Se estivermos,  chamamos a função <strong>loading() - </strong> observe que o valor <strong>true</strong> foi informado como parâmetro. </p>
+		<p>Já na <strong>linha 55</strong>, verificamos se o estágio da requisição está na fase 4, ou seja, completo.</p>
+		<p>Na <strong>linha 56</strong>, verificamos se o código númerico do <strong>status HTTP</strong> retornado pelo servidor é igual a <strong>200</strong>, ou seja significa <strong>OK</strong>, ou melhor dizendo, a página que  informamos foi encontrada.</p>
+		
+		<p>Em seguida, chamamos a função <strong>loading()</strong>, só que desta vez informando a ela o valor <strong>false</strong> como parâmetro. Afinal, já passamos do estágio de carregamento.
+	
+		<p>A <strong>linha 58</strong> nos mostra que estamos definindo a string que contém os dados retornados pelo servidor - <strong>ajax.responseText</strong> - como o HTML interno - <a href="2.7.htm?pg=5.10.htm">innerHTML</a> - da variável recipiente.
+		<p>Agora que temos o formulário em "nossas mãos", chamamos as funções: <strong>btnOkBtnCancelar()</strong> e <strong>focusNome()</strong>, ambas trabalham em conjunto com o formulário (falaremos sobre elas ainda). </p>
+		<p>Ta vendo só como não fazia sentido chamar todas as funções ao carregar a página? Fique atento aos detalhes.</p>
+		<p>O método <strong>send()</strong> do objeto <strong>XMLHttpRequest</strong> foi utilizado na <strong>linha 64</strong> - <strong>ajax.send(null). </strong>Ele  tem a finalidade de enviar a requisição ao servidor web.</p>
+		
+		<p>Finalizamos a função com o <strong>return false</strong> - <strong>linha 65</strong> - para evitar que o browser execute o <strong>link</strong>, ou seja, siga para a página atribuída em seu atributo <strong>href</strong>.</p>
+		
+		<hr id="exibirBgBody" />
+		
+		<p>Abordaremos agora a função <strong>exibirBgBody()</strong>, que  tem a finalidade de criar uma <strong>tag div</strong> e com essa cobrir todo o "<strong>viewport</strong>" do browser. </p>
+		<p>Observe-a:</p>
+		<p><img src="img_curso/cap5/pg_comportamentos_exibirBgBody.gif" width="445" height="178" alt="Função exibirBgBody();" title="Função exibirBgBody();" /></p>
+		
+		<p>Na <strong>linha 70</strong> da função <strong>exibirBgBody</strong>, selecionamos a <strong>tag body</strong> da página através da função <strong>gEs()</strong>. Como só temos apenas uma tag body, utilizamos o <strong>item(0)</strong> para não precisarmos  utilizar um loop for, por exemplo.</p>
+		
+		<p>Criamos a variável <strong>sizesPage</strong> na <strong>linha 71</strong> e, através dela, chamamos a função <strong>getPageZise().</strong> Essa função  torna um <strong>array</strong> com a largura e altura da página e da janela.</p>
+		
+		<p>Na <strong>linha 72</strong>, criamos uma <strong>tag div</strong> e já na <strong>linha 72</strong> atribuímos a ela o atributo <strong>ID</strong> com o valor <strong>bgBody</strong>. Em seguida, definimos o tamanho e a largura (atrav&eacute;s do <strong>style.height</strong> e <strong>style.width</strong> respectivamente) da  <strong>tag div</strong> que criamos.  Os valores serão exatamente o tamanho e a largura da página em questão. Para conseguirmosisso, utilizamos o <strong>array</strong> retornado pela função <strong>getPageSize()</strong>.</p>
+		<p>Para evitar  criarmos duas <strong>tags div</strong> com o mesmo atribudo<strong> ID</strong>, verificamos se ela (tag div) não consta na página, <strong>linha 76</strong>. Em seguinda, utilizamos o <strong>insertBefore</strong> sobre a variável <strong>tagBody</strong> para inserirmos a div criada como primeira filha - <strong>firstChild</strong> - da tag body.</p>
+		<hr id="boxCad" />
+		
+		<p>A função <strong>boxCad()</strong> é semelhante a função  <strong>exibirBgBody()</strong>, ou seja, ela cria uma <strong>tag div</strong>, define um atributo <strong>ID</strong> a ela com o valor <strong>boxCad</strong> e utiliza a função <strong>getPageSize()</strong> para utilizar-se das medidas da página em questão. </p>
+		<p>Entretando,  ao invés de inserirmos a <strong>tag div</strong> criada como primeira filha, iremos inserí-la como última filha - <strong>lastChild</strong>. </p>
+		<p>Observe a função na imagem de exemplo abaixo:</p>
+		<p><img src="img_curso/cap5/pg_comportamentos_boxCad.gif" width="410" height="177" alt="Função boxCad();" title="Função boxCad();" /></p>
+		
+		<hr id="loading" />
+		
+		<p>Veremos agora como foi desenvolvido a função <strong>loading(), </strong>cujo objetivo é criar um efeito de loading na tela. </p>
+		<p>Vejamos a função abaixo:</p>
+		<p><img src="img_curso/cap5/pg_comportamentos_loading.gif" width="479" height="320" alt="Função loading();" title="Função loading();" /></p>
+		
+		<p>A função acima (<strong>loading()</strong>) recebe um parâmetro que definimos como <strong>opt</strong>, de option ou opção. Nessa função verificamos qual o parâmetro que foi informado a ela quanda  foi chamada. Se o parâmetro informado for <strong>true</strong> criamos o efeito e se for <strong>false</strong> o removemos. </p>
+		<p>Esse  efeito nada mais é do que uma imagem do tipo .gif animado que é exibido ou removido da tela.</p>
+		<p>Na <strong>linha 95</strong>, criamos a variável <strong>refer</strong> e atribuímos a ela um objeto cujo <strong>ID</strong> foi definido como <strong>bgBody</strong>. Lembra-se dele? Muito bem, isto mesmo.Essa &eacute; a tag div que foi criada pela função <strong>exibirBgBody()</strong>. </p>
+		<p>Vou aproveitar este momento para lhe falar sobre um detalhe importante:</p>
+		<p>Volte até a imagem acima que nos mostra a função <strong>ativarBtnCadatro()</strong> e repare que a função <strong>loading()</strong> - <strong>linha 53</strong> - é chamada após a função <strong>exibirBgBody()</strong> - <strong>linha 46</strong>. </p>
+		<p>O que quero dizer com isto é que a função <strong>loading()</strong> necessita da tag div cujo <strong>ID</strong> foi definido como <strong>bgBody</strong> e criada pela função <strong>exibirBgBody()</strong>. Então, se a função <strong>loading()</strong> for chamada anteriormente à função <strong>exibirBgBody()</strong> teríamos um erro porque não consequiríamos localizar na página o objeto que necessitamos - <strong>bgBody</strong>.</p>
+		<p>A <strong>linha 96</strong> foi utilizada para sabermos o tamanho do objeto referenciado na variável <strong>refer</strong>. Já a <strong>linha 97,</strong> para informamos que tal objeto centralizará o que estiver dentro dele.</p>
+		
+		<p>Em seguida, criamos uma <strong>tag img</strong> e definimos a ela os atributos <strong>src</strong>, <strong>id</strong> e <strong>width</strong>. Na <strong>linha 102</strong> dizemos que ela terá seu <strong>margin-top</strong> com a metade do tamanho do objeto. Logo após, verificamos se não há presente na página um objeto como o atributo <strong>ID</strong> igual a <strong>loading</strong> e, posteriormente, inserimos a imagem como a primeira filha - <strong>firstChild</strong> - do objeto referenciado - <strong>bgBody</strong>.</p>
+		
+		<hr id="btnOkBtnCancelar" />
+		
+		<p>Veja a função <strong>btnOkBtnCancelar()</strong> na imagem abaixo. Falaremos sobre ela agora.</p>
+		
+		<p><img src="img_curso/cap5/pg_comportamentos_btnOkBtnCancelar.gif" width="480" height="469" alt="Função btnOkBtnCancelar()" title="Função btnOkBtnCancelar()" /></p>
+		
+		<p>A função acima será atribuída aos botões de <strong>submit</strong> - <strong>btnOk</strong> - e <strong>reset</strong> - <strong>btnCancelar</strong> - do formulário. Ao clicarmos no botão de submit executamos uma função, ao clicar no reset executamos outra.</p>
+		
+		<p>Na <strong>linha 115</strong>, iniciamos uma função que foi atribuída ao click no botão cujo <strong>ID</strong> foi definido como <strong>btnOk</strong>. Criamos a variável <strong>validacao</strong> e através dela chamamos a função <strong>validarForm()</strong> para validarmos o formulário. Essa função - <strong>validarForm()</strong> - retornará <strong>true</strong> se os dados estiverem corretos ou retornará <strong>false</strong> se os dados não estiverem corretos. Sendo assim, verificamos na <strong>linha 117</strong> se a função retornou <strong>true</strong>, se este for caso, prosseguimos com a função.</p>
+		
+		<p>Ao chegarmos na <strong>linha 118</strong>, percebemos que as coisas estão ficando mais familiares para nós, não é? Isso porque j&aacute; abordamos tais funcionalidades através da função <strong>ativarBtnCadastro()</strong>. </p>
+		<p>Por&eacute;m,  se observarmos bem, veremos algo diferente e, essa diferença localiza-se na <strong>linha 120. </strong>&Eacute; exatamente nessa linha onde  utilizamos um outro método do objeto <a href="4.2.htm?pg=5.10.htm">XMLHttpRequest</a> chamado <a href="4.2.htm?pg=5.10.htm">setRequestHeader,</a> o qual  tem o próposito de informar um cabeçalho para a requisição.</p>
+		<p>O cabeçalho informado foi o <strong>Content-Type</strong> com o valor <strong>application/x-www-form-urlencoded</strong>. Uma vez que utilizaremos o método <strong>POST</strong> de requisição HTTP, como pode ser observado na <strong>linha 119</strong>,  tal cabeçalho se faz necessário ao se trabalhar com esse método - <strong>POST</strong>.</p>
+		
+		<p>Quando o código númerico do <strong>status HTTP</strong> retornado pelo servidor for igual a <strong>200</strong>, chamaremos a função <strong>atualizaRelatorio()</strong>. Sua função é atualizar o relat&oacute;rio  com as devidas modificações/inclusões realizadas.</p>
+		
+		<p>Na <strong>linha 128</strong>, criamos a variável <strong>tipoAcao,</strong> que nos dirá se trabalharemos com um processo de inserção ou edição dos dados, para que assim, possamos iniciar a constituição do valor da variável <strong>dataPost</strong>.</p>
+		
+		<p>Iremos definir o valor do <strong>action</strong> (o equivalente ao campo action do formulario) como <strong>cadastrar, </strong>se o valor da variável <strong>tipoAcao</strong> for igual a <strong>cadastrar</strong>. E,  tivermos <strong>editar</strong> como o valor da vari&aacute;vel <strong>tipoAcao</strong>, a definiremos como <strong>editar</strong> e  ao mesmo tempo o valor do <strong>ID</strong> do contato cadastrado.</p>
+		
+		<p>É preciso deixar claro que quando trabalhamos com o método <strong>POST</strong> de requisição HTTP, enviamos os dados em formato de uma "query string" da seguinte forma:</p>
+		
+		<code>nome=Leandro&amp;obs=&amp;ddd=33&amp;tel=00000000&amp;assim=pordiante</code>
+		
+		<p>Então, até a <strong>linha 143</strong>, estamos constituindo o valor da variável <strong>dataPost</strong> nesse formato. </p>
+		<p>Observe as imagens seguintes e compreenderá perfeitamente como o valor da variável <strong>dataPost</strong> é formado.</p>
+		<p><img src="img_curso/cap5/exemplo_query_string_var_dataPost_cadastrar.gif" width="480" height="99" alt="Exemplo do valor da variável dataPost ao cadastrar" title="Exemplo do valor da variável dataPost ao cadastrar" /></p>
+		
+		<p><img src="img_curso/cap5/exemplo_query_string_var_dataPost_editar.gif" width="480" height="99" alt="Exemplo do valor da variável dataPost ao editar" title="Exemplo do valor da variável dataPost ao editar" /></p>
+		
+		<p>Na <strong>linha 144</strong>, temos o já familiar método <a href="4.2.htm?pg=5.10.htm">send()</a> do objeto<a href="4.2.htm?pg=5.10.htm"> XMLHttpRequest</a>. Por&eacute;m, desta vez ele não terá <strong>null</strong> como dados e sim a variável <strong>dataPost</strong>.</p>
+		
+		<p>Ao clicarmos no botão cujo <strong>ID</strong> foi atribuído como <strong>btnCancelar</strong> (sim o botão do tipo reset do formulário) iremos executar uma função. Ela ent&atilde;o chamará a função <strong>removerDivs()</strong> que é utilizada para remover a div - <strong>bgBody</strong> (que simula o fundo sobre o body) e a div - <strong>boxCad</strong> (que armazena o formulário).</p>
+		
+		<hr id="focusNome" />
+		
+		<p>A função <strong>focusNome(),</strong> como demonstrado na imagem abaixo, simplesmente concede um foco ao campo nome do formulário ou aborta a função caso tal campo não exista na página - <strong>linha 157</strong>.</p>
+		
+		<p><img src="img_curso/cap5/pg_comportamentos_focusNome.gif" width="288" height="68" alt="Função focusNome()" title="Função focusNome()" /></p>
+		
+		<hr id="validarForm" />
+		
+		<p>A validação dos dados de preenchimento obrigatório do formulário é feita pela função <strong>validarForm()</strong>. </p>
+		<p>Vejamos:</p>
+		<p><img src="img_curso/cap5/pg_comportamentos_validarForm.gif" width="480" height="338" alt="Função validarForm()" title="Função validarForm()" /></p>
+		<p>Iniciamos com uma condição - <strong>linha 162</strong> - que aborta a função <strong>validarForm()</strong> se o objeto cujo atributo <strong>ID</strong> possuir o valor <strong>frmCad</strong> não presente na página.</p>
+		
+		<p>Em seguida, criamos as variáveis nome, ddd, telefone e email. Todas terão como valor os respectivos campos do formulário em questão. </p>
+		<p>Sendo assim, verificaremos se tal campo está vazio ou nulo como exemplificado na imagem acima, <strong>linha 167</strong>. </p>
+		<p>Se tal verificação for verdadeira, ou seja, o campo está nulo ou vazio, exibiremos uma mensagem ao usuário através de um "<strong>alert box</strong>". Assim, colocamos o foco no campo que apresentou o erro e atribuímos um <strong>return false</strong>, afinal há erro com o campo em questão.</p>
+		<p>Para validarmos o campo de e-mail, realizamos uma validação mais apurada a fim de garantirmos que o e-mail informado tenha um estrutura válida. </p>
+		<p>Com essa intenção, criamos a variável <strong>verificaEmail</strong> e informamos que ela terá como valor a resposta que a função <strong>validaEmail()</strong> retornará. A função <strong>validaEmail()</strong> retorna <strong>true</strong> se o e-mail tiver uma estrutura válida e <strong>false</strong> se não tiver.</p>
+		<p>Como podemos observar na <strong>linha 183</strong>, estamos verificando se o e-mail não tem uma estrutura básica, e se isto ocorrer, alertamos o usuário, colocamos o foco no campo de e-mail e atribuímos um <strong>return false</strong>.</p>
+		
+		<p>Se tudo ocorrer bem, ou seja, os dados foram informados como desejávamos, atribuímos um <strong>return true</strong>. </p>
+		<p>Lembre-se que a função <strong>btnOkBtnCancelar()</strong> verifica se a função <strong>validarForm()</strong> retornou <strong>true</strong> para prosseguir com o cadastro ou a edição.</p>
+		<hr id="validaEmail" />
+		
+		<p>Observe essa  função abaixo:</p>
+		
+		<p><img src="img_curso/cap5/pg_comportamentos_validaEmail.gif" width="451" height="52" alt="Função validaEmail()" title="Função validaEmail()" /></p>
+		
+		<p>Ela retorna <strong>true</strong> se o e-mail informado pelo usu&aacute;rio tiver uma estrutura válida ou <strong>false</strong> se não tiver.</p>
+		
+		<hr id="atualizaRelatorio" />
+		
+		<p>A função <strong>atualizaRelatorio()</strong> a este ponto desta unidade acabou tornando-se íntima nossa. Vejamos:</p>
+		<p><img src="img_curso/cap5/pg_comportamentos_atualizaRelatorio.gif" width="435" height="304" alt="Função atualizaRelatorio()" title="Função atualizaRelatorio()" /></p>
+		<p>Como j&aacute; a conhecemos, o compreendimento dela será um exercício para você. Calma, basta você observar outras duas funções acima - <strong>ativarBtnCadastro()</strong> e <strong>btnOkbtnCancelar().</strong> Vale ainda ressaltar a <strong>linha 206</strong>, que chama a função <strong>removerDivs()</strong> (que conheceremos mais em frente) e a chamada da função <strong>ativarBtnEditarBtnExcluir()</strong> na <strong>linha 208</strong> (que conheceremos agora).</p>
+		
+		<hr id="ativarBtnEditarBtnExcluir" />
+		
+		<p>A função <strong>ativarBtnEditarBtnExcluir()</strong> como o próprio nome já diz, ativa os botões contidos na página que foram desenvolvidos para tais objetivos - editar e excluir -  a partir da leitura da marcação HTML da página. </p>
+		<p>Observe a função:</p>
+		<p><img src="img_curso/cap5/pg_comportamentos_ativarBtnEditarBtnExcluir.gif" width="480" height="589" alt="Função ativarBtnEditarBtnExcluir()" title="Função ativarBtnEditarBtnExcluir()" /></p>
+		
+		<p>Observe a <strong>linha 216</strong> e ver&aacute; que iniciamos selecionando todos os links contidos na página, ou melhor, todas as <strong>tags a</strong>, afinal elas foram utilizadas para desempenharem o papel como botão de edição e exclusão dos contatos da nossa agenda. Já na <strong>linha 217</strong> realizamos um loop entre todos os links presentes na página.</p>
+		<p>Na <strong>linha 219</strong>, atrbu&iacute;mos &agrave; variável <strong>atributoRel</strong> o valor do atributo <strong>rel</strong> da <strong>tag a</strong>. Repara que definimos tal valor como uma string - <a href="1.11.htm?pg=5.10.htm">new String()</a> - para que pud&eacute;ssemos utilizar o método <strong>substring()</strong> posteriormente.</p>
+		
+		<p>As <strong>tags a</strong> que nos interessam, são aquelas que possuem no atributo <strong>rel</strong> o valor <strong>btnEditar</strong> ou <strong>btnExcluir</strong>, assim,  verificaremos se tal valor consta no referido atributo.</p>
+		
+		<p>Na <strong>linha 220</strong>, utilizamos o método <strong>substring(0,9)</strong> pois <strong>btnEditar</strong> contém 9 caracteres. Então, se os 9 primeiros caracteres do atributo <strong>rel</strong> forem igual a <strong>btnEditar,</strong> podemos presseguir com o processo de edição.</p>
+		
+		<p>Atribu&iacute;mos uma função quando tal link ou tag  receber um click - <strong>onclick</strong> - e em seguida criamos a variável <strong>ID</strong> que terá como valor o ID que está contido também no atributo <strong>rel</strong> da <strong>tag a</strong>. </p>
+		<p>Para ficar mais claro, vamos relembrar a estrutura do atributo rel. Vejamos:</p>
+		<code>rel=&quot;btnEditar-10&quot;</code>
+		
+		<p>Baseado em tal estrutura, utilizarei o "-" para separar os valores e pegar somente o valor do <strong>ID</strong> que preciso. Para isso, utilizamoso o <strong>split('-')</strong> que divide uma string em arrays de strings, bastando simplesmente informar um delimitador, em nosso caso o "-". E, como o <strong>ID</strong> será o segundo do array e esse inicia-se com 0 (zero), utilizamos <strong>split('-')[1]</strong> para pegar o valor do ID. Observe a <strong>linha 222</strong>.</p>
+		
+		<p>Em seguinda, chamamos duas conhecidas funções: <strong>exibirBgBody()</strong> e <strong>boxCad()</strong>. Logo após, temos mais códigos conhecidos e íntimos nossos, que  abordamos na função <strong>ativarBtnCadastro()</strong>. A única diferença está presente na <strong>linha 227</strong>, onde informamos ao método <strong>open</strong> a <strong>URL</strong> que será requisitada. </p>
+		<p>Como se trata de um processo de edição, informamos na URL o seguinte:</p>
+		<code>formulario.php?ajax=true&amp;editar=true&amp;ID=' + ID</code>
+		
+		<p>Dessa forma,  definimos a variável editar na <strong>URL</strong> e atribuímos &agrave; variável <strong>ID</strong>, o <strong>ID</strong> que pegamos no atributo <strong>rel </strong>do link. Assim,  a página formulario.php saberá que se trata de um processo de edição e quais os dados que serão editados.</p>
+		
+		<p>Agora precisamos desenvolver o processo para exclusão dos arquivos via Ajax. Repare que na <strong>linha 245</strong> estamos verificando se o atributo <strong>rel</strong> contém <strong>btnExcluir</strong>, assim como fizemos na <strong>linha 220</strong>. Entretando, ao invés de utilizarmos <strong>substring(0,9)</strong>, utilizamos <strong>substring(0,10)</strong>, pois <strong>btnExcluir</strong> contém 10 caracteres.</p>
+		
+		<p>Na <strong>linha 248</strong>, criamos a variável <strong>confirma</strong>, que  exibirá ao usuário uma mensagem de confirmação de exclusão e retornará <strong>true</strong> se ele clicar em <strong>Ok</strong> ou <strong>false</strong> se clicar em <strong>Cancel</strong>. Verificamos esse retorno na <strong>linha 249</strong> para que possamos prosseguir com o processo somente se o usuário confirmar a exclusão, ou seja, clicar no botão <strong>ok</strong>.</p>
+		<p>A partir da <strong>linha 250</strong>, estamos diante de códigos conhecidos sabemos o que eles fazem e o por que estão ali.</p>
+		
+		<p>Mais uma vez a diferença encontra-se ao informamos o método <strong>open</strong>&agrave; <strong>URL</strong> que será requistada. </p>
+		<p>Como desta vez será um processo de exclusão, temos o seguinte na <strong>linha 251</strong>.</p>
+		<code>actions.php?ajax=true&amp;excluir=true&amp;ID=' + ID</code>
+		
+		<p>Assim,  informamos que o processo será de exclusão - <strong>excluir=true</strong> - e juntamente, o <strong>ID</strong> do registro na tabela a ser excluído.</p>
+		
+		<hr id="removerDivs" />
+		
+		<p>Vamos observar a  função <strong>removerDivs()</strong> abaixo:<img src="img_curso/cap5/pg_comportamentos_removerDivs.gif" width="367" height="130" alt="Função removerDivs()" title="Função removerDivs()" /></p>
+		
+		<p>Ela tem a função de remover duas div que criamos: <strong>bgBody</strong> e <strong>boxCad</strong>. A primeira que simula o fundo sobre o body e a segunda que é utilizada para colocarmos o formulário dentro dela.</p>
+		
+		<p>Na <strong>linha 271</strong> removemos a <strong>div</strong> cujo <strong>ID</strong> foi definido como <strong>bgBody</strong>. Agora, para removermos a <strong>div</strong> cujo <strong>ID</strong> foi definido como <strong>boxCad</strong> na <strong>linha 273</strong>, precisamos conferir se tal div realmente existe. Para isso, vamos observar a  <strong>linha 272</strong>. </p>
+		<p>Mas, por qu&ecirc; isso? Simples, porque no processo de exclusão não chamamos a função <strong>boxCad()</strong> para que tal div seja criada. Observe a <strong>linha 255</strong> da função <strong>ativarBtnEditarBtnExcluir()</strong> e verá que somente a função <strong>exibirBgBody()</strong> foi chamada.</p>
+		<hr id="getPageSize" />
+		
+		<p>Nossa última função a ser abordada, <strong>getPageSize()</strong>, é uma função desenvolvida pelo web developer Peter-Paul Koch editor do excelente <a href="http://www.quirksmode.org/" title="Quirksmode">Quirksmode.</a> </p>
+		<p>Vamos observar a  função abaixo e reparar na <strong>linha 316</strong>.</p>
+		<p><img src="img_curso/cap5/pg_comportamentos_getPageSize.gif" width="480" height="430" alt="Função getPageSize()" title="Função getPageSize()" /></p>
+		
+		<p>Essa função nos retorna um array com as seguintes informações: largura da página, tamanho da página, largura da janela e tamanho da janela.</p>
+		<p> Essas informações são muito utéis em certos casos, a exemplo de como foram  utilizadas  na função <strong>exibirBgBody()</strong>, onde precis&aacute;vamos criar uma div que ocupasse todo o "viewport" do browser.</p>
+		<hr />
+		
+		<p>&Eacute; isso, esse &eacute; o nosso projeto final.</p>
+		<p>Na pr&oacute;xima unidade faremos algumas considerações. </p>
+		<p>Até lá!</p>
+		<ul id="navigation">
+			<li><a href="5.9.htm" id="linkNavCap5" title="Projeto Final - Compreendendo a página relatorio.php">&laquo; Compreendendo a página relatorio.php</a></li>
+			<li>|</li>
+			<li><a href="5.11.htm" id="linkNavCap5" title="Projeto Final - Considerações finais">Considerações finais &raquo;</a></li>
+		</ul>
+	</div>
+</div>
+<!-- conteudo -->
+
+<div id="sideBar">
+	<ul id="menu">
+		<li><a href="index.htm" class="itemMenu" title="Introdução do curso">Introdução</a></li>
+		<li><a href="1.htm" class="itemMenu" id="linkCap1" title="JavaScript">Capítulo 1</a>
+			<ul id="cap1">
+				<li class="titCap">JavaScript</li>
+				<li><a href="1.htm" title="Prefácio">Prefácio</a></li>
+				<li><a href="1.1.htm" title="Introdução ao JavaScript">Introdução ao JavaScript</a></li>
+				<li><a href="1.2.htm" title="Variáveis">Variáveis</a></li>
+				<li><a href="1.3.htm" title="Operadores">Operadores</a></li>
+				<li><a href="1.4.htm" title="Condições">Condições</a></li>
+				<li><a href="1.5.htm" title="Popup Boxes">Popup Boxes</a></li>
+				<li><a href="1.6.htm" title="Loops">Loops</a></li>
+				<li><a href="1.7.htm" title="Funções">Funções</a></li>
+				<li><a href="1.8.htm" title="Eventos">Eventos</a></li>
+				<li><a href="1.9.htm" title="Array">Array</a></li>
+				<li><a href="1.10.htm" title="Data">Data</a></li>
+				<li><a href="1.11.htm" title="String">String</a></li>
+				<li><a href="1.12.htm" title="Math">Math</a></li>
+				<li><a href="1.13.htm" title="Validação de formulários">Validação de formulários</a>
+			</ul>
+		</li>
+		<li><a href="2.htm" class="itemMenu" id="linkCap2" title="DOM e DHTML">Capítulo 2</a>
+			<ul id="cap2">
+				<li class="titCap">DOM e DHTML</li>
+				<li><a href="2.htm" title="Prefácio">Prefácio</a></li>
+				<li><a href="2.1.htm" title="Introdução ao DOM">Introdução ao DOM</a></li>
+				<li><a href="2.2.htm" title="Introdução ao DHTML">Introdução ao DHTML</a></li>
+				<li><a href="2.3.htm" title="Método: getElementById">Método: getElementById</a></li>
+				<li><a href="2.4.htm" title="Método: getElementsByTagName">Método: getElementsByTagName</a></li>
+				<li><a href="2.5.htm" title="Método: style">Método: style</a></li>
+				<li><a href="2.6.htm" title="Método: className">Método: className</a></li>
+				<li><a href="2.7.htm" title="Método: innerHTML">Método: innerHTML</a></li>
+				<li><a href="2.8.htm" title="Método: appendChild">Método: appendChild</a></li>
+				<li><a href="2.9.htm" title="Método: createElement">Método: createElement</a></li>
+				<li><a href="2.10.htm" title="Método: insertBefore">Método: insertBefore</a></li>
+				<li><a href="2.11.htm" title="Método: insertAfter">Método: insertAfter</a></li>
+				<li><a href="2.12.htm" title="Método: setAttribute">Método: setAttribute</a></li>
+				<li><a href="2.13.htm" title="Método: getAttribute">Método: getAttribute</a></li>
+
+			</ul>
+		</li>
+		<li><a href="3.htm" class="itemMenu" id="linkCap3" title="JavaScript não-obstrutivo">Capítulo 3</a>
+			<ul id="cap3">
+				<li class="titCap">JavaScript não-obstrutivo</li>
+				<li><a href="3.htm" title="Prefácio">Prefácio</a></li>
+				<li><a href="3.1.htm" title="Introdução ao JavaScript não-obstrutivo">Introdução ao JavaScript não-obstrutivo</a></li>
+			</ul>
+		</li>
+		<li><a href="4.htm" class="itemMenu" id="linkCap4" title="Ajax">Capítulo 4</a>
+			<ul id="cap4">
+				<li class="titCap">Ajax</li>
+				<li><a href="4.htm" title="Prefácio">Prefácio</a></li>
+				<li><a href="4.1.htm" title="Introdução ao Ajax">Introdução ao Ajax</a></li>
+				<li><a href="4.2.htm" title="O Objeto XMLHttpRequest">O Objeto XMLHttpRequest</a>
+				<li><a href="4.3.htm" title="Pés no chão">Pés no chão</a>
+			</ul>
+		</li>
+		<li><a href="5.htm" class="itemMenu" id="linkCap5" title="Projeto final">Capítulo 5</a>
+			<ul id="cap5">
+				<li class="titCap">Projeto final</li>
+				<li><a href="5.htm" title="Prefácio">Prefácio</a></li>
+				<li><a href="5.1.htm" title="Introdução ao Projeto final">Introdução ao Projeto final</a></li>
+				<li><a href="5.2.htm" title="Tabela do banco de dados">Tabela do banco de dados</a></li>
+				<li><a href="5.3.htm" title="Visão geral">Visão geral</a></li>
+				<li><a href="5.4.htm" title="Visão geral sobre as páginas">Visão geral sobre as páginas</a></li>
+				<li><a href="5.5.htm" title="Compreendendo o espírito da 'coisa'">Compreendendo o espírito da 'coisa'</a></li>
+				<li><a href="5.6.htm" title="Compreendendo a página index.php">Compreendendo a página index.php</a></li>
+				<li><a href="5.7.htm" title="Compreendendo a página actions.php">Compreendendo a página action.php</a></li>
+				<li><a href="5.8.htm" title="Compreendendo a página formulario.php">Compreendendo a página formulario.php</a></li>
+				<li><a href="5.9.htm" title="Compreendendo a página relatorio.php">Compreendendo a página relatorio.php</a></li>
+				<li><a href="5.10.htm" title="Compreendendo a página comportamentos.js">Compreendendo a página comportamentos.js</a></li>
+				<li><a href="5.11.htm" title="Considerações finais">Considerações finais</a></li>			
+			</ul>
+		</li>
+		<li><a href="6.htm" class="itemMenu" id="linkCap6" title="Bibliografia">Bibliografia</a>
+			<ul id="cap6">
+				<li class="titCap">Bibliografia</li>
+				<li><a href="6.htm" title="">Referências bibliográficas</a></li>
+			</ul>
+		</li>
+	</ul>
+	<p id="changeFontSize"><a href="javascript:changeFontSize();" title="Alterar o tamanho da fonte">&raquo; Tamanho da fonte</a></p>
+</div>
+<!-- / Sidebar -->
+	
+<div id="frameScroll">
+	<a href="#" title="Ocultar / Exibir o menu" id="optFrameScroll">
+		<img src="img/icn/icone_frame_scroll_hide.jpg" width="6" height="50" alt="" />
+	</a>
+</div>
+	
+<div id="rodape">
+
+</div>
+<!-- Rodape -->
+
+</div>
+<!-- / Global -->
+
+</body>
+</html>

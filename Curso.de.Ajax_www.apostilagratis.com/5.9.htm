@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br">
+
+<head>
+	<title>Curso iMasters - Web Sites com Ajax - Cap&iacute;tulo 5 - Compreendendo a página relatorio.php</title>
+	<meta http-equiv="Content-Type"  content="application/xhtml+xml; charset=iso-8859-1" />
+	<meta name="author" content="Leandro Vieira Pinho [ leandro@plugsites.net ]" />
+	<meta name="language" content="pt-br" />
+	<script type="text/javascript" src="js/perform.js"></script>
+	<style type="text/css" media="screen">
+		/*<![CDATA[*/
+		<!--
+			@import "css/style.css";
+		-->
+		/*]]>*/
+	</style>
+	<link rel="shortcut icon" href="img/favicon_imasters.gif" type="image/x-icon" />
+</head>
+
+<body>
+
+<div id="global">
+
+<h1 id="header">Web Sites com Ajax</h1>
+
+<div id="conteudo">
+	<h3 id="txtProjetoFinal">JavaScript</h3>
+
+	<div id="curso">
+		<h2>Compreendendo a página relatorio.php</h2>
+		
+		<p>Esta página é muito simples e super fácil de compreendê-la, uma vez que já abordamos em explicações nas unidades anteriores alguns dos conceitos que nela foram aplicados. Por&eacute;m, ela tem  uma característica que será determinante para o Ajax, veremos adiante.</p>
+		<p>Como na página <a href="visualizar_paginas/formulario.phps">formulario.php</a>, a página <a href="visualizar_paginas/relatorio.phps">relatorio.php</a> possui os mesmos cabeçalhos, explicados na unidade anterior. Observe:</p>
+		<p><img src="img_curso/cap5/pg_formulario_headers.gif" width="480" height="111" alt="Exemplo dos headers utilizados" title="Exemplo dos headers utilizados" /></p>
+	
+		<p>Em seguida temos o "recordset" que busca no banco de dados os cadastrados em nossa agenda. Vejamos:</p>
+		
+		<p><img src="img_curso/cap5/pg_relatorio_recordset.gif" width="480" height="147" alt="Recordset da página relatório" title="Recordset da página relatório" /></p>
+		
+		<p>Repare que a página <a href="visualizar_paginas/class.MySQL.phps">class.MySQL.php</a> é inserida somente se estivermos trabalhando via Ajax  <strong>- isset($_GET['ajax'])</strong>  - uma vez que tal página já foi inserida pela index.php.</p>
+		
+		<p>O restante da página são extrações dos dados armazenados no banco de dados, como por exemplo:</p>
+		
+		<code>&lt;?php echo $row_rsContatos['cont_nome']; ?&gt;</code>
+		
+		<p>Assim,  <strong>cont_nome</strong> é o nome do campo na tabela <strong>agenda_contatos</strong> que armazena o nome do nosso contato.</p>
+		
+		<p>A característica determinante para o Ajax que citei no início desta unidade, se refere aos links para edição e exclusão de dados. Vamos observar a marcação HTML de cada um deles e saber o que há de determinante nesses links.</p>
+		
+		<p>Começaremos pelo atributo <strong>href</strong> do link para edição. Observe:</p>
+		
+		<code>href=&quot;index.php?<strong>exibirFormulario=true</strong>&amp;amp;<strong>editar=true</strong>&amp;amp;<strong>ID=&lt;?php echo $row_rsContatos['cont_id']; ?&gt;&quot;</strong></code>
+		
+		<p>A marcação HTML do atributo <strong>href</strong> acima informa à página três parâmetros, s&atilde;o eles: <strong>exibirFormulario=true</strong> - exibe o formulário na página; <strong>editar=true</strong> -  informa que será um processo de edição e <strong>ID=&lt;?php echo $row_rsContatos['cont_id']; ?&gt;&quot;</strong> que informa o ID do usuário que será utilizado no processo de edição. </p>
+		<p>Bom, esses parâmetros serão utilizados quando o aplicativo não for utilizado via Ajax.</p>
+		<p>Agora observe o atributo <strong>rel</strong> do mesmo link (o de edição):</p>
+		
+		<code>rel=&quot;btnEditar-&lt;?php echo $row_rsContatos['cont_id']; ?&gt;&quot;&gt;</code>
+		
+		<p>Os dados do atributo <strong>rel</strong> acima ser&atilde;o utilizados pelo Ajax e eles nos informam duas coisas: que o link refere-se a edição - <strong>btnEditar</strong> - e que nos informam também o <strong>ID</strong> do contato da nossa agenda. </p>
+		<p>Então teríamos um atributo assim na página exibida no navegador:</p>
+		<code>rel=&quot;btnEditar-10&quot;</code>
+		
+		<p>Onde 10 é o ID do contato da nossa agenda. Repare que a informação  do link será de edição - <strong>btnEditar</strong> - e o ID est&aacute; separado por "-". Você verá como isso será importante no JavaScript.</p>
+		<p>Agora vejamos o atributo <strong>href</strong> do link para exclusão:</p>
+		
+		<code>href=&quot;index.php?<strong>excluir=true</strong>&amp;amp;<strong>ID=&lt;?php echo $row_rsContatos['cont_id']; ?&gt;</strong>&quot;</code>
+		
+		<p>Essa marcação apresentada acima informa que se trata de uma exclusão - <strong>excluir=true</strong> - e informa o <strong>ID</strong> para saber quem será exclu&iacute;do.</p>
+		
+		<p>Já o atributo <strong>rel,</strong> do link de exclusão, tem a mesma estrutura do link de edição, diferenciando-se apenas por informar: btnExcluir ao invés de btnEditar. Observe:</p>
+		
+		<code>rel=&quot;btnExcluir-&lt;?php echo $row_rsContatos['cont_id']; ?&gt;&quot;&gt;</code>
+		
+		<p>Em seguida vamos a unidade mais esperada, onde falaremos sobre JavaScript, DOM, Ajax e muito mais.</p>
+		
+		<ul id="navigation">
+			<li><a href="5.8.htm" id="linkNavCap5" title="Projeto Final - Compreendendo a página formulario.php">&laquo; Compreendendo a página formulario.php</a></li>
+			<li>|</li>
+			<li><a href="5.10.htm" id="linkNavCap5" title="Projeto Final - Compreendendo a página comportamentos.js">Compreendendo a página comportamentos.js &raquo;</a></li>
+		</ul>
+	</div>
+</div>
+<!-- conteudo -->
+
+<div id="sideBar">
+	<ul id="menu">
+		<li><a href="index.htm" class="itemMenu" title="Introdução do curso">Introdução</a></li>
+		<li><a href="1.htm" class="itemMenu" id="linkCap1" title="JavaScript">Capítulo 1</a>
+			<ul id="cap1">
+				<li class="titCap">JavaScript</li>
+				<li><a href="1.htm" title="Prefácio">Prefácio</a></li>
+				<li><a href="1.1.htm" title="Introdução ao JavaScript">Introdução ao JavaScript</a></li>
+				<li><a href="1.2.htm" title="Variáveis">Variáveis</a></li>
+				<li><a href="1.3.htm" title="Operadores">Operadores</a></li>
+				<li><a href="1.4.htm" title="Condições">Condições</a></li>
+				<li><a href="1.5.htm" title="Popup Boxes">Popup Boxes</a></li>
+				<li><a href="1.6.htm" title="Loops">Loops</a></li>
+				<li><a href="1.7.htm" title="Funções">Funções</a></li>
+				<li><a href="1.8.htm" title="Eventos">Eventos</a></li>
+				<li><a href="1.9.htm" title="Array">Array</a></li>
+				<li><a href="1.10.htm" title="Data">Data</a></li>
+				<li><a href="1.11.htm" title="String">String</a></li>
+				<li><a href="1.12.htm" title="Math">Math</a></li>
+				<li><a href="1.13.htm" title="Validação de formulários">Validação de formulários</a>
+			</ul>
+		</li>
+		<li><a href="2.htm" class="itemMenu" id="linkCap2" title="DOM e DHTML">Capítulo 2</a>
+			<ul id="cap2">
+				<li class="titCap">DOM e DHTML</li>
+				<li><a href="2.htm" title="Prefácio">Prefácio</a></li>
+				<li><a href="2.1.htm" title="Introdução ao DOM">Introdução ao DOM</a></li>
+				<li><a href="2.2.htm" title="Introdução ao DHTML">Introdução ao DHTML</a></li>
+				<li><a href="2.3.htm" title="Método: getElementById">Método: getElementById</a></li>
+				<li><a href="2.4.htm" title="Método: getElementsByTagName">Método: getElementsByTagName</a></li>
+				<li><a href="2.5.htm" title="Método: style">Método: style</a></li>
+				<li><a href="2.6.htm" title="Método: className">Método: className</a></li>
+				<li><a href="2.7.htm" title="Método: innerHTML">Método: innerHTML</a></li>
+				<li><a href="2.8.htm" title="Método: appendChild">Método: appendChild</a></li>
+				<li><a href="2.9.htm" title="Método: createElement">Método: createElement</a></li>
+				<li><a href="2.10.htm" title="Método: insertBefore">Método: insertBefore</a></li>
+				<li><a href="2.11.htm" title="Método: insertAfter">Método: insertAfter</a></li>
+				<li><a href="2.12.htm" title="Método: setAttribute">Método: setAttribute</a></li>
+				<li><a href="2.13.htm" title="Método: getAttribute">Método: getAttribute</a></li>
+
+			</ul>
+		</li>
+		<li><a href="3.htm" class="itemMenu" id="linkCap3" title="JavaScript não-obstrutivo">Capítulo 3</a>
+			<ul id="cap3">
+				<li class="titCap">JavaScript não-obstrutivo</li>
+				<li><a href="3.htm" title="Prefácio">Prefácio</a></li>
+				<li><a href="3.1.htm" title="Introdução ao JavaScript não-obstrutivo">Introdução ao JavaScript não-obstrutivo</a></li>
+			</ul>
+		</li>
+		<li><a href="4.htm" class="itemMenu" id="linkCap4" title="Ajax">Capítulo 4</a>
+			<ul id="cap4">
+				<li class="titCap">Ajax</li>
+				<li><a href="4.htm" title="Prefácio">Prefácio</a></li>
+				<li><a href="4.1.htm" title="Introdução ao Ajax">Introdução ao Ajax</a></li>
+				<li><a href="4.2.htm" title="O Objeto XMLHttpRequest">O Objeto XMLHttpRequest</a>
+				<li><a href="4.3.htm" title="Pés no chão">Pés no chão</a>
+			</ul>
+		</li>
+		<li><a href="5.htm" class="itemMenu" id="linkCap5" title="Projeto final">Capítulo 5</a>
+			<ul id="cap5">
+				<li class="titCap">Projeto final</li>
+				<li><a href="5.htm" title="Prefácio">Prefácio</a></li>
+				<li><a href="5.1.htm" title="Introdução ao Projeto final">Introdução ao Projeto final</a></li>
+				<li><a href="5.2.htm" title="Tabela do banco de dados">Tabela do banco de dados</a></li>
+				<li><a href="5.3.htm" title="Visão geral">Visão geral</a></li>
+				<li><a href="5.4.htm" title="Visão geral sobre as páginas">Visão geral sobre as páginas</a></li>
+				<li><a href="5.5.htm" title="Compreendendo o espírito da 'coisa'">Compreendendo o espírito da 'coisa'</a></li>
+				<li><a href="5.6.htm" title="Compreendendo a página index.php">Compreendendo a página index.php</a></li>
+				<li><a href="5.7.htm" title="Compreendendo a página actions.php">Compreendendo a página action.php</a></li>
+				<li><a href="5.8.htm" title="Compreendendo a página formulario.php">Compreendendo a página formulario.php</a></li>
+				<li><a href="5.9.htm" title="Compreendendo a página relatorio.php">Compreendendo a página relatorio.php</a></li>
+				<li><a href="5.10.htm" title="Compreendendo a página comportamentos.js">Compreendendo a página comportamentos.js</a></li>
+				<li><a href="5.11.htm" title="Considerações finais">Considerações finais</a></li>			
+			</ul>
+		</li>
+		<li><a href="6.htm" class="itemMenu" id="linkCap6" title="Bibliografia">Bibliografia</a>
+			<ul id="cap6">
+				<li class="titCap">Bibliografia</li>
+				<li><a href="6.htm" title="">Referências bibliográficas</a></li>
+			</ul>
+		</li>
+	</ul>
+	<p id="changeFontSize"><a href="javascript:changeFontSize();" title="Alterar o tamanho da fonte">&raquo; Tamanho da fonte</a></p>
+</div>
+<!-- / Sidebar -->
+	
+<div id="frameScroll">
+	<a href="#" title="Ocultar / Exibir o menu" id="optFrameScroll">
+		<img src="img/icn/icone_frame_scroll_hide.jpg" width="6" height="50" alt="" />
+	</a>
+</div>
+
+<div id="rodape">
+
+</div>
+<!-- Rodape -->
+
+</div>
+<!-- / Global -->
+
+</body>
+</html>

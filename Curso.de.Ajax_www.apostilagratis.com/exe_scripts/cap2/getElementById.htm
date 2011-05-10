@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br">
+
+<head>
+	<meta http-equiv="Content-Type"  content="application/xhtml+xml; charset=iso-8859-1" />
+	<meta name="author" content="Leandro Vieira Pinho [ leandro@plugsites.net ]" />
+	<meta name="language" content="pt-br" />
+	
+	<title>Exemplo do m&eacute;todo: getElementById</title>
+
+	<script type="text/javascript" src="../../js/perform.js"></script>
+	
+	<style type="text/css" media="screen">
+		/*<![CDATA[*/
+		<!--
+			@import "../../css/style.css";
+		-->
+		/*]]>*/
+	#box {
+		width: 450px;
+		padding: 15px;
+		line-height: 1.5em;
+	}
+	.destaque {
+		background-color: #ffc;
+		border: 1px solid #fc6;
+	}
+	.nodestaque {
+		background-color: #fff;
+		border: 1px solid #000;
+	}
+	fieldset {
+		border: 1px solid #000;
+		padding: 5px;
+		margin-bottom: 10px;
+	}
+	#nomeContato {
+		width: 300px;
+		padding: 3px;
+	}
+	</style>
+	<script type="text/javascript">
+	<!--
+	function showNameJS() {
+		var name = document.frm.nomeContato.value;
+		alert(name);
+	}
+	function showNameDOM() {
+		var name = document.getElementById('nomeContato').value;
+		alert(name);
+	}
+	//-->
+	</script>
+</head>
+
+<body>
+
+<div id="global">
+
+<h1 id="header">Web Sites com Ajax</h1>
+
+<div id="conteudo">
+	<h3 id="txtDemo">Introdução</h3>
+
+	<div id="curso">
+		
+		<h2>Exemplo do método: getElementById</h2>
+		
+		<noscript>
+			<p>O exemplo está impossibilitado de ser executado.</p>
+			<p>Motivo: o JavaScript do seu browser está desativado.</p>
+			<p><a href="../../noscript.htm" title="Ative o JavaScript do seu browser">Saiba como ativá-lo.</a></p>
+		</noscript>
+		
+		<form id="frm" name="frm" method="post" action="http://www.imasters.com.br/">
+			<fieldset>
+				<legend>Informe-nos o seu nome</legend>
+				<p>
+					<input type="text" id="nomeContato" name="nomeContato" />
+				</p>
+				<p>
+					<input type="button" onclick="showNameDOM();" value="Mostre-me meu nome. (DOM)" />
+					<input type="button" onclick="showNameJS();" value="Mostre-me meu nome. (js)" />
+				</p>
+			</fieldset>
+		</form>
+		
+		<p>Script utilizado:</p>
+		
+		<code>
+			&lt;script type=&quot;text/javascript&quot;&gt;<br />
+			&lt;!--<br />
+			function showNameJS() {<br />
+			<span class="codeSpace">&nbsp;</span>var name = document.frm.nomeContato.value;<br />
+			<span class="codeSpace">&nbsp;</span>alert(name);<br />
+			}<br />
+			function showNameDOM() {<br />
+			<span class="codeSpace">&nbsp;</span>var name = document.getElementById('nomeContato').value;<br />
+			<span class="codeSpace">&nbsp;</span>alert(name);<br />
+			}<br />
+			//--&gt;<br />
+			&lt;/script&gt;
+		</code>			
+		
+		<p>
+			<a href="../../2.3.htm" onclick="javascript:history.back(); return false;" title="Voltar ao método: getElementById.">&laquo; Voltar ao método: getElementById.</a>
+		</p>
+
+	</div>
+</div>
+<!-- conteudo -->
+
+<div id="sideBar">
+
+</div>
+<!-- / Sidebar -->
+	
+<div id="frameScroll">
+	<a href="#" title="Ocultar / Exibir o menu" id="optFrameScroll">
+		<img src="img/icn/icone_frame_scroll_hide.jpg" width="6" height="50" alt="" />
+	</a>
+</div>
+
+<div id="rodape">
+
+</div>
+<!-- Rodape -->
+
+</div>
+<!-- / Global -->
+
+</body>
+</html>

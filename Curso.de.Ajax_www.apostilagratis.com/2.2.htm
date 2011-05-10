@@ -1,0 +1,196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br">
+
+<head>
+	<title>Curso iMasters - Web Sites com Ajax - Cap&iacute;tulo 2 - Introdução do DHTML</title>
+	<meta http-equiv="Content-Type"  content="application/xhtml+xml; charset=iso-8859-1" />
+	<meta name="author" content="Leandro Vieira Pinho [ leandro@plugsites.net ]" />
+	<meta name="language" content="pt-br" />
+	<script type="text/javascript" src="js/perform.js"></script>
+	<style type="text/css" media="screen">
+		/*<![CDATA[*/
+		<!--
+			@import "css/style.css";
+		-->
+		/*]]>*/
+	</style>
+	<link rel="shortcut icon" href="img/favicon_imasters.gif" type="image/x-icon" />
+</head>
+
+<body>
+
+<div id="global">
+
+<h1 id="header">Web Sites com Ajax</h1>
+
+<div id="conteudo">
+	<h3 id="txtDomDhtml">JavaScript</h3>
+
+	<div id="curso">
+		<h2>Introdução ao DHTML</h2>
+		
+		<p>Como dito no prefácio deste capítulo, <acronym title="Dynamic Hyper Text Markupt Language">DHTML</acronym> é uma combinação de tecnologias - XHTML, CSS, JavaScript - utilizadas em conjunto para criar web sites dinâmicos.</p>
+		
+		<p>  O termo DHTML é uma estratégia de marketing de duas empresas - Netscape e Microsoft -  que tinham o objetivo de descreverem a nova tecnologia suportada pela quarta geração (4.x) de seus browsers,  Netscape Navigator e Internet Explorer, respectivamente.</p>
+		
+		<p> &Eacute; preciso ressaltar que essa tecnologia n&atilde;o &eacute; um padr&atilde;o do W3C. Assim, como não temos a intenção que nossos scripts funcionem apenas nos browsers acima citados,  precisamos desenvolver um DHTML crossbrowser, ou seja, um DHTML que funcione em diversos browsers. </p>
+		<p>Dessa forma, utilizaremos o  DOM do W3C que tem o suporte em todos os navegadores atuais.</p>
+		<h3>Um exemplo prático do DHTML</h3>
+		
+		<p>Observe o exemplo abaixo:</p>
+		
+		<code>
+			<strong>JavaScript</strong><br />
+			&lt;script type=&quot;text/javascript&quot;&gt;<br />
+			function changeClass(nomeClasse) {<br />
+			<span class="codeSpace">&nbsp;</span>var obj = document.getElementById(&quot;box&quot;);<br />
+			<span class="codeSpace">&nbsp;</span>obj.className = nomeClasse;<br />
+			}<br />
+			&lt;/script&gt;<br /><br />
+			<strong>HTML</strong><br />
+			&lt;div id=&quot;conteudo&quot; class=&quot;destaque&quot;&gt;<br />
+			<span class="codeSpace">&nbsp;</span>&lt;h1&gt;Ma quande lingues coalesce&lt;/h1&gt;<br />
+			<span class="codeSpace">&nbsp;</span>&lt;p&gt;Lorem ipsum dolor sit amet, consectetuer ...&lt;/p&gt;<br />
+			<span class="codeSpace">&nbsp;</span>&lt;a href=&quot;../../noscript.htm&quot; onclick=&quot;changeClass('nodestaque'); return false;&quot;&gt;Altere minha apar&ecirc;ncia&lt;/a&gt;<br />
+			&lt;/div&gt;<br /><br />
+			<strong>CSS</strong><br />
+			#conteudo {<br />
+			<span class="codeSpace">&nbsp;</span>width: 500px;<br />
+			<span class="codeSpace">&nbsp;</span>padding: 15px;<br />
+			<span class="codeSpace">&nbsp;</span>line-height: 1.5em;<br />
+			}<br />
+			.destaque {<br />
+			<span class="codeSpace">&nbsp;</span>background-color: #ffc;<br />
+			<span class="codeSpace">&nbsp;</span>border: 1px solid #fc6;<br />
+			}<br />
+			.nodestaque {<br />
+			<span class="codeSpace">&nbsp;</span>background-color: #fff;<br />
+			<span class="codeSpace">&nbsp;</span>border: 1px solid #000;<br />
+			}<br />
+		</code>
+		
+		<p><a href="exe_scripts/cap2/exemplo_pratico_dhtml.htm">Veja a demonstração desse exemplo prático de DHTML</a>.</p>
+		
+		<p>Agora, vamos compreendê-lo. </p>
+		
+		<p>Utilizamos    tr&ecirc;s tecnologias (HTML, CSS e JavaScript) para o recurso demonstrado no exemplo e o DOM para acessarmos um elemento da p&aacute;gina.</p>
+		
+		<p>Na marcação HTML, fizemos o seguinte: criamos uma &lt;div&gt; e adicionamos a ela dois atributos - <em>id (conteudo)</em> e <em>class (destaque)</em>. Aninhado a essa tag temos um título de primeiro nível <em>(h1)</em>, um paragráfo <em>(p)</em> e um link <em>(a)</em>.</p>
+		
+		<p>No link  <strong>Altere minha aparência</strong>, adicionamos o <a href="1.8.htm?pg=2.2.htm">evento onclick</a> que chama a função <em>changeClass</em>, passando a ela o nome da nova classe, <em>(nodestaque),</em> que gostaríamos de colocar na <em>&lt;div&gt;</em>.</p>
+		
+		<p>A função JavaScript <em>changeClass</em> recebe o parâmetro <em>(nodestaque)</em> passado a ela e o utiliza para adicionar ao objeto desejado <em>(conteudo)</em> uma nova classe CSS.</p>
+		
+		<p>Quanto ao <a href="2.3.htm?pg=2.2.htm">getElementById</a> e <a href="2.6.htm?pg=2.2.htm">className</a>, não se preocupe, n&oacute;s os veremos adiante.</p>
+			
+		<ul id="navigation">
+			<li><a href="2.1.htm" id="linkNavCap2" title="Introdução ao DOM">&laquo; Introdução ao DOM</a></li>
+			<li>|</li>
+			<li><a href="2.3.htm" id="linkNavCap2" title="Método: getElementById">Método: getElementById &raquo;</a></li>
+		</ul>
+	</div>
+</div>
+<!-- conteudo -->
+
+<div id="sideBar">
+	<ul id="menu">
+		<li><a href="index.htm" class="itemMenu" title="Introdução do curso">Introdução</a></li>
+		<li><a href="1.htm" class="itemMenu" id="linkCap1" title="JavaScript">Capítulo 1</a>
+			<ul id="cap1">
+				<li class="titCap">JavaScript</li>
+				<li><a href="1.htm" title="Prefácio">Prefácio</a></li>
+				<li><a href="1.1.htm" title="Introdução ao JavaScript">Introdução ao JavaScript</a></li>
+				<li><a href="1.2.htm" title="Variáveis">Variáveis</a></li>
+				<li><a href="1.3.htm" title="Operadores">Operadores</a></li>
+				<li><a href="1.4.htm" title="Condições">Condições</a></li>
+				<li><a href="1.5.htm" title="Popup Boxes">Popup Boxes</a></li>
+				<li><a href="1.6.htm" title="Loops">Loops</a></li>
+				<li><a href="1.7.htm" title="Funções">Funções</a></li>
+				<li><a href="1.8.htm" title="Eventos">Eventos</a></li>
+				<li><a href="1.9.htm" title="Array">Array</a></li>
+				<li><a href="1.10.htm" title="Data">Data</a></li>
+				<li><a href="1.11.htm" title="String">String</a></li>
+				<li><a href="1.12.htm" title="Math">Math</a></li>
+				<li><a href="1.13.htm" title="Validação de formulários">Validação de formulários</a>
+			</ul>
+		</li>
+		<li><a href="2.htm" class="itemMenu" id="linkCap2" title="DOM e DHTML">Capítulo 2</a>
+			<ul id="cap2">
+				<li class="titCap">DOM e DHTML</li>
+				<li><a href="2.htm" title="Prefácio">Prefácio</a></li>
+				<li><a href="2.1.htm" title="Introdução ao DOM">Introdução ao DOM</a></li>
+				<li><a href="2.2.htm" title="Introdução ao DHTML">Introdução ao DHTML</a></li>
+				<li><a href="2.3.htm" title="Método: getElementById">Método: getElementById</a></li>
+				<li><a href="2.4.htm" title="Método: getElementsByTagName">Método: getElementsByTagName</a></li>
+				<li><a href="2.5.htm" title="Método: style">Método: style</a></li>
+				<li><a href="2.6.htm" title="Método: className">Método: className</a></li>
+				<li><a href="2.7.htm" title="Método: innerHTML">Método: innerHTML</a></li>
+				<li><a href="2.8.htm" title="Método: appendChild">Método: appendChild</a></li>
+				<li><a href="2.9.htm" title="Método: createElement">Método: createElement</a></li>
+				<li><a href="2.10.htm" title="Método: insertBefore">Método: insertBefore</a></li>
+				<li><a href="2.11.htm" title="Método: insertAfter">Método: insertAfter</a></li>
+				<li><a href="2.12.htm" title="Método: setAttribute">Método: setAttribute</a></li>
+				<li><a href="2.13.htm" title="Método: getAttribute">Método: getAttribute</a></li>
+
+			</ul>
+		</li>
+		<li><a href="3.htm" class="itemMenu" id="linkCap3" title="JavaScript não-obstrutivo">Capítulo 3</a>
+			<ul id="cap3">
+				<li class="titCap">JavaScript não-obstrutivo</li>
+				<li><a href="3.htm" title="Prefácio">Prefácio</a></li>
+				<li><a href="3.1.htm" title="Introdução ao JavaScript não-obstrutivo">Introdução ao JavaScript não-obstrutivo</a></li>
+			</ul>
+		</li>
+		<li><a href="4.htm" class="itemMenu" id="linkCap4" title="Ajax">Capítulo 4</a>
+			<ul id="cap4">
+				<li class="titCap">Ajax</li>
+				<li><a href="4.htm" title="Prefácio">Prefácio</a></li>
+				<li><a href="4.1.htm" title="Introdução ao Ajax">Introdução ao Ajax</a></li>
+				<li><a href="4.2.htm" title="O Objeto XMLHttpRequest">O Objeto XMLHttpRequest</a>
+				<li><a href="4.3.htm" title="Pés no chão">Pés no chão</a>
+			</ul>
+		</li>
+		<li><a href="5.htm" class="itemMenu" id="linkCap5" title="Projeto final">Capítulo 5</a>
+			<ul id="cap5">
+				<li class="titCap">Projeto final</li>
+				<li><a href="5.htm" title="Prefácio">Prefácio</a></li>
+				<li><a href="5.1.htm" title="Introdução ao Projeto final">Introdução ao Projeto final</a></li>
+				<li><a href="5.2.htm" title="Tabela do banco de dados">Tabela do banco de dados</a></li>
+				<li><a href="5.3.htm" title="Visão geral">Visão geral</a></li>
+				<li><a href="5.4.htm" title="Visão geral sobre as páginas">Visão geral sobre as páginas</a></li>
+				<li><a href="5.5.htm" title="Compreendendo o espírito da 'coisa'">Compreendendo o espírito da 'coisa'</a></li>
+				<li><a href="5.6.htm" title="Compreendendo a página index.php">Compreendendo a página index.php</a></li>
+				<li><a href="5.7.htm" title="Compreendendo a página actions.php">Compreendendo a página action.php</a></li>
+				<li><a href="5.8.htm" title="Compreendendo a página formulario.php">Compreendendo a página formulario.php</a></li>
+				<li><a href="5.9.htm" title="Compreendendo a página relatorio.php">Compreendendo a página relatorio.php</a></li>
+				<li><a href="5.10.htm" title="Compreendendo a página comportamentos.js">Compreendendo a página comportamentos.js</a></li>
+				<li><a href="5.11.htm" title="Considerações finais">Considerações finais</a></li>			
+			</ul>
+		</li>
+		<li><a href="6.htm" class="itemMenu" id="linkCap6" title="Bibliografia">Bibliografia</a>
+			<ul id="cap6">
+				<li class="titCap">Bibliografia</li>
+				<li><a href="6.htm" title="">Referências bibliográficas</a></li>
+			</ul>
+		</li>
+	</ul>
+	<p id="changeFontSize"><a href="javascript:changeFontSize();" title="Alterar o tamanho da fonte">&raquo; Tamanho da fonte</a></p>
+</div>
+<!-- / Sidebar -->
+	
+<div id="frameScroll">
+	<a href="#" title="Ocultar / Exibir o menu" id="optFrameScroll">
+		<img src="img/icn/icone_frame_scroll_hide.jpg" width="6" height="50" alt="" />
+	</a>
+</div>
+
+<div id="rodape">
+
+</div>
+<!-- Rodape -->
+
+</div>
+<!-- / Global -->
+
+</body>
+</html>

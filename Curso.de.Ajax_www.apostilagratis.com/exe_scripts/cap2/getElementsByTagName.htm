@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br">
+
+<head>
+	<meta http-equiv="Content-Type"  content="application/xhtml+xml; charset=iso-8859-1" />
+	<meta name="author" content="Leandro Vieira Pinho [ leandro@plugsites.net ]" />
+	<meta name="language" content="pt-br" />
+	
+	<title>Exemplo do m&eacute;todo: getElementsByTagName</title>
+
+	<script type="text/javascript" src="../../js/perform.js"></script>
+	
+	<style type="text/css" media="screen">
+		/*<![CDATA[*/
+		<!--
+			@import "../../css/style.css";
+		-->
+		/*]]>*/
+		a, a:visited, a:hover {
+			color: #00e;
+			text-decoration: none;
+			font-size: 1.3em;
+		}
+		a.act {
+			color: #060;
+			text-decoration: none;
+		}
+	</style>
+<script type="text/javascript">
+<!--
+function changeStyleLink() {
+	var links = document.getElementsByTagName('a');
+	for(var x = 1; x < links.length; x++) {
+		var _link = links[x];
+		_link.style.textDecoration = 'underline';
+	}
+}
+//-->
+</script>
+
+</head>
+
+<body>
+
+<div id="global">
+
+<h1 id="header">Web Sites com Ajax</h1>
+
+<div id="conteudo">
+	<h3 id="txtDemo">Introdução</h3>
+
+	<div id="curso">
+		
+		<h2>Exemplo do método: getElementsByTagName</h2>
+		
+		<noscript>
+			<p>O exemplo está impossibilitado de ser executado.</p>
+			<p>Motivo: o JavaScript do seu browser está desativado.</p>
+			<p><a href="../../noscript.htm" title="Ative o JavaScript do seu browser">Saiba como ativá-lo.</a></p>
+		</noscript>
+		
+		<p>Todos os links estão em azul com o tamanho de fonte maior, com exceção do primeiro que é o responsável em chamar a função.</p>
+		
+		<p><a class="act" href="../../noscript.htm" onclick="changeStyleLink(); return false;" title="Sublinhar os links contidos nesta página.">Sublinhar os links contidos nesta página.</a></p>
+		
+		<p><a href="#">Lorem ipsum</a> dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure <a href="#">dolor</a> in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te <a href="#">feugait</a> nulla facilisi.</p>
+		
+		<p>Epsum factorial non deposit quid pro quo hic escorol. <a href="#">Olypian</a> quarrels et gorilla congolium sic ad nauseum. <a href="#">Souvlaki</a> ignitus carborundum e pluribus unum. Defacto lingo est igpay atinlay. <a href="#">Marquee</a> selectus non provisio incongruous feline nolo contendre. Gratuitous octopus niacin, sodium glutimate. Quote meon an estimate et non interruptus stadium. Sic tempus fugit esperanto hiccup estrogen. <a href="#">Glorious</a> baklava ex librus hup hey ad infinitum. Non sequitur condominium facile et geranium incognito. Epsum factorial non deposit quid pro quo hic escorol. Marquee selectus non provisio incongruous feline nolo contendre Olypian quarrels et <a href="#">gorilla</a> congolium sic ad nauseum. Souvlaki ignitus<a href="#"> carborundum</a> e pluribus unum. .</p>
+		
+		<p>Script utilizado:</p>
+		
+		<code>
+			&lt;script type=&quot;text/javascript&quot;&gt;<br />
+			&lt;!--<br />
+			function changeStyleLink() {<br />
+			<span class="codeSpace">&nbsp;</span>var links = document.getElementsByTagName('a');<br />
+			<span class="codeSpace">&nbsp;</span>for(var x = 1; x &lt; links.length; x++) {<br />
+			<span class="codeSpace">&nbsp;</span><span class="codeSpace">&nbsp;</span>var _link = links[x];<br />
+			<span class="codeSpace">&nbsp;</span><span class="codeSpace">&nbsp;</span>_link.style.textDecoration = 'underline';<br />
+			<span class="codeSpace">&nbsp;</span>}<br />
+			}<br />
+			//--&gt;<br />
+			&lt;/script&gt;
+	</code>			
+		
+		<p>
+			<a href="../../2.4.htm" class="act" onclick="javascript:history.back(); return false;" title="Voltar ao método: getElementsByTagName.">&laquo; Voltar ao método: getElementsByTagName.</a>
+		</p>
+
+	</div>
+</div>
+<!-- conteudo -->
+
+<div id="sideBar">
+
+</div>
+<!-- / Sidebar -->
+	
+<div id="frameScroll">
+	<a href="#" title="Ocultar / Exibir o menu" id="optFrameScroll">
+		<img src="img/icn/icone_frame_scroll_hide.jpg" width="6" height="50" alt="" />
+	</a>
+</div>
+
+<div id="rodape">
+
+</div>
+<!-- Rodape -->
+
+</div>
+<!-- / Global -->
+
+</body>
+</html>

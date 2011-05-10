@@ -1,0 +1,303 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br">
+
+<head>
+	<title>Curso iMasters - Web Sites com Ajax - Cap&iacute;tulo 1 - Introdução ao JavaScript</title>
+	<meta http-equiv="Content-Type"  content="application/xhtml+xml; charset=iso-8859-1" />
+	<meta name="author" content="Leandro Vieira Pinho [ leandro@plugsites.net ]" />
+	<meta name="language" content="pt-br" />
+	<script type="text/javascript" src="js/perform.js"></script>
+	<style type="text/css" media="screen">
+		/*<![CDATA[*/
+		<!--
+			@import "css/style.css";
+		-->
+		/*]]>*/
+	</style>
+	<link rel="shortcut icon" href="img/favicon_imasters.gif" type="image/x-icon" />
+</head>
+
+<body>
+
+<div id="global">
+
+<h1 id="header">Web Sites com Ajax</h1>
+
+<div id="conteudo">
+	<h3 id="txtJavaScript">JavaScript</h3>
+
+	<div id="curso">
+		<h2>Introdução ao JavaScript</h2>
+		<p>Os principais browsers do mercado, <a href="http://www.mozilla.com/firefox/" title="Browser - Firefox">Firefox</a>, <a href="http://www.mozilla.org/products/mozilla1.x/" title="Browser - Mozilla">Mozilla</a>, <a href="http://www.opera.com/" title="Browser - Opera">Opera</a>, <a href="http://browser.netscape.com/ns8/" title="Browser - Netscape">Netscape</a>, <a href="http://www.apple.com/safari/" title="Browser - Safari">Safari</a>, <a href="http://www.microsoft.com/ie/" title="Browser - Internet Explorer">Internet Explorer</a> e outros mais, suportam a linguagem JavaScript.
+		Ela é utilizada para a validação de formulários, ler e inserir conteúdo em uma página, criar cookies, menus dinâmicos e diversos outros recursos. </p>
+		<h3>Inserindo o JavaScript em uma página HTML</h3>
+		
+		<p>Para inserirmos o JavaScript em uma página HTML, fazemos uso da tag <strong>&lt;script&gt;</strong> e do atributo type com o valor: <strong>text/javascript</strong>. O que resultaria no seguinte:</p>
+		
+		<code>
+			&lt;script type=&quot;text/javascript&quot;&gt;<br />
+			//códigos JavaScript<br />
+			&lt;/script&gt;</code>
+		
+		<p>Ao iniciarmos a tag   <strong>&lt;script&gt;</strong>, dizemos o tipo de script utilizado  <strong>type="text/javascript"</strong> e  assim o browser entenderá que no conte&uacute;do dessa tag há comandos JavaScript para serem executados e os reconhecerão.         
+		<p>Para finalizar a  execução dos códigos usa-se o final da tag como  <strong>&lt;/script&gt;</strong>.
+	    <h3>Onde inserimos o JavaScript em uma página HTML</h3>
+		
+		<p>Há três formas de inserirmos o JavaScript em uma página HTML, s&atilde;o elas:  um arquivo externo <strong>-.js</strong>, no head, no body ou utilizando os três de uma só vez. </p>
+		<p>Vamos conhecer a peculiaridade de cada uma delas.</p>
+		<h4>Arquivo (script) externo</h4>
+		
+		<p>O arquivo externo é chamado desta forma:</p>
+		
+		<code>
+			...<br />
+			&lt;head&gt;<br />
+			&lt;script type=&quot;text/javascript&quot; <strong>src=&quot;externo.js&quot;&gt;</strong>&lt;/script&gt;<br />
+			&lt;/head&gt;<br />
+			...
+		</code>
+		
+		<p>Ou seja, através do atributo <strong>src</strong> da tag <strong>&lt;script&gt;</strong>, indicamos a localização do arquivo externo, para que assim o browser possa localizá-lo e executá-lo. </p>
+		<p>Em arquivos externos não utilizamos a tag <strong>&lt;script&gt;</strong>, somente os códigos. </p>
+		<p>Vamos conhecer algumas das vantagens de se trabalhar dessa forma:</p>
+		<dl>
+			<dt> Facilidade na manutenção</dt>
+			<dd>Uma vez que o script está localizado em apenas um arquivo, facilita a edição ou correção dos códigos.</dd>
+			<dt>Carregamento mais rápido da página</dt>
+			<dd>O arquivo externo é armazenado no <span class="tooltip" title="Se refere a uma porção de memória. Entretanto os navegadores -browsers - possuem um cache próprio onde arquivam as últimas imagens e páginas html visitadas.">cache</span> do navegador. Assim, evita-se carregá-lo toda vez que a página for chamada.</dd>
+			<dt>Semântico</dt>
+			<dd>O arquivo externo separa a camada de comportamento (JavaScript) da camada de conteúdo (HTML).</dd>
+		</dl>
+		
+		<h4>Script no head da página</h4>
+		
+		<p>O script &eacute; inserido desta forma:</p>
+		
+		<code>
+			...<br />
+			&lt;head&gt;<br />
+			&lt;script type=&quot;text/javascript&quot;&gt;<br />
+			//c&oacute;digos JavaScript<br />
+			&lt;/script&gt;<br />
+			&lt;/head&gt;<br />
+			...
+		</code>
+		
+		<p>Os códigos JavaScript localizado no head da página são executados ao serem chamados, ou seja, quando algum <a href="1.8.htm?pg=1.1.htm">evento</a> for provocado, como o evento onclick, onmouseover, onload, dentre outros. </p>
+		<p>Nessa forma o script é carregando antes de alguém utilizá-lo, ou seja, antes do carregamento do conteúdo do body.</p>
+		<h4>Script no body da página</h4>
+
+		<p>O script &eacute; inserido desta forma:</p>
+		
+		<code>
+			...<br />
+			&lt;body&gt;<br />
+			&lt;script type=&quot;text/javascript&quot;&gt;<br />
+			//c&oacute;digos JavaScript<br />
+			&lt;/script&gt;<br />
+			&lt;/body&gt;<br />
+			...
+		</code>
+		
+		<p>Os códigos inseridos no body da página são inicialmente executados enquanto a página é carregada mas também podem ser chamados quando algum evento for provocado.</p>
+		
+		<h3>A tag &lt;noscript&gt;</h3>
+		
+		<p>A tag <strong>&lt;noscript&gt;</strong> nos permite disponibilizar um conteúdo alternativo ao disposto via script. Isso significa dizer que, se o usuário não tiver suporte ao JavaScript em seu browser, ele verá o conteúdo inserido dentro dela e, caso tenha suporte, o seu conteúdo é omitido. </p>
+		<p>Veja um exemplo:</p>
+		<code>
+			&lt;script type=&quot;text/javascript&quot;&gt;<br />
+			alert(&quot;Parab&eacute;ns, voc&ecirc; est&aacute; aprendendo JavaScript.&quot;);<br />
+			&lt;/script&gt;<br />
+			<br />
+			&lt;noscript&gt;<br />
+			&lt;p&gt;Parab&eacute;ns, voc&ecirc; est&aacute; aprendendo JavaScript.&lt;/p&gt;<br />
+			&lt;/noscript&gt;
+		</code>
+		
+		<p>No exemplo acima será exibida a mensagem, &quot;Você está aprendendo JavaScript&quot;, através do <a href="1.5.htm?pg=1.1.htm">alert()</a> - <em>uma função do JavaScript que exibe uma mensagem através de um popup box</em> - para quem tem suporte ao JavaScript. Caso contr&aacute;rio,  mesma mensagem aparecer&aacute; para quem não tem suporte ao JavaScript, porém através da tag <strong>&lt;noscript&gt;</strong> na forma de texto. </p>
+		<p>Veja as imagens:</p>
+		<p>
+			<img src="img_curso/cap1/exemplo_msg_via_alert.gif" alt="Exemplo de uma mensagem via alert()." title="Exemplo de uma mensagem via alert()." width="327" height="126" />
+			<span class="legenda">Exemplo de uma mensagem via alert().</span>		</p>
+		
+		<p>
+			<img src="img_curso/cap1/exemplo_msg_via_noscript.gif" alt="Exemplo de uma mensagem via noscript." title="Exemplo de uma mensagem via noscript." width="284"  height="47"/>
+			<span class="legenda">Exemplo de uma mensagem via &lt;noscript&gt;</span>
+		</p>
+		
+		<p>A tag <strong>&lt;noscript&gt;</strong> é muito importante quando se trata de acessibilidade, pois oferece um conteúdo alternativo para os usuários sem suporte &agrave; linguagem em questão.</p>
+		
+		<h3>Comentários em JavaScript</h3>
+		
+		<p>Os comentários na linguagem JavaScript tem função similar &agrave;s demais linguagens, ou seja, de explicar o que determinado comando faz, nota de algum autor, lembretes, dentre outras. </p>
+		<p>Tudo que estiver englobado pelos comentários é ignorado pelo interpretador do JavaScript.</p>
+		<p>Há dois tipos de comentários, s&atilde;o eles: <strong>//</strong> e <strong>/* */</strong>. O primeiro é o comentário de uma linha somente, enquanto o segundo suporta várias.</p>
+		<p> Observe os exemplos:</p>
+		<code>
+			&lt;script type=&quot;text/javascript&quot;&gt;<br />
+			// Isto &eacute; um coment&aacute;rio de uma linha.<br />
+			<br />
+			/* Isto &eacute; um coment&aacute;rio de v&aacute;rias linhas, e o interpretador ignora todo esse conte&uacute;do. O que nos permite a cria&ccedil;&atilde;o de notas e lembretes em nossos c&oacute;digos. */<br />
+			&lt;/script&gt;
+		</code>
+		
+		<p>Um detalhe importante que não podemos esquecer, é a utilização do comentário em HTML ao utilizar códigos JavaScript in-line (<em>disposto no head ou body</em>). Antes de lhe explicar a sua função, veja o exemplo:</p>
+		
+		<code>
+			...<br />
+			&lt;head&gt;<br />
+			&lt;script type=&quot;text/javascript&quot;&gt;<br />
+			&lt;!--<br />
+			//c&oacute;digos JavaScript<br />
+			//--&gt;<br />
+			&lt;/script&gt;<br />
+			&lt;/head&gt;<br />
+			...	
+		</code>
+		
+		<p>Agora vamos compreender isso melhor. Os browsers que não suportam o JavaScript irão exibi-lo como se fosse parte do conteúdo da página. Para prevenir essa pr&aacute;tica,   utilizamos o comentário em HTML.</p>
+		
+		<p>Por&eacute;m, você pode se perguntar: Para que serve as duas barras (//) antes do fechamento do comentário? Bom, elas previnem que o interpretador do JavaScript as interpretem.</p>
+		
+		<h3>Alguns detalhes para finalizar</h3>
+		
+		<h4>"Case sensitive"</h4>
+		
+		<p>JavaScript é "case sensitive", o que significa dizer, que o interpretador diferencia minúsculas de maiúsculas. Veja um exemplo:</p>
+		
+		<code>
+			&lt;script type=&quot;text/javascript&quot;&gt;<br />
+			&lt;!--<br />
+			var txtMsg = &quot;Voc&ecirc; foi introduzido ao JavaScript.&quot;;<br />
+			alert(txtmsg); // Isto irá causar um erro.<br />
+			//--&gt;<br />
+			&lt;/script&gt;<br />
+		</code>
+		
+		<p>No exemplo acima, gostaríamos de exibir através do <a href="1.5.htm?pg=1.1.htm">alert()</a> a mensagem armazenada na variável <strong>txtMsg</strong> (<em>não se preocupe, você aprenderá sobre variáveis ainda</em>), mas como chamamos a variável por <strong>txtmsg,</strong> o JavaScript não a encontrou no código, causando um erro - <em>txtmsg is not defined</em>. </p>
+		<p>Moral da história, uma simples letra maiúscula ou minúscula causa toda a diferença.</p>
+		<h4> Ponto e vírgula (;) no final das declarações</h4>
+		
+		<p>Em JavaScript a utilização do <strong>;</strong> (<em>ponto e v&iacute;rgula</em>) é quase que opcional. Digo quase, porque se você dispor de duas declarações de código na mesma linha, precisará do <strong>;</strong> (<em>ponto e v&iacute;rgula</em>). </p>
+		<p>Vejamos o exemplo abaixo:</p>
+		<code>
+			alert(&quot;Estes detalhes...&quot;); alert(&quot;... s&atilde;o importantes&quot;); <br />
+			alert(&quot;Notou...&quot;)<br />
+			alert(&quot;A diferen&ccedil;a?&quot;)
+		</code>
+
+		<p>Eu sempre utilizo o <strong>;</strong> (<em>ponto e v&iacute;rgula</em>) no final de minhas declarações.         
+		<p>Outro detalhe:  se você utilizar algum compressor de JavaScript - <em>para reduzir o tamanho do arquivo</em> - e os seus códigos não tiverem o <strong>;</strong> (<em>ponto e virgula</em>), aparecer&aacute; erros, pois os compressores distribuem os códigos em uma única linha.
+		<ul id="navigation">
+			<li><a href="1.htm" id="" title="Prefácio do Capítulo 1">&laquo; Prefácio do Capítulo 1</a>
+			<li>|</li>
+			<li><a href="1.2.htm" id="linkNavCap1" title="JavaScript - Variáveis">Variáveis &raquo;</a></li>
+		</ul>
+	</div>
+</div>
+<!-- conteudo -->
+
+
+<div id="sideBar">
+	<ul id="menu">
+		<li><a href="index.htm" class="itemMenu" title="Introdução do curso">Introdução</a></li>
+		<li><a href="1.htm" class="itemMenu" id="linkCap1" title="JavaScript">Capítulo 1</a>
+			<ul id="cap1">
+				<li class="titCap">JavaScript</li>
+				<li><a href="1.htm" title="Prefácio">Prefácio</a></li>
+				<li><a href="1.1.htm" title="Introdução ao JavaScript">Introdução ao JavaScript</a></li>
+				<li><a href="1.2.htm" title="Variáveis">Variáveis</a></li>
+				<li><a href="1.3.htm" title="Operadores">Operadores</a></li>
+				<li><a href="1.4.htm" title="Condições">Condições</a></li>
+				<li><a href="1.5.htm" title="Popup Boxes">Popup Boxes</a></li>
+				<li><a href="1.6.htm" title="Loops">Loops</a></li>
+				<li><a href="1.7.htm" title="Funções">Funções</a></li>
+				<li><a href="1.8.htm" title="Eventos">Eventos</a></li>
+				<li><a href="1.9.htm" title="Array">Array</a></li>
+				<li><a href="1.10.htm" title="Data">Data</a></li>
+				<li><a href="1.11.htm" title="String">String</a></li>
+				<li><a href="1.12.htm" title="Math">Math</a></li>
+				<li><a href="1.13.htm" title="Validação de formulários">Validação de formulários</a>
+			</ul>
+		</li>
+		<li><a href="2.htm" class="itemMenu" id="linkCap2" title="DOM e DHTML">Capítulo 2</a>
+			<ul id="cap2">
+				<li class="titCap">DOM e DHTML</li>
+				<li><a href="2.htm" title="Prefácio">Prefácio</a></li>
+				<li><a href="2.1.htm" title="Introdução ao DOM">Introdução ao DOM</a></li>
+				<li><a href="2.2.htm" title="Introdução ao DHTML">Introdução ao DHTML</a></li>
+				<li><a href="2.3.htm" title="Método: getElementById">Método: getElementById</a></li>
+				<li><a href="2.4.htm" title="Método: getElementsByTagName">Método: getElementsByTagName</a></li>
+				<li><a href="2.5.htm" title="Método: style">Método: style</a></li>
+				<li><a href="2.6.htm" title="Método: className">Método: className</a></li>
+				<li><a href="2.7.htm" title="Método: innerHTML">Método: innerHTML</a></li>
+				<li><a href="2.8.htm" title="Método: appendChild">Método: appendChild</a></li>
+				<li><a href="2.9.htm" title="Método: createElement">Método: createElement</a></li>
+				<li><a href="2.10.htm" title="Método: insertBefore">Método: insertBefore</a></li>
+				<li><a href="2.11.htm" title="Método: insertAfter">Método: insertAfter</a></li>
+				<li><a href="2.12.htm" title="Método: setAttribute">Método: setAttribute</a></li>
+				<li><a href="2.13.htm" title="Método: getAttribute">Método: getAttribute</a></li>
+
+			</ul>
+		</li>
+		<li><a href="3.htm" class="itemMenu" id="linkCap3" title="JavaScript não-obstrutivo">Capítulo 3</a>
+			<ul id="cap3">
+				<li class="titCap">JavaScript não-obstrutivo</li>
+				<li><a href="3.htm" title="Prefácio">Prefácio</a></li>
+				<li><a href="3.1.htm" title="Introdução ao JavaScript não-obstrutivo">Introdução ao JavaScript não-obstrutivo</a></li>
+			</ul>
+		</li>
+		<li><a href="4.htm" class="itemMenu" id="linkCap4" title="Ajax">Capítulo 4</a>
+			<ul id="cap4">
+				<li class="titCap">Ajax</li>
+				<li><a href="4.htm" title="Prefácio">Prefácio</a></li>
+				<li><a href="4.1.htm" title="Introdução ao Ajax">Introdução ao Ajax</a></li>
+				<li><a href="4.2.htm" title="O Objeto XMLHttpRequest">O Objeto XMLHttpRequest</a>
+				<li><a href="4.3.htm" title="Pés no chão">Pés no chão</a>
+			</ul>
+		</li>
+		<li><a href="5.htm" class="itemMenu" id="linkCap5" title="Projeto final">Capítulo 5</a>
+			<ul id="cap5">
+				<li class="titCap">Projeto final</li>
+				<li><a href="5.htm" title="Prefácio">Prefácio</a></li>
+				<li><a href="5.1.htm" title="Introdução ao Projeto final">Introdução ao Projeto final</a></li>
+				<li><a href="5.2.htm" title="Tabela do banco de dados">Tabela do banco de dados</a></li>
+				<li><a href="5.3.htm" title="Visão geral">Visão geral</a></li>
+				<li><a href="5.4.htm" title="Visão geral sobre as páginas">Visão geral sobre as páginas</a></li>
+				<li><a href="5.5.htm" title="Compreendendo o espírito da 'coisa'">Compreendendo o espírito da 'coisa'</a></li>
+				<li><a href="5.6.htm" title="Compreendendo a página index.php">Compreendendo a página index.php</a></li>
+				<li><a href="5.7.htm" title="Compreendendo a página actions.php">Compreendendo a página action.php</a></li>
+				<li><a href="5.8.htm" title="Compreendendo a página formulario.php">Compreendendo a página formulario.php</a></li>
+				<li><a href="5.9.htm" title="Compreendendo a página relatorio.php">Compreendendo a página relatorio.php</a></li>
+				<li><a href="5.10.htm" title="Compreendendo a página comportamentos.js">Compreendendo a página comportamentos.js</a></li>
+				<li><a href="5.11.htm" title="Considerações finais">Considerações finais</a></li>			
+			</ul>
+		</li>
+		<li><a href="6.htm" class="itemMenu" id="linkCap6" title="Bibliografia">Bibliografia</a>
+			<ul id="cap6">
+				<li class="titCap">Bibliografia</li>
+				<li><a href="6.htm" title="">Referências bibliográficas</a></li>
+			</ul>
+		</li>
+	</ul>
+	<p id="changeFontSize"><a href="javascript:changeFontSize();" title="Alterar o tamanho da fonte">&raquo; Tamanho da fonte</a></p>
+</div>
+<!-- / Sidebar -->
+	
+<div id="frameScroll">
+	<a href="#" title="Ocultar / Exibir o menu" id="optFrameScroll">
+		<img src="img/icn/icone_frame_scroll_hide.jpg" width="6" height="50" alt="" />
+	</a>
+</div>
+
+<div id="rodape">
+
+</div>
+<!-- Rodape -->
+
+</div>
+<!-- / Global -->
+
+</body>
+</html>

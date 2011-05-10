@@ -1,0 +1,301 @@
+/* Curso iMasters - Web Sites com Ajax */
+/* Autor: Leandro Vieira Pinho [ leandro@plugsites.net ] */
+* {margin: 0; padding: 0}
+body {
+	background: #eee url(../img/bg/bg_body.jpg) repeat-x;
+	color: #000;
+	font-size: small;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	text-align: center;
+}
+/* Genéricos */
+img {
+	border: none;
+	display: block;
+}
+hr {
+	border: none;
+	border-bottom: 1px dashed #999;
+	height: 1px;
+}
+h2, h3, h4, h5, h6, p, code, ul, hr, ol {
+	margin-bottom: 10px;
+	line-height: 1.3em;
+}
+h2 {
+	font-size: 1.5em;
+}
+h3 {
+	font-size: 1.3em;
+	font-weight: 500;
+	border-bottom: 1px solid #000;
+}
+h4 {
+	font-size: 1em;
+	font-weight: 600;
+}
+code {
+	display: block;
+	background-color: #ffc;
+	border: 1px solid #fc6;
+	padding: 5px;
+	font-size: 1em;
+}
+dl {
+	margin-bottom: 10px;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	padding: 5px 0;
+}
+dt {
+	font-weight: bold;
+}
+dd {
+	margin-left: 20px;
+	margin-bottom: 5px;
+}
+#conteudo ul, #conteudo ol {
+	margin: 0 0 10px 25px;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-bottom: 10px;
+	line-height: 1.3em;
+}
+table td, th {
+	border: 1px solid #000;
+	padding: 5px;
+}
+table th {
+	background-color: #ffc;
+	text-align: center;
+}
+table tr.otherBgColor td {
+	background-color: #E8EEFA;
+}
+caption {
+	padding-bottom: 10px;
+}
+noscript {
+	background-color: #fcc;
+	border: 1px solid #f00;
+	padding: 10px;
+	display: block;
+	margin-bottom: 10px;
+	font-weight: bold;
+}
+/* classes e ID´s */
+.legenda {
+	color: #999;
+	font-size: 0.9em;
+}
+.show {
+	display: block;
+}
+.hide {
+	display: none;
+}
+.codeSpace {
+	margin-left: 15px;
+}
+#changeFontSize {
+	margin: 10px 5px;
+}
+#navigation {
+	list-style: none;
+	text-align: right;
+	background-color: #f7f7f7;
+	border-top: 3px double #eee;
+	padding: 5px;
+}
+#navigation li {
+	display: inline;
+}
+#navigation li a {
+	text-decoration: none;
+	color: #000;
+	font-weight: bold;
+	font-size: 1em;
+}
+#navigation li a:visited {
+	text-decoration: none;
+	color: #000;
+}
+#navigation li a:hover, #navigation li a:active {
+	text-decoration: none;
+	color: #AB131D;
+}
+/* links */
+a, a:visited {
+	text-decoration: underline;
+	color: #AB131D;
+	font-size: 1.1em;
+	font-weight: bold;
+}
+a:hover {
+	text-decoration: underline;
+	color: #000;
+}
+a:active {
+	background-color: #333;
+	color: #AB131D;
+}
+/* Textos (image replacemente) */
+#txtIntro {
+	background: url(../img/txt/txtIntro.gif);
+}
+#txtJavaScript {
+	background: url(../img/txt/txtJavaScript.gif);
+}
+#txtDomDhtml {
+	background: url(../img/txt/txtDomDhtml.gif);
+}
+#txtDemo {
+	background: url(../img/txt/txtDemo.gif);
+}
+#txtJavaScriptNaoObstrutivo {
+	background: url(../img/txt/txtJavaScriptNaoObstrutivo.gif);
+}
+#txtAjax {
+	background: url(../img/txt/txtAjax.gif);
+}
+#txtProjetoFinal {
+	background: url(../img/txt/txtProjetoFinal.gif);
+}
+#txtNoScript {
+	background: url(../img/txt/txtNoScript.gif);
+}
+#txtBibliografia {
+	background: url(../img/txt/txtBibliografia.gif);
+}
+#txtIntro, #txtJavaScript, #txtDomDhtml, #txtDemo, #txtJavaScriptNaoObstrutivo, #txtAjax, #txtProjetoFinal, #txtNoScript, #txtBibliografia {
+	background-repeat: no-repeat;
+	overflow: hidden;
+	padding-top: 400px;
+	height: 0;
+	position: absolute;
+	left: 0;
+	top: 56px;
+	border: none;
+}
+/* Estrutura do layout */
+#global {
+	width: 770px;
+	margin: 0 auto;
+	text-align: left;
+	background: #fff url(../img/bg/bg_global.gif) repeat-y;
+	border: 1px solid #424242;
+	position: relative;
+}
+#header {
+	/*background: #424242 url(../img/bg/bg_header.jpg) repeat-x;*/
+	background: #424242 url(../img/txt/txtTitulo.gif) no-repeat;
+	border-bottom: 1px solid #424242;
+	color: #fff;
+	height: 0;
+	padding-top: 55px;
+	float: left;
+	width: 559px;
+	padding-left: 5px;
+	overflow: hidden;
+}
+#frameScroll {
+	background: #506375 url(../img/bg/bg_frame_scroll.jpg) repeat-y;
+	width: 6px;
+	float: right;
+	padding-top: 25%;
+	padding-bottom: 25%;
+}
+#sideBar {
+	float: right;
+	width: 200px;
+	margin-top: -56px;
+}
+#conteudo {
+	width: 484px;
+	min-height: 420px;
+	padding: 10px 10px 10px 70px;
+	float: left;
+	font-size: small;
+}
+#rodape {
+	clear: both;
+	background: #AB131D url(../img/bg/bgRodape.gif) no-repeat center center;
+	background-color: #AB131D;
+	border-top: 1px solid #333;
+	line-height: 50px;
+	height: 50px;
+}
+/* Menu de navegação */
+ul#menu {
+	list-style: none;
+}
+ul#menu li a.itemMenu {
+	color: #fff;
+	font-weight: bolder;
+	font-size: 1em;
+	text-decoration: none;
+	background: #AB131D url(../img/bg/bg_btn.jpg) no-repeat left top;
+	display: block;
+	height: 65px;
+	line-height: 65px;
+	padding-left: 20px;
+	border-bottom: 1px solid #AB131D;
+}
+ul#menu li a.itemMenu:hover {
+	text-decoration: underline;
+	background: #424242 url(../img/bg/bg_btn.jpg) no-repeat left bottom;
+	color: #fff;
+	border-bottom: 1px solid #424242;
+}
+/* submenus */
+ul#menu ul {
+	list-style: none;
+	margin: 5px 0 10px 15px;
+}
+ul#menu ul li.titCap {
+	background-color: #000;
+	color: #fff;
+	margin: -5px 0 0 -15px;
+	padding: 10px 0 10px 20px;
+	font-weight: bold;
+}
+ul#menu ul li a {
+	color: #000;
+	font-weight: bold;
+	font-size: 1em;
+	display: block;
+	text-decoration: none;
+	border-bottom: 1px solid #424242;
+	padding: 10px 5px;
+}
+* html ul#menu ul li a {
+	height: 1em;
+}
+ul#menu ul li a:hover {
+	background-color: #f99;
+}
+#boxBackToCourse {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	z-index: 1000;
+        width: 200px;
+	background-color:#f7f7f7;
+	border: 1px double #AB131D;
+	padding: 5px;
+	line-height: 1.5em;
+	-moz-opacity: 0.8;
+	opacity: 0.8;
+	filter:alpha(opacity=80);
+}
+
+#boxBackToCourse a { font-size:1em; }
+
+#linkClose {
+	display: block;
+	text-decoration: none;
+	margin-top: 10px;
+}

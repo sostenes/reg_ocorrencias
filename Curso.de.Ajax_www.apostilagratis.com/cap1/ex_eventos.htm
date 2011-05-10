@@ -1,0 +1,253 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br">
+
+<head>
+	<meta http-equiv="Content-Type"  content="application/xhtml+xml; charset=iso-8859-1" />
+	<meta name="author" content="Leandro Vieira Pinho [ leandro@plugsites.net ]" />
+	<meta name="language" content="pt-br" />
+	
+	<title>Exemplo da unidade: Eventos</title>
+
+	<script type="text/javascript" src="../../js/perform.js"></script>
+	
+	<style type="text/css" media="screen">
+		/*<![CDATA[*/
+		<!--
+			@import "../../css/style.css";
+		-->
+		/*]]>*/
+	</style>
+<script type="text/javascript">
+<!--
+function functionToOnLoad() {
+	alert("A página foi carregada por completo. Em consequência disso, este alerta foi exibido.\nO evento onload funciona dessa maneira.");
+}
+
+function functionToOnUnLoad() {
+	alert("Este alerta foi exibido através do evento: onunload. Que é executado, quando sairmos de uma página.");
+}
+
+function functionToOnClick() {
+	alert("Alerta exibido através do evento: onclick.");
+}
+
+function functionToOnMouseOver() {
+	alert("Você PASSOU o mouse sobre a área do link. Então, exibimos este alerta, através do evento: onmouseover.");
+}
+
+function functionToOnMouseOut() {
+	alert("Você RETIOU o mouse sobre a área do link. Então, exibimos este alerta, através do evento: onmouseoout.");
+}
+
+function functionToOnSubmit() {
+	// Nome do formulário (frmTeste) no atributo name.
+	var frm = document.frmTeste;
+	// Valor do campo onde será informado o nome.
+	var campoNome = frm.nome.value; // é igual a: document.frmTeste.nome.value, mas document.frmTeste é igual a frm neste exemplo.
+	// Verificando se o campo está vazio ou se está com o valor padrão (Digite aqui o seu nome.).
+	if(campoNome == "" || campoNome == "Digite aqui o seu nome.") {
+		// Exibe um alerta para informar o usuário.
+		alert("Por favor, informe o seu nome.");
+		// Seta um focus no campo nome, assim o usuário saberá em qual campo está o erro.
+		frm.nome.focus();
+		// Evita que o form seja enviado.
+		return false;
+	}
+	// Libera o form para ser enviado, caso o nome não seja vazio
+	alert("Parabéns, o formulário foi preenchido como deveria.");
+	return false; // Coloquei o return false simplesmente para evitar o reload na página e executar os eventos: onload e onunload novamente.
+	// return true; 
+}
+
+function previewTxt() {
+	// Campo de origem, onde o nome é informado.
+	var campoOrigem = document.frmTeste.nome;
+	// Campo de destino, onde o preview do nome será exibido.
+	var campoDestino = document.frmTeste.view;
+	// O valor do campo de destino será igual ao campo de origem, simples.
+	campoDestino.value = campoOrigem.value;
+}
+//-->
+</script>
+
+</head>
+
+<body onload="functionToOnLoad();" onunload="functionToOnUnLoad();">
+
+<div id="global">
+
+<h1 id="header">Web Sites com Ajax</h1>
+
+<div id="conteudo">
+	<h3 id="txtDemo">Introdução</h3>
+
+	<div id="curso">
+		
+		<h2>Exemplo da unidade: Eventos</h2>
+		
+		<noscript>
+			<p>O exemplo está impossibilitado de ser executado.</p>
+			<p>Motivo: o JavaScript do seu browser está desativado.</p>
+			<p><a href="../../noscript.htm" title="Ative o JavaScript do seu browser">Saiba como ativá-lo.</a></p>
+		</noscript>
+		
+		<p>Script utilizado:</p>
+		
+		<code>
+			&lt;script type=&quot;text/javascript&quot;&gt;<br />
+			&lt;!--<br />
+			// Visualize o código fonte desta página.<br />
+			//--&gt;<br />
+			&lt;/script&gt;
+		</code>			
+		
+		<h4>Exemplo para os eventos: onclick, onmouseover e onmouseout</h4>
+		
+		<ul>
+			<li><a href="../../#" onclick="javascript:functionToOnClick();">Clique em mim, e verá o evento: onclick em ação.</a>
+			</li>
+			<li><a href="../../#" onmouseover="javascript:functionToOnMouseOver();" onmouseout="javascript:functionToOnMouseOut();">Passe o mouse sobre mim e retire-o. Verá os behaviors: onmouseover e onmouseout em ação.</a>
+			</li>
+		</ul>
+		
+		<h4>Exemplo para os eventos: onsubmit, onfocus, onblur, onkeypress e onkeyup</h4>
+		
+		<form method="post" action="#" onsubmit="return functionToOnSubmit();" name="frmTeste">
+			<p>
+				Qual o seu nome? <input type="text" name="nome" id="nome" size="23" value="Digite aqui o seu nome." onkeypress="previewTxt();" onkeyup="previewTxt();" onfocus="this.value=''" onblur="if(this.value=='') { this.value = 'Digite aqui o seu nome.'}" />
+				<input type="submit" name="sbt" id="sbt" value="Testar o evento: onsubmit" />
+			</p>
+			<p>
+				Preview do texto informado: 
+				<input type="text" name="view" id="view" size="40" readonly="readonly" />
+			</p>
+		</form>
+		
+		<h4>Sobre estes exemplos</h4>
+		
+		<h5>onload e onunload</h5>
+		
+		<p>Eles são simples, ao entrar na página, você se deparou com um alerta, e ele (alerta) foi exibido mediante o evento onload. Ao sair da página, você verá outro alerta, mas esse agora será exibido através do evento onunload.</p>
+		
+		<h5>onclick, onmouseover e onmouseout</h5>
+		
+		<p>Exibirá um alerta ao clicar no link (no primeiro), um alerta ao passar o mouse sobre o segundo link e ao retirar o mouse da área do link (o segundo).</p>
+		
+		<h5>onsubmit, onfocus, onblur, onkeypress e onkeyup</h5>
+		
+		<p>O evento onsubmit ocorrerá quando o form for enviado, ou seja, ao clicar no botão - Testar o evento: onsubmit.</p>
+		
+		<p>Quando o campo que recebe o seu nome é focado, o evento onfocus entra em ação, neste caso, "limpando" o valor padrão do campo - Digite aqui o seu nome. Quando esse mesmo campo perde o foco, quem entra em cena é o evento onblur, com ele voltamos o valor padrão novamente, mas somente se o valor do campo estiver vazio. Pois assim, evitamos de limpar o nome do usuário.</p>
+		
+		<p>Os eventos onkeypress e onkeyup foram aplicados também no campo onde informamos o nome. Eles vão atualizando um outro campo de texto (logo abaixo) a media que você vai digitando seu nome.</p>
+
+		<p>
+			<a href="../../1.8.htm" onclick="javascript:history.go(-1); return false;" title="Voltar a unidade Eventos.">&laquo; Voltar a unidade Eventos.</a>
+		</p>
+
+	</div>
+</div>
+<!-- conteudo -->
+
+	<div id="sideBar">
+		<ul id="menu">
+			<li><a href="../../index.htm" class="itemMenu" title="Introdução do curso">Introdução</a></li>
+			<li><a href="../../1.htm" class="itemMenu" id="linkCap1" title="JavaScript">Capítulo 1</a>
+				<ul id="cap1">
+					<li class="titCap">JavaScript</li>
+					<li><a href="../../1.htm" title="Prefácio">Prefácio</a></li>
+					<li><a href="../../1.1.htm" title="Introdução ao JavaScript">Introdução ao JavaScript</a></li>
+					<li><a href="../../1.2.htm" title="Variáveis">Variáveis</a></li>
+					<li><a href="../../1.3.htm" title="Operadores">Operadores</a></li>
+					<li><a href="../../1.4.htm" title="Condições">Condições</a></li>
+					<li><a href="../../1.5.htm" title="Popup Boxes">Popup Boxes</a></li>
+					<li><a href="../../1.6.htm" title="Loops">Loops</a></li>
+					<li><a href="../../1.7.htm" title="Funções">Funções</a></li>
+					<li><a href="../../1.8.htm" title="Eventos">Eventos</a></li>
+					<li><a href="../../1.9.htm" title="Array">Array</a></li>
+					<li><a href="../../1.10.htm" title="Data">Data</a></li>
+					<li><a href="../../1.11.htm" title="String">String</a></li>
+					<li><a href="../../1.12.htm" title="Math">Math</a></li>
+					<li><a href="../../1.13.htm" title="Validação de formulários">Validação de formulários</a>
+				</ul>
+			</li>
+			<li><a href="../../2.htm" class="itemMenu" id="linkCap2" title="DOM e DHTML">Capítulo 2</a>
+				<ul id="cap2">
+					<li class="titCap">DOM e DHTML</li>
+					<li><a href="../../2.htm" title="Prefácio">Prefácio</a></li>
+					<li><a href="../../2.1.htm" title="Introdução ao DOM">Introdução ao DOM</a></li>
+					<li><a href="../../2.2.htm" title="Introdução ao DHTML">Introdução ao DHTML</a></li>
+					<li><a href="../../2.3.htm" title="Método: getElementById">Método: getElementById</a></li>
+					<li><a href="../../2.4.htm" title="Método: getElementsByTagName">Método: getElementsByTagName</a></li>
+					<li><a href="../../2.5.htm" title="Método: style">Método: style</a></li>
+					<li><a href="../../2.6.htm" title="Método: className">Método: className</a></li>
+					<li><a href="../../2.7.htm" title="Método: innerHTML">Método: innerHTML</a></li>
+					<li><a href="../../2.8.htm" title="Método: appendChild">Método: appendChild</a></li>
+					<li><a href="../../2.9.htm" title="Método: createElement">Método: createElement</a></li>
+					<li><a href="../../2.10.htm" title="Método: insertBefore">Método: insertBefore</a></li>
+					<li><a href="../../2.11.htm" title="Método: insertAfter">Método: insertAfter</a></li>
+					<li><a href="../../2.12.htm" title="Método: setAttribute">Método: setAttribute</a></li>
+					<li><a href="../../2.13.htm" title="Método: getAttribute">Método: getAttribute</a></li>
+	
+				</ul>
+			</li>
+			<li><a href="../../3.htm" class="itemMenu" id="linkCap3" title="JavaScript não-obstrutivo">Capítulo 3</a>
+				<ul id="cap3">
+					<li class="titCap">JavaScript não-obstrutivo</li>
+					<li><a href="../../3.htm" title="Prefácio">Prefácio</a></li>
+					<li><a href="../../3.1.htm" title="Introdução ao JavaScript não-obstrutivo">Introdução ao JavaScript não-obstrutivo</a></li>
+				</ul>
+			</li>
+			<li><a href="../../4.htm" class="itemMenu" id="linkCap4" title="Ajax">Capítulo 4</a>
+				<ul id="cap4">
+					<li class="titCap">Ajax</li>
+					<li><a href="../../4.htm" title="Prefácio">Prefácio</a></li>
+					<li><a href="../../4.1.htm" title="Introdução ao Ajax">Introdução ao Ajax</a></li>
+					<li><a href="../../4.2.htm" title="O Objeto XMLHttpRequest">O Objeto XMLHttpRequest</a>
+					<li><a href="../../4.3.htm" title="Pés no chão">Pés no chão</a>
+				</ul>
+			</li>
+			<li><a href="../../5.htm" class="itemMenu" id="linkCap5" title="Projeto final">Capítulo 5</a>
+				<ul id="cap5">
+					<li class="titCap">Projeto final</li>
+					<li><a href="../../5.htm" title="Prefácio">Prefácio</a></li>
+					<li><a href="../../5.1.htm" title="Introdução ao Projeto final">Introdução ao Projeto final</a></li>
+					<li><a href="../../5.2.htm" title="Tabela do banco de dados">Tabela do banco de dados</a></li>
+					<li><a href="../../5.3.htm" title="Visão geral">Visão geral</a></li>
+					<li><a href="../../5.4.htm" title="Visão geral sobre as páginas">Visão geral sobre as páginas</a></li>
+					<li><a href="../../5.5.htm" title="Compreendendo o espírito da 'coisa'">Compreendendo o espírito da 'coisa'</a></li>
+					<li><a href="../../5.6.htm" title="Compreendendo a página index.php">Compreendendo a página index.php</a></li>
+					<li><a href="../../5.7.htm" title="Compreendendo a página actions.php">Compreendendo a página action.php</a></li>
+					<li><a href="../../5.8.htm" title="Compreendendo a página formulario.php">Compreendendo a página formulario.php</a></li>
+					<li><a href="../../5.9.htm" title="Compreendendo a página relatorio.php">Compreendendo a página relatorio.php</a></li>
+					<li><a href="../../5.10.htm" title="Compreendendo a página comportamentos.js">Compreendendo a página comportamentos.js</a></li>
+					<li><a href="../../5.11.htm" title="Considerações finais">Considerações finais</a></li>			
+				</ul>
+			</li>
+			<li><a href="../../6.htm" class="itemMenu" id="linkCap6" title="Bibliografia">Bibliografia</a>
+				<ul id="cap6">
+					<li class="titCap">Bibliografia</li>
+					<li><a href="../../6.htm" title="">Referências bibliográficas</a></li>
+				</ul>
+			</li>
+		</ul>
+		<p id="changeFontSize"><a href="javascript:changeFontSize();" title="Alterar o tamanho da fonte">&raquo; Tamanho da fonte</a></p>
+	</div>
+	<!-- / Sidebar -->
+	
+<div id="frameScroll">
+	<a href="#" title="Ocultar / Exibir o menu" id="optFrameScroll">
+		<img src="img/icn/icone_frame_scroll_hide.jpg" width="6" height="50" alt="" />
+	</a>
+</div>
+
+<div id="rodape">
+
+</div>
+<!-- Rodape -->
+
+</div>
+<!-- / Global -->
+
+</body>
+</html>

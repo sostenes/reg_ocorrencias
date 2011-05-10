@@ -1,0 +1,146 @@
+/* Curso iMasters - Criando Web Sites com Ajax - 2006 */
+/* Autor: Leandro Vieira Pinho [ leandroimasters@plugsites.net ] */
+* {
+	margin: 0;
+	padding: 0;
+}
+body {
+	background-color: #fff;
+	color: #000;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: small;
+	margin: 5px 10px;
+	padding: 5px 10px;
+}
+h1, p, table, fieldset {
+	margin-bottom: 10px;
+}
+img {
+	border: none;
+}
+ul {
+	margin-left: 30px;
+	line-height: 1.8em;
+	list-style-type: square;
+	color: #f60;
+	font-weight: bold;
+}
+h1 {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 2em;
+}
+h2 {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 1.5em;
+	background-color: #9CC213;
+	color: #fff;
+	padding: 5px;
+	border-bottom: 1px solid #000
+}
+hr {
+	border: none;
+	border-bottom: 1px dashed #999;
+	margin-bottom: 10px;
+	height: 1px;
+}
+table {
+	width: 100%;
+	border: 1px solid #000;
+	border-collapse: collapse;
+}
+caption {
+	text-align: left;
+	font-weight: bold;
+	padding-bottom: 10px;
+}
+th {
+	background-color: #9CC213;
+	color: #fff;
+}
+th, td {
+	padding: 5px;
+	border-bottom: 1px solid #000
+}
+legend {
+	font-weight: bold;
+	font-size: 1.5em;
+	color: #000;
+	background-color: #fff;
+}
+* html legend {
+	margin-bottom: 10px;
+}
+label {
+	display: block;
+	float: left;
+	width: 150px;
+	text-align: right;
+	padding-right: 5px;
+}
+label.inline {
+	display: inline;
+	float: none;
+}
+input {
+	padding: 2px 1px;
+	border: 1px inset #000;
+}
+#nome, #email, #blog, #msn, #gtalk {
+	width: 250px;
+}
+#obs {
+	width: 400px;
+}
+#ddd {
+	width: 25px;
+}
+#tel, #cel {
+	width: 100px;
+}
+#skype {
+	width: 200px;
+}
+input.btn {
+	padding: 3px 8px;
+}
+.btn, .btnCancelar {
+	font-weight: bold;
+	background-color: #390;
+	border-width: 1px;
+	border-style: outset;
+	border-color: #393 #360 #360 #393;
+	color: #fff;
+	font-family: Arial, Helvetica, sans-serif;
+	vertical-align: middle;
+	padding: 5px 10px;
+	text-align: center;
+}
+.btnCancelar {
+	background-color: #f33;
+	border-color: #f30 #f00 #f00 #f30;
+}
+.btn:hover, .btn:focus, .btn:active, .btnCancelar:hover, .btnCancelar:focus, .btnCancelar:active {
+	border-style: inset;
+}
+#frmCad {
+	background-color: #fff;
+	padding: 10px;
+}
+#boxCad {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 700px;
+	margin-left: -350px;
+	z-index: 180;
+}
+#bgBody {
+	background-color: #000;
+	-moz-opacity: 0.8;
+	opacity: 0.8;
+	filter:alpha(opacity=80);
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 90;
+}

@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br">
+
+<head>
+	<meta http-equiv="Content-Type"  content="application/xhtml+xml; charset=iso-8859-1" />
+	<meta name="author" content="Leandro Vieira Pinho [ leandro@plugsites.net ]" />
+	<meta name="language" content="pt-br" />
+	
+	<title>Exemplo da unidade: Data</title>
+
+	<script type="text/javascript" src="../../js/perform.js"></script>
+	
+	<style type="text/css" media="screen">
+		/*<![CDATA[*/
+		<!--
+			@import "../../css/style.css";
+		-->
+		/*]]>*/
+	</style>
+<script type="text/javascript">
+<!--
+function exeScript() {
+	// Instanciando o objeto Date()
+	var data = new Date();
+	
+	// Referenciando os dias da semana através de Array
+	var diasDaSemana = new Array();
+	diasDaSemana[0] = "Domingo";
+	diasDaSemana[1] = "Segunda-feira";
+	diasDaSemana[2] = "Terça-feira";
+	diasDaSemana[3] = "Quarta-feira";
+	diasDaSemana[4] = "Quinta-feira";
+	diasDaSemana[5] = "Sexta-feira";
+	diasDaSemana[6] = "Sábado-feira";
+	
+	// Referenciando os meses do ano através de Array
+	var mes = new Array();
+	mes[0] = "Janeiro";
+	mes[1] = "Fevereiro";
+	mes[2] = "Março";
+	mes[3] = "Abril";
+	mes[4] = "Maio";
+	mes[5] = "Junho";
+	mes[6] = "Julho";
+	mes[7] = "Agosto";
+	mes[8] = "Setembro";
+	mes[9] = "Outubro";
+	mes[10] = "Novembro";
+	mes[11] = "Dezembro";
+	
+	// Exibindo a data neste formato: Brasil, Estado, Cidade - Dia da semana, dia do mês de mês de ano.
+	alert("Brasil, Estado, Cidade - " + 
+			diasDaSemana[data.getDay()] + 
+			", " + 
+			data.getDate() + 
+			" de " + 
+			mes[data.getMonth()] + 
+			" de " + 
+			data.getFullYear()
+		);
+}
+//-->
+</script>
+
+</head>
+
+<body onload="exeScript();">
+
+<div id="global">
+
+<h1 id="header">Web Sites com Ajax</h1>
+
+<div id="conteudo">
+	<h3 id="txtDemo">Introdução</h3>
+
+	<div id="curso">
+		
+		<h2>Exemplo da unidade: Data</h2>
+		
+		<noscript>
+			<p>O exemplo está impossibilitado de ser executado.</p>
+			<p>Motivo: o JavaScript do seu browser está desativado.</p>
+			<p><a href="../../noscript.htm" title="Ative o JavaScript do seu browser">Saiba como ativá-lo.</a></p>
+		</noscript>
+		
+		<p>Script utilizado:</p>
+		
+		<code id="selectCode">
+			&lt;script type=&quot;text/javascript&quot;&gt;<br />
+			&lt;!--<br />
+			// Instanciando o objeto Date()<br />
+			var data = new Date();<br /><br />
+
+			// Referenciando aos dias da semana atrav&eacute;s de Array<br />
+			var diasDaSemana = new Array();<br />
+			diasDaSemana[0] = &quot;Domingo&quot;;<br />
+			diasDaSemana[1] = &quot;Segunda-feira&quot;;<br />
+			diasDaSemana[2] = &quot;Ter&ccedil;a-feira&quot;;<br />
+			diasDaSemana[3] = &quot;Quarta-feira&quot;;<br />
+			diasDaSemana[4] = &quot;Quinta-feira&quot;;<br />
+			diasDaSemana[5] = &quot;Sexta-feira&quot;;<br />
+			diasDaSemana[6] = &quot;S&aacute;bado-feira&quot;;<br /><br />
+
+			// Referenciando aos meses do ano atrav&eacute;s de Array<br />
+			var mes = new Array();<br />
+			mes[0] = &quot;Janeiro&quot;;<br />
+			mes[1] = &quot;Fevereiro&quot;;<br />
+			mes[2] = &quot;Mar&ccedil;o&quot;;<br />
+			mes[3] = &quot;Abril&quot;;<br />
+			mes[4] = &quot;Maio&quot;;<br />
+			mes[5] = &quot;Junho&quot;;<br />
+			mes[6] = &quot;Julho&quot;;<br />
+			mes[7] = &quot;Agosto&quot;;<br />
+			mes[8] = &quot;Setembro&quot;;<br />
+			mes[9] = &quot;Outubro&quot;;<br />
+			mes[10] = &quot;Novembro&quot;;<br />
+			mes[11] = &quot;Dezembro&quot;;<br /><br />
+
+			// Exibindo a data neste formato: Brasil, Estado, Cidade - Dia da semana, dia do m&ecirc;s de m&ecirc;s de ano.<br />
+			alert(&quot;Brasil, Estado, Cidade - &quot; + <br />
+			<span class="codeSpace">&nbsp;</span>diasDaSemana[data.getDay()] + <br />
+			<span class="codeSpace">&nbsp;</span>&quot;, &quot; + <br />
+			<span class="codeSpace">&nbsp;</span>data.getDate() + <br />
+			<span class="codeSpace">&nbsp;</span>&quot; de &quot; + <br />
+			<span class="codeSpace">&nbsp;</span>mes[data.getMonth()] + <br />
+			<span class="codeSpace">&nbsp;</span>&quot; de &quot; + <br />
+			<span class="codeSpace">&nbsp;</span>data.getFullYear()<br />
+			);<br />
+			//--&gt;<br />
+			&lt;/script&gt;
+		</code>			
+		
+		<p>
+			<a href="../../noscript.htm" onclick="javascript:exeScript(); return false;" title="Executar o script novamente.">&raquo; Executar o script novamente.</a>
+		</p>
+	
+		<p>
+			<a href="../../1.10.htm" onclick="javascript:history.back(); return false;" title="Voltar a unidade Data.">&laquo; Voltar a unidade Data.</a>
+		</p>
+
+	</div>
+</div>
+<!-- conteudo -->
+
+<div id="sideBar">
+
+</div>
+<!-- / Sidebar -->
+	
+<div id="frameScroll">
+	<a href="#" title="Ocultar / Exibir o menu" id="optFrameScroll">
+		<img src="img/icn/icone_frame_scroll_hide.jpg" width="6" height="50" alt="" />
+	</a>
+</div>
+
+<div id="rodape">
+
+</div>
+<!-- Rodape -->
+
+</div>
+<!-- / Global -->
+
+</body>
+</html>

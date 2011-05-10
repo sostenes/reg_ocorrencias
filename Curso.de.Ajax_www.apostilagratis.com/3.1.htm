@@ -1,0 +1,197 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br">
+
+<head>
+	<title>Curso iMasters - Web Sites com Ajax - Cap&iacute;tulo 3 - Introdução ao JavaScript não-obstrutivo</title>
+	<meta http-equiv="Content-Type"  content="application/xhtml+xml; charset=iso-8859-1" />
+	<meta name="author" content="Leandro Vieira Pinho [ leandro@plugsites.net ]" />
+	<meta name="language" content="pt-br" />
+	<script type="text/javascript" src="js/perform.js"></script>
+	<style type="text/css" media="screen">
+		/*<![CDATA[*/
+		<!--
+			@import "css/style.css";
+		-->
+		/*]]>*/
+	</style>
+	<link rel="shortcut icon" href="img/favicon_imasters.gif" type="image/x-icon" />
+</head>
+
+<body>
+
+<div id="global">
+
+<h1 id="header">Web Sites com Ajax</h1>
+
+<div id="conteudo">
+	<h3 id="txtJavaScriptNaoObstrutivo">JavaScript</h3>
+
+	<div id="curso">
+		<h2>Introdução ao JavaScript não-obstrutivo</h2>
+		
+		<p>Assim como separamos os elementos de apresentação dos elementos de conteúdo através de uma folha de estilo  externa (CSS), iremos separar os elementos de comportamento dos elementos de conteúdo através de um arquivo externo de JavaScript.</p>
+		
+		<p>Dessa forma, trabalharemos com as três camadas e as deixaremos independentes uma das outras. Portanto, para acrescentar, alterar ou remover conteúdo trabalharemos com a marcação XHTML, precisamente na camada de conteúdo. </p>
+		<p>Se precisarmos alterar o layout, cores e outros elementos de apresentação, trabalharemos com as CSS, alterando a camada de apresentação.</p>
+		<p>Para concluir, trabalharemos com a camada de comportamento, quando houver necessidade de acrescentar, editar ou remover tais comportamentos na página.</p>
+		<p>A não utilização correta das três camadas da web não é tão deselegante e inacessível quanto o desenvolvimento de um JavaScript obstrutivo, ou seja, scripts que impedem que alguém utilize um website caso não tenha suporte ao JavaScript ou por estar desativado. </p>
+		<p>Um site precisa satisfazer o usuário ou o usuário precisa satisfazer o site? Pense nisso. </p>
+		<p>Vejamos  um exemplo de JavaScript obstrutivo, seguido por dois não-obstrutivos.</p>
+		<code>
+		&lt;a href=&quot;#&quot; onclick=&quot;window.open('pagina.htm')&quot;&gt;texto do link &lt;/a&gt;		</code>
+		
+		<code>&lt;a href=&quot;pagina.htm&quot; onclick=&quot;window.open(this.href)&quot;&gt;text do link&lt;/a&gt; </code>
+		
+		<code>&lt;a href=&quot;pagina.htm&quot; class=&quot;popup&quot;&gt;texto do link &lt;/a&gt; </code>
+		
+		<p>O primeiro exemplo ilustra um JavaScript obstrutivo, o qual deve ser evitado, uma vez que, se alguém tentar acessar o link do exemplo sem ter suporte ao JavaScript não chegará há lugar algum. Afinal, o que temos definido no atributo href é simplesmente uma tralha (#).</p>
+		
+		<p>O segundo exemplo é bom, mas não &eacute; o ideal. Ele abre uma popup como desejamos para aqueles que possuem suporte ao JavaScript, assim como no primeiro exemplo. Caso o usuário não tenha suporte ao JavaScript ele será encaminhado para a mesma página exibida no popup, neste caso: pagina.htm.</p>
+		
+		<p>Para finalizar, temos um exemplo perfeito e ideal. Uma marcação que prepara o link a ser reconhecido por um JavaScript não-obstrutivo e o torna ativador de uma popup, como desejamos. </p>
+		<p>E como isto é feito? Simples, adicionamos ao link uma classe chamada popup e o que precisamos fazer é criar um script para reconhecer os links que possuem tal classe e através deles, abriremos uma popup com a página definida no atributo href deste link.</p>
+		<p>Vamos obseravar o script para exemplificar essa facilidade:</p>
+		
+		<code>
+		function doPopups() {<br />   
+		if (!document.getElementsByTagName) return false;<br />   
+		<span class="codeSpace">&nbsp;</span>var links = document.getElementsByTagName(&quot;a&quot;);   <br />
+		<span class="codeSpace">&nbsp;</span>for (var i=0; i &lt; links.length; i++) {     <br />
+		<span class="codeSpace">&nbsp;</span><span class="codeSpace">&nbsp;</span>if (links[i].className.match(&quot;popup&quot;)) {       <br />
+		<span class="codeSpace">&nbsp;</span><span class="codeSpace">&nbsp;</span><span class="codeSpace">&nbsp;</span>links[i].onclick = function() {         <br />
+		<span class="codeSpace">&nbsp;</span><span class="codeSpace">&nbsp;</span><span class="codeSpace">&nbsp;</span>window.open(this.href);         <br />
+		<span class="codeSpace">&nbsp;</span><span class="codeSpace">&nbsp;</span><span class="codeSpace">&nbsp;</span>return false;       <br />
+		<span class="codeSpace">&nbsp;</span><span class="codeSpace">&nbsp;</span>}     <br />
+		<span class="codeSpace">&nbsp;</span>}   <br />
+		} <br />
+		} <br />
+		window.onload = doPopups;
+		</code>
+		
+		<p>Vejamos o exemplo nesta <a href="exe_scripts/cap3/ex-js-nao-obstrutivo.htm">página de demonstração</a>.</p>
+		
+		<p>Vamos analisar e compreender o que esse script faz. </p>
+		<p>Iniciando pela última linha  <em>window.onload = doPopups</em>. Ela simplesmente inicia a função - <em>doPopups</em> - quando a página a qual o arquivo JavaScript está vinculado for carregada.</p>
+		<p>A função em questão inicia-se realizando uma verificação, <em> if (!document.getElementsByTagName) return false</em>, a qual impede que o browser que não reconhece o método <em>getElementsByTagName</em> aborte o script, ou seja, não o execute. Caso isso n&atilde;o seja feito,  causará um erro pelo fato dele (browser) não reconhecer um método que será utilizando no script.</p>
+		
+		<p>Em seguida, temos a variável <em>links</em>, a qual utiliza o método <em>getElementsByTagName</em> para selecionar todos os links contidos na página.</p>
+		
+		<p>Após realizamos um <em>loop</em> através do <em>for</em> por todos os links e informamos que o <em>loop</em> será menor do que o total de links contidos na página.</p>
+		
+		<p>Em cada link selecionado faremos a seguinte verificação <em>if (links[i].className.match("popup")) {</em>, ou seja, verificamos se o link contém no atributo class o valor <em>popup</em>.</p>
+		
+		<p>Se o valor <em>popup</em>  for encontrado no atributo class do link, iremos fazer com que ele, ao receber um click, execute uma função. Essa função  abrirá uma nova janela através do <em>window.open(this.href)</em> e evitará que o atributo href do link seja executado através do return false.</p>
+		
+		<p>No capítulo seguinte abordaremos o  simples e fácil Ajax, para que em seguinda possamos desenvolver nosso projeto final. </p>
+		<p>Com o projeto final, aprenderemos na pr&aacute;tica e de uma só vez: Ajax, JavaScript, DOM, separação de camadas e JavaScript não-obstrutivo.</p>
+		<p>Até lá.</p>
+		<ul id="navigation">
+			<li><a href="4.htm" id="linkNavCap4" title="Prefácio do capítulo 4">Prefácio do capítulo 4 &raquo;</a></li>
+		</ul>
+	</div>
+</div>
+<!-- conteudo -->
+
+
+<div id="sideBar">
+	<ul id="menu">
+		<li><a href="index.htm" class="itemMenu" title="Introdução do curso">Introdução</a></li>
+		<li><a href="1.htm" class="itemMenu" id="linkCap1" title="JavaScript">Capítulo 1</a>
+			<ul id="cap1">
+				<li class="titCap">JavaScript</li>
+				<li><a href="1.htm" title="Prefácio">Prefácio</a></li>
+				<li><a href="1.1.htm" title="Introdução ao JavaScript">Introdução ao JavaScript</a></li>
+				<li><a href="1.2.htm" title="Variáveis">Variáveis</a></li>
+				<li><a href="1.3.htm" title="Operadores">Operadores</a></li>
+				<li><a href="1.4.htm" title="Condições">Condições</a></li>
+				<li><a href="1.5.htm" title="Popup Boxes">Popup Boxes</a></li>
+				<li><a href="1.6.htm" title="Loops">Loops</a></li>
+				<li><a href="1.7.htm" title="Funções">Funções</a></li>
+				<li><a href="1.8.htm" title="Eventos">Eventos</a></li>
+				<li><a href="1.9.htm" title="Array">Array</a></li>
+				<li><a href="1.10.htm" title="Data">Data</a></li>
+				<li><a href="1.11.htm" title="String">String</a></li>
+				<li><a href="1.12.htm" title="Math">Math</a></li>
+				<li><a href="1.13.htm" title="Validação de formulários">Validação de formulários</a>
+			</ul>
+		</li>
+		<li><a href="2.htm" class="itemMenu" id="linkCap2" title="DOM e DHTML">Capítulo 2</a>
+			<ul id="cap2">
+				<li class="titCap">DOM e DHTML</li>
+				<li><a href="2.htm" title="Prefácio">Prefácio</a></li>
+				<li><a href="2.1.htm" title="Introdução ao DOM">Introdução ao DOM</a></li>
+				<li><a href="2.2.htm" title="Introdução ao DHTML">Introdução ao DHTML</a></li>
+				<li><a href="2.3.htm" title="Método: getElementById">Método: getElementById</a></li>
+				<li><a href="2.4.htm" title="Método: getElementsByTagName">Método: getElementsByTagName</a></li>
+				<li><a href="2.5.htm" title="Método: style">Método: style</a></li>
+				<li><a href="2.6.htm" title="Método: className">Método: className</a></li>
+				<li><a href="2.7.htm" title="Método: innerHTML">Método: innerHTML</a></li>
+				<li><a href="2.8.htm" title="Método: appendChild">Método: appendChild</a></li>
+				<li><a href="2.9.htm" title="Método: createElement">Método: createElement</a></li>
+				<li><a href="2.10.htm" title="Método: insertBefore">Método: insertBefore</a></li>
+				<li><a href="2.11.htm" title="Método: insertAfter">Método: insertAfter</a></li>
+				<li><a href="2.12.htm" title="Método: setAttribute">Método: setAttribute</a></li>
+				<li><a href="2.13.htm" title="Método: getAttribute">Método: getAttribute</a></li>
+
+			</ul>
+		</li>
+		<li><a href="3.htm" class="itemMenu" id="linkCap3" title="JavaScript não-obstrutivo">Capítulo 3</a>
+			<ul id="cap3">
+				<li class="titCap">JavaScript não-obstrutivo</li>
+				<li><a href="3.htm" title="Prefácio">Prefácio</a></li>
+				<li><a href="3.1.htm" title="Introdução ao JavaScript não-obstrutivo">Introdução ao JavaScript não-obstrutivo</a></li>
+			</ul>
+		</li>
+		<li><a href="4.htm" class="itemMenu" id="linkCap4" title="Ajax">Capítulo 4</a>
+			<ul id="cap4">
+				<li class="titCap">Ajax</li>
+				<li><a href="4.htm" title="Prefácio">Prefácio</a></li>
+				<li><a href="4.1.htm" title="Introdução ao Ajax">Introdução ao Ajax</a></li>
+				<li><a href="4.2.htm" title="O Objeto XMLHttpRequest">O Objeto XMLHttpRequest</a>
+				<li><a href="4.3.htm" title="Pés no chão">Pés no chão</a>
+			</ul>
+		</li>
+		<li><a href="5.htm" class="itemMenu" id="linkCap5" title="Projeto final">Capítulo 5</a>
+			<ul id="cap5">
+				<li class="titCap">Projeto final</li>
+				<li><a href="5.htm" title="Prefácio">Prefácio</a></li>
+				<li><a href="5.1.htm" title="Introdução ao Projeto final">Introdução ao Projeto final</a></li>
+				<li><a href="5.2.htm" title="Tabela do banco de dados">Tabela do banco de dados</a></li>
+				<li><a href="5.3.htm" title="Visão geral">Visão geral</a></li>
+				<li><a href="5.4.htm" title="Visão geral sobre as páginas">Visão geral sobre as páginas</a></li>
+				<li><a href="5.5.htm" title="Compreendendo o espírito da 'coisa'">Compreendendo o espírito da 'coisa'</a></li>
+				<li><a href="5.6.htm" title="Compreendendo a página index.php">Compreendendo a página index.php</a></li>
+				<li><a href="5.7.htm" title="Compreendendo a página actions.php">Compreendendo a página action.php</a></li>
+				<li><a href="5.8.htm" title="Compreendendo a página formulario.php">Compreendendo a página formulario.php</a></li>
+				<li><a href="5.9.htm" title="Compreendendo a página relatorio.php">Compreendendo a página relatorio.php</a></li>
+				<li><a href="5.10.htm" title="Compreendendo a página comportamentos.js">Compreendendo a página comportamentos.js</a></li>
+				<li><a href="5.11.htm" title="Considerações finais">Considerações finais</a></li>			
+			</ul>
+		</li>
+		<li><a href="6.htm" class="itemMenu" id="linkCap6" title="Bibliografia">Bibliografia</a>
+			<ul id="cap6">
+				<li class="titCap">Bibliografia</li>
+				<li><a href="6.htm" title="">Referências bibliográficas</a></li>
+			</ul>
+		</li>
+	</ul>
+	<p id="changeFontSize"><a href="javascript:changeFontSize();" title="Alterar o tamanho da fonte">&raquo; Tamanho da fonte</a></p>
+</div>
+<!-- / Sidebar -->
+	
+<div id="frameScroll">
+	<a href="#" title="Ocultar / Exibir o menu" id="optFrameScroll">
+		<img src="img/icn/icone_frame_scroll_hide.jpg" width="6" height="50" alt="" />
+	</a>
+</div>
+	
+<div id="rodape">
+
+</div>
+<!-- Rodape -->
+
+</div>
+<!-- / Global -->
+
+</body>
+</html>
