@@ -1,4 +1,23 @@
 {% block "conteudo" %}
+
+<script type="text/javascript">
+<!--
+//javascript
+function limpaCampo(form){
+form.value="";
+}
+
+
+
+
+}
+//-->
+</script>
+
+
+
+
+
   <div id="container">
   <div id="top">
     <h1>Seja Bem Vindo!</h1>
@@ -7,15 +26,15 @@
   <div id="leftSide">
   <fieldset>
 <legend>Login</legend>
-<form action="" method='post' class="form">
+<form action="" method='post' class="form" >
   {% csrf_token %} 
   <label for="username">Usuario:</label>
     <div class="div_texbox">
-    <input name="username" type="text" class="username" id="username" value="usuario" />
+    <input name="username" type="text" class="username" id="username" value="usuario" onclick="javascript:limpaCampo(this)"/>
 	</div>
-	 <label for="password">Senha:</label>
+	 <label for="password"  >Senha:</label>
     <div class="div_texbox">
-    <input name="password" type="password" class="password" id="password" value="password" />
+    <input name="password" type="password" class="password" id="password" value="password" onclick="javascript:limpaCampo(this)"/>
 	</div>
 	<div class="button_div">
 	<input type="submit" value="login"  class="buttons" />

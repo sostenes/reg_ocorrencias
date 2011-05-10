@@ -99,15 +99,22 @@ def novoHistorico(request, object_id):
 	formset = historicoFormSet()
 	return render_to_response('ocorrencias/historico_novo.html', {'formset':formset})	
 
+@login_required()
+def Imprimir(request, object_id):
+	ocorrencia = get_object_or_404(Ocorrencia, pk=object_id)
+	lista_pareceres = Parecer.objects.filter(ocorrencia = ocorrencia)
 
-
-
+	dados_template = {'titulo' :'Lista de Pareceres',
+			'lista_pareceres' :lista_pareceres,
+			'ocorrencia' :ocorrencia,}
+	
+	return render_to_response('ocorrencias/imprimir.html', dados_template)
 
 @login_required()
 def registrarParecer(request, object_id):
 	if request.method == 'POST':
 		ocorrencia = get_object_or_404(Ocorrencia, pk=object_id)
-		ocorrencia.pareceres.create(texto=request.POST['Texto'], usuarioRegistrador =request.POST['registrador'],data = datetime.now())
+		ocorrencia.pareceres.create(texto=request.POST['Texto'], usuarioRegistrador =Parecer.objects.get(id=request.POST['registrador']),data = datetime.now(), status = ocorrencia.status)
 		return HttpResponseRedirect("/ocorrencias/"+object_id+"/parecer/")
 			
 	else:		

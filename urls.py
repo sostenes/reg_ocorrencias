@@ -4,8 +4,7 @@ from django.conf.urls.defaults import *
 from django.views.generic import list_detail
 from django.views.generic import create_update
 from defesaCivil.ocorrencias.models import *
-from defesaCivil.ocorrencias.views import Consulta, historico, novoHistorico, login, sair, loggedout  
-from defesaCivil.ocorrencias.views import index,rel_ocorrenciaBairro,rel_ocorrenciaAssunto,escolherRelatorio, registrarParecer
+from defesaCivil.ocorrencias.views import *
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
 
@@ -49,6 +48,7 @@ urlpatterns = patterns('',
     (r'^$','django.contrib.auth.views.login',{'template_name': 'registration/login.html'}),
     (r'^admin/', include(admin.site.urls)),
     (r'^ocorrencia/buscar/$',Consulta),
+    (r'^ocorrencias/(?P<object_id>\d+)/imprimir$',Imprimir),
     (r'^ocorrencias/relatorios/', escolherRelatorio),
     (r'^ocorrencias/relatorio/bairro/$', rel_ocorrenciaBairro),
     (r'^ocorrencias/relatorio/assunto/$', rel_ocorrenciaAssunto),
