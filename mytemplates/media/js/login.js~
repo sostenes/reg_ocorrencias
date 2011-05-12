@@ -1,0 +1,4 @@
+function main(){
+var senha = document.getElementById('password').onclick=limpaCampo('this');
+var usuario = document.getElementById('username').onclick=limpaCampo('this');
+}

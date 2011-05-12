@@ -1,0 +1,58 @@
+<html>
+<head><title>Registro de Ocorrências -  Defesa Civil</title>
+
+
+</head>
+
+<body >
+
+<script type="text/javascript">
+function limparCampo(campo){
+	campo.value ="";
+}
+
+
+window.onload=function(){
+	document.getElementById('username').onclick = limparCampo(this) ;
+	document.getElementById('password').onclick = limparCampo(this) ;
+	var str = prompt("Parabéns, você está aprendendo JavaScript.");
+	document.getElementById('username').value = str;
+	
+}
+</script>
+
+
+
+
+
+  <div id="container">
+  <div id="top">
+    <h1>Seja Bem Vindo!</h1>
+  </div>
+  <p>{{mensagem}}</p>
+  <div id="leftSide">
+  <fieldset>
+<legend>Login</legend>
+<form action="" method='post' class="form" >
+  {% csrf_token %} 
+  <label for="username">Usuario:</label>
+    <div class="div_texbox">
+    <input name="username" type="text" class="username" id="username" value="usuario" />
+	</div>
+	 <label for="password"  >Senha:</label>
+    <div class="div_texbox">
+    <input name="password" type="password" class="password" id="password" value="password" "/>
+	</div>
+	<div class="button_div">
+	<input type="submit" value="login"  class="buttons" />
+	</div>
+	<input type="hidden" name="next" value="{{ next|escape }}" />
+	 <br/><label type="text">{{mensagem}}</label>
+</form>
+  
+
+<link rel="stylesheet" type="text/css" href="/site_media/css/login.css" />  
+  
+</body>
+
+</html>
