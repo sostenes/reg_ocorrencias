@@ -1,0 +1,46 @@
+body{
+margin: 0;
+padding:0;
+background:#ccc; 
+}
+
+.todo{
+margin:0 auto;
+width:760px;
+}
+
+#colEsq{
+	float: left;
+	width: 100px;
+	font-weight: bold;
+}
+
+label{
+font-weight: bold;
+padding:5px;
+margin-bottom:5px;
+display:block;
+}
+
+#colDir{
+	width: auto;
+	margin-bottom: 5px;
+	float:right;
+}
+textarea{
+	width: 250px;
+	height: 150px;
+}
+.boxes{
+	width: 1em;
+}
+#submitbutton{
+	margin-left: 120px;
+	margin-top: 5px;
+	width: 90px;
+}
+
+br{
+	clear: left;
+}
+

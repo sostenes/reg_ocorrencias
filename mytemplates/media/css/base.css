@@ -1,46 +1,70 @@
+
 body{
-margin: 0;
+margin:0;
 padding:0;
-background:#ccc; 
+background:#ccc;
 }
 
-.todo{
+.tudo{
 margin:0 auto;
 width:760px;
+min-height:500 px;
+color:#000;
+background:#fff;
+
 }
 
-#colEsq{
-	float: left;
-	width: 100px;
-	font-weight: bold;
+/*divs inline*/
+.clearBoth { clear:both; }
+
+
+div.coluna{
+float:left;
+/*divs inline*/
+
+width:30%;
+}
+
+
+
+.titulo{
+width:100%
+font-size: 50px;
+font-family: helvetica, arial, Sans-serif;
+text-align:left;
+color:#999;
+}
+
+.botao{
+ 
+float:right;
+margin:10px;
+}
+.selectMargem{
+margin:10px;
 }
 
 label{
-font-weight: bold;
-padding:5px;
-margin-bottom:5px;
-display:block;
+font-size:11;
+font-style:bold;
 }
 
-#colDir{
-	width: auto;
-	margin-bottom: 5px;
-	float:right;
-}
-textarea{
-	width: 250px;
-	height: 150px;
-}
-.boxes{
-	width: 1em;
-}
-#submitbutton{
-	margin-left: 120px;
-	margin-top: 5px;
-	width: 90px;
+
+
+div.sucesso{
+float:left;
+/*divs inline*/
+background:#C1FFC1;
+width:100%;
 }
 
-br{
-	clear: left;
+div.erro{
+float:left;
+/*divs inline*/
+background:#FF7256;
+width:100%;
 }
+
+
+
 

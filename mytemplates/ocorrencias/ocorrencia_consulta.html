@@ -3,69 +3,84 @@
 {% block "titulo" %}{{titulo}} - {{ block.super }}{% endblock "titulo" %}
 
 {% block "conteudo" %}
-<table border="0"  width="60%">
-  <form action="" method="POST">
-	<tr><th><label for="solicitante">Nome do Solicitante:</label></th>
-	<td><input type="textbox" id="solicitante" name="solicitante" size="30"/></td></tr>
-	<tr><th><label for="Endereço">Endereço:</label>
-	<td><input type="textbox" id="endRua"  name="endRua" size="30"></input></td>
-	<th><label for="Numero">Número:</label></th>
-	<td><input type="textbox" id="endNum" name="endNum" size="5"></input></td></tr>
-	<tr><th><label for="id_status">Status da Ocorrencia:</label></th>
-	<td><SELECT id ="status" name="status" title="status">
-		<option value="0">-----</option>
-		{%for status in lista_status%}		
-		<option value="{{status.id}}">{{status.nome}}</option>
-		{%endfor%}
-	</SELECT></td>
-	<th><label for="id_situacao">Situação:</label></th>
-	<td><SELECT id ="situacao" name="situacao" title="situacao">
-		<option value="0">-----</option>
-		{%for situacao in lista_situacao%}		
-		<option value="{{situacao.id}}">{{situacao.nome}}</option>
-		{%endfor%}
-	</SELECT></td></tr>
-	<tr><th><label for="id_dataOcorrencia">Entre as Datas:</label></th>
-	<td><input type="textbox" id="dataOcorrencia" name="dataOcorrencia" size="8"></input>
-	<input type="textbox" id="dataFinal" name="dataFinal" size="8"></input></td>
-	<th><label for="id_assunto">Assunto:</label></th>
-	<td><SELECT id ="assunto" name="assunto" title="assunto">
-		<option value="0">-----</option>
-		{%for assunto in lista_assunto%}		
-		<option value="{{assunto.id}}">{{assunto.nome}}</option>
-		{%endfor%}
-	</SELECT></td></tr>
-	<tr><th><label for="id_usuario">Usuario:</label></th>
-	<td><SELECT id ="usuario" name="usuario" title="usuario">
-		<option value="0">-----</option>
-		{%for usuario in lista_users%}		
-		<option value="{{usuario.id}}">{{usuario.username}}</option>
-		{%endfor%}
-	</SELECT></td>
-	<th><label for="id_bairro">Bairro:</label></th>
-	<td><SELECT id ="bairro" name="bairro" title="bairro">
-		<option value="0">-----</option>
-		{%for bairro in lista_bairros%}		
-		<option value="{{bairro.id}}">{{bairro.nome}}</option>
-		{%endfor%}
-	</SELECT></td></tr>
-<tr><th><input type="SUBMIT" value="Buscar"/></th>
-	<td><SELECT id ="saida" name="saida" title="saida">
-		<option value="0">Pesquisa Comum</option>
-		<option value="1">Tabela de Relatorio</option>
-	</SELECT></td></tr>
-</tr>
-</form>	
-</table>
+
+
+	<form  action="" method="POST">
+	<div class="coluna">
+		
+			<label for="solicitante">Solicitante:</label><input type="text" id="solicitante"name="solicitante" value="">
+			<label for="endereco">Endereco:</label><input type="text" id="endRua" name="endRua" value="">
+			<label for="datas">Entre as datas:</label></br>
+				<input type="text" id="dataOcorrencia" name="dataOcorrencia" value="" size="7">
+				<input type="text" id="dataFinal" name="dataFinal" value="" size="7">
+				
+			<SELECT id ="saida" name="saida" title="saida" class="selectMargem">
+				<option value="0">Pesquisa Comum</option>
+				<option value="1">Tabela de Relatorio</option>
+			</SELECT>
+	</div>
+	
+	
+	<div class="coluna">
+		
+			<label for="status">Status:</label>
+			<SELECT id ="status" name="status" title="status">
+				<option value="0">-------------Todos---------------</option>
+				{%for status in lista_status%}		
+					<option value="{{status.id}}">{{status.nome}}</option>
+				{%endfor%}
+			</SELECT>
+			<label for="numero">Numero:</label><br/><input type="text" id="endNum" name="endNum"  size="6"></br>
+			
+			<label for="usuario">Usuario:</label>
+			<SELECT id ="usuario" name="usuario" title="usuario">
+					<option value="0">-------------Todos---------------</option>
+					{%for usuario in lista_users%}		
+						<option value="{{usuario.id}}">{{usuario.username}}</option>
+					{%endfor%}
+			</SELECT></br>
+			
+			
+	</div>
+	
+	
+	<div class="coluna">
+			<label for="status">Situacao:</label>
+			<SELECT id ="situacao" name="situacao" title="situacao">
+				<option value="0">-------------Todos---------------</option>
+				{%for situacao in lista_situacao%}		
+					<option value="{{situacao.id}}">{{situacao.nome}}</option>
+				{%endfor%}
+			</SELECT>
+			
+			
+			<label for="status">Bairro:</label>
+			<SELECT id ="bairro" name="bairro" title="bairro">
+				<option value="0">-------------Todos---------------</option>
+				{%for bairro in lista_bairros%}		
+					<option value="{{bairro.id}}">{{bairro.nome}}</option>
+				{%endfor%}
+			</SELECT>
+			
+			
+			
+			<label for="status">Assunto:</label>
+			<SELECT id ="assunto" name="assunto" title="assunto">
+				<option value="0">-------------Todos---------------</option>
+				{%for assunto in lista_assunto%}		
+					<option value="{{assunto.id}}">{{assunto.nome}}</option>
+				{%endfor%}
+			</SELECT>
+			
+			<br/><input type="submit" class="botao" size="10" value="Buscar" />
+	</div>
+
+</form>
 
 {% if n_registros != 0%}
-<ul class="messagelist">
-          <li class="sucess">{{mensagem}}</li>
-	</ul>
+          <div class="sucesso">{{mensagem}}</div>
 {%else%}
-<ul class="messagelist">
-          <li class="error">{{mensagem}}</li>
-	</ul>
+          <div class="erro">{{mensagem}}</div>
 {%endif%}
     <table border="0" width="60%">
 	<thead>
