@@ -4,14 +4,14 @@
 
 {% block "conteudo" %}
 
-<h1>Pareceres da Ocorrencia-{{ocorrencia_id}}</h1> <br/>
+<h1 class="tituloListaParecer" >Pareceres da Ocorrencia Numero: {{ocorrencia_id}}</h1>
     
     {%for object in lista_parecer%}
-			
-        <p>{{ object.texto }}</p><br/>		
-        <p>Status: {{ object.status}}</br>
-           {{object.usuarioRegistrador}},  {{ object.data}}</p>
-        <p>---------------------------------------------------------------------------------------</p>
+		<div class="textoParecer">	
+        <p >{{ object.texto }}</p>		
+        <p class="parecerStatus">Status: {{ object.status}}</br>
+           Registrado Por {{object.usuarioRegistrador}} em {{ object.data}}</p>
+        </div>
 	{% endfor %}
     
 	<form>

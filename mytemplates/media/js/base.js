@@ -18,7 +18,7 @@ $('#endNum').click(function (){limpar('endNum');});
 /*....Mascaras...*/
 $('#dataOcorrencia').mask("99/99/9999");
 $('#dataFinal').mask("99/99/9999");
-
+$('#endNum').mask("");
 
 });
 

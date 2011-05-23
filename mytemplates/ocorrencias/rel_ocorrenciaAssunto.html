@@ -3,59 +3,37 @@
 {% block "titulo" %}Relatorio -Ocorrencias Por bairro - {{ block.super }}{% endblock "titulo" %}
 
 {% block "conteudo" %}
+<script type="text/javascript"src="/site_media/js/relatorio.js"></script>
 <form>
-<table>
-<tr>
-<th><label for="data1" >De:</label></th>
-<td><input class="texto" type="textbox" size="10" name="data1" id="data1"/></td>
-<th><label for="data2" >Até:</label></th>
-<td><input type="textbox" size="10" name="data2" id="data2"/></td>
 
-<td><input type="SUBMIT" value="Buscar"></td>
-<td><input type="BUTTON" value="Voltar" ONCLICK="window.location.href='/ocorrencias/relatorios'"/></td></tr>
+<label for="data1" >De:</label>
+<input class="texto" type="textbox" size="10" name="data1" id="data1"/>
+<label for="data2" >Até:</label>
+<input type="textbox" size="10" name="data2" id="data2"/>
 
-
-
-<script type="text/css">
-.texto1{
-width:100%;
-display:block;
-text-align:left;
-float:right;
-font-size:20px;
-
-}
-.texto2{
-width:80%;
-display:block;
-text-align:left;
-float:right;
-margin-left:10px;
-font-size:12px;
-}
+<input type="SUBMIT" value="Buscar">
+<input type="BUTTON" value="Voltar" ONCLICK="window.location.href='/ocorrencias/relatorios'"/>
 
 
 
-</script>    
 
 
 
 
 </form>
-    <ul>
+
      {%for a in lista_assuntos%}
-                <li class="texto1">Assunto: {{a}} Ocorrencias: {{a.ocorrencias}}
-       	<ul>	
+                <div class="texto1">Assunto: {{a}} - N° de Chamados: {{a.ocorrencias}}</div>
+       		
      	 {%for o in ocorrencias%}
        		{%if o.assunto = a%}
-       		    <li class="texto2">Bairro: {{o.bairro}} Ocorrencias: {{o.ocorrencias}}</li>
+       		    <div class="texto2"><div class=col1>Bairro: {{o.bairro}}</div><div class=col2> N° de Chamados: {{o.ocorrencias}}</div></div>
         	
        		{%endif%}
     	{%endfor%}
-    	</ul></li>   
+    	
     {%endfor%}  
-          </ul>
-      
+        
 
     
     

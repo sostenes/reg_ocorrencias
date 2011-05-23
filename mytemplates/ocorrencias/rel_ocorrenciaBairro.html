@@ -3,48 +3,40 @@
 {% block "titulo" %}Relatorio -Ocorrencias Por bairro - {{ block.super }}{% endblock "titulo" %}
 
 {% block "conteudo" %}
+
+<script type="text/javascript" src="/site_media/js/relatorio.js"></script>
     
     <form>
-<table>
-<tr>
-<th><label for="data1" >De:</label></th>
-<td><input class="texto" type="textbox" size="10" name="data1" id="data1"/></td>
-<th><label for="data2" >Até:</label></th>
-<td><input type="textbox" size="10" name="data2" id="data2"/></td>
 
-<td><input type="SUBMIT" value="Buscar"></td>
-<td><input type="BUTTON" value="Voltar" ONCLICK="window.location.href='/ocorrencias/relatorios'"/></td></tr>
+   <label for="data1" >De:</label>   
+<input class="texto" type="textbox" size="10" name="data1" id="data1"/>  
+   <label for="data2" >Até:</label>   
+ <input type="textbox" size="10" name="data2" id="data2"/>  
+
+ <input type="SUBMIT" value="Buscar">  
+ <input type="BUTTON" value="Voltar" ONCLICK="window.location.href='/ocorrencias/relatorios'"/>     
 </form>
 
     
     
     
     
-    <table border="0" width="60%">
-     <thead>
-     	<th>Bairro</th>
-     	<th>Numero de Ocorrencias</th>
-     </thead>       
+               
     {%for b in lista_bairros%}
-        <tr>
-                <th><b>{{b}}</b></th>
-                <td>{{b.ocorrencias}}</td>
-       </tr>
-       <tr>
-       <table border ="0" width="60%">
-     	 {%for o in ocorrencias%}
+         
+      <div class="texto1"><b>Bairro: {{b}}</b> - N° de Ocorrencias: {{b.ocorrencias}}</div>  
+          
+      	 {%for o in ocorrencias%}
        		{%if o.bairro = b%}
-       		<tr>
-                <td>>>></td><td>{{o.assunto}}</td>
-                <td>{{o.ocorrencias}}</td>
-        	</tr>
+       		<div class="texto2">Assunto: {{o.assunto}} N° de Ocorrencias: {{o.ocorrencias}} </div> 
+        	   
        		{%endif%}
     	{%endfor%}
-    	</table>
+    	   
     	
-    	</tr>   
+    	      
     {%endfor%}  
        
-        </table>
+           
     
 {% endblock "conteudo" %}

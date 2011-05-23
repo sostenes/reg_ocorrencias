@@ -13,6 +13,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404
 from django.db.models import Count
 from datetime import datetime
+from django.core.paginator import Paginator
 
 
 
@@ -114,7 +115,7 @@ def Imprimir(request, object_id):
 def registrarParecer(request, object_id):
 	if request.method == 'POST':
 		ocorrencia = get_object_or_404(Ocorrencia, pk=object_id)
-		ocorrencia.pareceres.create(texto=request.POST['Texto'], usuarioRegistrador =Parecer.objects.get(id=request.POST['registrador']),data = datetime.now(), status = ocorrencia.status)
+		ocorrencia.pareceres.create(texto=request.POST['texto'], usuarioRegistrador =Parecer.objects.get(id=request.POST['registrador']),data = datetime.now(), status = ocorrencia.status)
 		return HttpResponseRedirect("/ocorrencias/"+object_id+"/parecer/")
 			
 	else:		
@@ -127,7 +128,8 @@ def registrarParecer(request, object_id):
 		dados_template = {'titulo' :'Lista de Pareceres',
 			'mensagem' :mensagem,
 			'lista_parecer' :lista_parecer,
-			'registradores' :registradores,}
+			'registradores' :registradores,
+			'ocorrencia_id' :ocorrencia_id,}
 	
 		return render_to_response('ocorrencias/parecer.html', dados_template)
 
@@ -185,13 +187,8 @@ def rel_ocorrenciaAssunto(request):
 	lista_ocorrencias = Ocorrencia.objects.all()
 	lista_bairros = Bairro.objects.all()
 	
+	#lista vazia de ocorrencias
 	ocorrencias = [] 		
-	
-		
-	for bairro in lista_bairros:
-		for assunto in lista_assuntos:
-			o = len(Ocorrencia.objects.filter(bairro=bairro,assunto=assunto))
-			ocorrencias = ocorrencias + [ObjetoRelatorio1(bairro,assunto,o)]
 	
 	
 	
@@ -206,28 +203,54 @@ def rel_ocorrenciaAssunto(request):
 			dia = data1[0:2]
 			mes = data1[3:5]
 			ano = data1[6:10]
-			data1=ano+"-"+mes+"-"+dia
+			data1 = ano+"-"+mes+"-"+dia
 			
 			dia = data2[0:2]
 			mes = data2[3:5]
 			ano = data2[6:10]
-			data2=ano+"-"+mes+"-"+dia
+			data2 = ano+"-"+mes+"-"+dia
 			
 			for bairro in lista_bairros:
 				for assunto in lista_assuntos:
 					o = len(Ocorrencia.objects.filter(bairro=bairro,assunto=assunto, dataOcorrencia__gte=data1, dataOcorrencia__lte=data2))
 					ocorrencias = ocorrencias + [ObjetoRelatorio1(bairro,assunto,o)]
 		
+			
+		elif data1 != "":
+			dia = data2[0:2]
+			mes = data2[3:5]
+			ano = data2[6:10]
+			data1 = ano+"-"+mes+"-"+dia
+			
+			for bairro in lista_bairros:
+				for assunto in lista_assuntos:
+					o = len(Ocorrencia.objects.filter(bairro=bairro,assunto=assunto, dataOcorrencia__gte=data1))
+					ocorrencias = ocorrencias + [ObjetoRelatorio1(bairro,assunto,o)]
+			
+		elif data2 != "":
+			dia = data2[0:2]
+			mes = data2[3:5]
+			ano = data2[6:10]
+			data2 = ano+"-"+mes+"-"+dia
+			
+			for bairro in lista_bairros:
+				for assunto in lista_assuntos:
+					o = len(Ocorrencia.objects.filter(bairro=bairro,assunto=assunto, dataOcorrencia__lte=data2))
+					ocorrencias = ocorrencias + [ObjetoRelatorio1(bairro,assunto,o)]
+	
+	else:
 		
+		for bairro in lista_bairros:
+			for assunto in lista_assuntos:
+				o = len(Ocorrencia.objects.filter(bairro=bairro,assunto=assunto))
+				#adicao de elementos ocorrencia a lista...
+				ocorrencias = ocorrencias + [ObjetoRelatorio1(bairro,assunto,o)]
 	
+	t = loader.get_template('ocorrencias/rel_ocorrenciaAssunto.html')
+	c = Context({'lista_assuntos' :lista_assuntos,'ocorrencias' : ocorrencias,
+	})
 	
-	
-	
-	
-	
-	
-	
-	
+	return HttpResponse(t.render(c))
 	
 	
 	
@@ -237,11 +260,7 @@ def rel_ocorrenciaAssunto(request):
 	
 	
 
-	t = loader.get_template('ocorrencias/rel_ocorrenciaAssunto.html')
-	c = Context({'lista_assuntos' :lista_assuntos,'ocorrencias' : ocorrencias,
-		})
-	
-	return HttpResponse(t.render(c))	
+		
 	
 
 
@@ -328,7 +347,10 @@ def Consulta(request):
 			
 			
 			n_registros =lista_ocorrencias.count()
-			mensagem =  str(n_registros) + " Registro(s) Encontrado(s)."
+			if n_registros == 0:
+				mensagem = "Nenhum Registro Encontrado."
+			else:	
+				mensagem =  str(n_registros) + " Registro(s) Encontrado(s)."
 
 			if request.POST['saida'] == "1":
 				dados_template = {'titulo' :'Consulta Ocorrencias',
@@ -349,6 +371,9 @@ def Consulta(request):
 			mensagem ='Nenhum resultado encontrado!'
 			n_registros = '0'	 
 
+
+	
+	
 	dados_template = {'titulo' :'Consulta Ocorrencias',
 		'mensagem' :mensagem,
 		'lista_ocorrencias' :lista_ocorrencias,
@@ -357,7 +382,9 @@ def Consulta(request):
 		'n_registros' :n_registros,
 		'lista_bairros' :lista_bairros,
 		'lista_situacao' :lista_situacao,
-		'lista_assunto' :lista_assunto,}
+		'lista_assunto' :lista_assunto,
+	
+		}
 	
 	return render_to_response('ocorrencias/ocorrencia_consulta.html', dados_template)
 

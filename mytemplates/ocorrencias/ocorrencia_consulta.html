@@ -78,11 +78,10 @@
 </form>
 
 {% if n_registros != 0%}
-          <div class="sucesso">{{mensagem}}</div>
-{%else%}
-          <div class="erro">{{mensagem}}</div>
-{%endif%}
-    <table border="0" width="60%">
+          <div class="sucesso"><img src="/site_media/images/iconSuccess.gif">{{mensagem}}</div>
+
+
+    <table id="tabelaConsulta">
 	<thead>
 		<tr>
 			<th>Codigo</th>
@@ -103,8 +102,8 @@
 		<td>{{ object.situacao}}</td>
 		<td>{{ object.dataOcorrencia}}</td>
 		<td>{{ object.usuario}}</td>
-	    <td><a href="{% url editar_ocorrencia object.id %}">Editar</a></td>
-		<td><a href="{% url ver_ocorrencia object.id %}">Imprimir</a></td>
+	    <td><a class="link" href="{% url editar_ocorrencia object.id %}">Editar</a></td>
+		<td><a class="link" href="{% url ver_ocorrencia object.id %}">Imprimir</a></td>
 	</tr>
 	{% endfor %}
     </table>
@@ -112,4 +111,13 @@
 
 <br/>
 <form><INPUT TYPE="BUTTON" VALUE="Cadastrar Nova Ocorrencia" ONCLICK="window.location.href='{% url nova_ocorrencia %}'"></td></tr></th> </form>
+
+
+
+{%else%}
+          <div class="erro"><img src="/site_media/images/erro.png">{{mensagem}}</div>
+        <div id="aux"></div>
+        <form><INPUT TYPE="BUTTON" VALUE="Cadastrar Nova Ocorrencia" ONCLICK="window.location.href='{% url nova_ocorrencia %}'"></form> 
+{%endif%}
+
 {% endblock "conteudo" %}

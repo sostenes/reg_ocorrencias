@@ -2,15 +2,22 @@
 body{
 margin:0;
 padding:0;
-background:#ccc;
+background-color:#191970;
+/*
+background-image:url("../images/fundo.png");
+background-repeat: no-repeat;
+background-attachment: fixed;
+*/
 }
 
 .tudo{
+padding: 25px;
 margin:0 auto;
 width:760px;
 min-height:500 px;
 color:#000;
 background:#fff;
+radius:20;
 
 }
 
@@ -21,22 +28,30 @@ background:#fff;
 div.coluna{
 float:left;
 /*divs inline*/
-
+color:#2F4F4F;
 width:30%;
 }
 
-
-
-.titulo{
+.header{
 width:100%
+padding:0px;
+margin:0px;
+}
+#logoHeader{
+margin:5px;
+
+vertical-align: center;
+
+}
+.titulo{
 font-size: 50px;
 font-family: helvetica, arial, Sans-serif;
 text-align:left;
-color:#999;
+color:#FF8C00;
 }
 
-.botao{
- 
+
+.botao{ 
 float:right;
 margin:10px;
 }
@@ -54,17 +69,134 @@ font-style:bold;
 div.sucesso{
 float:left;
 /*divs inline*/
-background:#C1FFC1;
+color:green;
 width:100%;
 }
 
 div.erro{
 float:left;
 /*divs inline*/
-background:#FF7256;
+color:red;
 width:100%;
+}
+
+.menuLink{
+text-decoration:none;
+
+border: 1px solid;
+padding:2px;
+
+border-color: #ccc;
+color: #ccc
+}
+
+.menuLink:hover{
+border-color: #000;
+color: #000
+
+}
+
+table{
+border:0;
+background:#ccc;
+}
+
+tr{
+background:blue;
+}
+th{
+background:#ccc;
+font-size:11px;
+text-decoration:none;
+border-color:#2F4F4F;
+}
+td{
+padding:5px;
+background:#fff;
+font-size:11px;
+text-decoration:none;
+
+}
+.link{
+text-decoration:none;
+color:#000;
+}
+.link:hover{
+color:red;
+}
+
+.addLink{
+text-decoration:none;
+color:#000;
 }
 
 
 
 
+#aux{
+
+width:100%;
+height:200px;
+}
+
+
+#footer{
+font-size:11px;
+background:#2F4F4F;
+color:#fff;
+width:100%;
+height:25px;
+text-align:center
+}
+
+
+
+
+/*******************Lista de Pareceres**************/
+
+.textoParecer{
+font-size:11px;
+width:80%;
+padding:10px;
+margin:0 auto;
+}
+.textoParecer:hover{
+background-color:#FFA500;
+}
+.parecerStatus{
+color:#B22222;
+}
+
+.tituloListaParecer{
+color:#B22222;
+font-size: 24px;
+padding:10px;
+margin:0 auto;
+}
+
+/*******************/
+/****Relatorios****/
+
+.texto1{
+text-decoration:none;
+font-size:24px;
+width:100%;
+color:#B22222;
+}
+.texto2{
+text-decoration:none;
+font-size:11px;
+margin-left:25px;
+width:100%;
+}
+.col1{
+width:400px;
+display:inline;
+margin-right:100px;
+}
+.col2{
+width:400px;
+display:inline;
+text-align:right;
+}
+/*************/

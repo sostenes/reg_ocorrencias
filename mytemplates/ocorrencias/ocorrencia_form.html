@@ -7,25 +7,38 @@
    	
    		<fieldset>
    			<legend>Dados do Solicitante</legend>
-   		   <label for="id_solicitante">Nome do Solicitante:</label>{{form.solicitante}}</br>
-           <label for="id_endereco">Endereço:</label>{{form.enderecoSolicitante}}</br>
-           <label for="id_numero">Numero:</label>{{form.numero}}</br>
-            <label for="situacao" class="label2">Situacao:</label><div class="div_texbox">{{form.situacao}}</div><br/>
-	    	<label for="id_bairro">Bairro:</label><div class="div_texbox">{{form.bairro}}<a href="/admin/ocorrencias/bairro/add/" class="add-another" id="add_id_tipoObra" onclick="return showAddAnotherPopup(this);"> <img src="/media/img/admin/icon_addlink.gif" width="10" height="10" alt="Adicionar Outro(a)"/></a></div><br/>
-	    	<label for="id_pReferencia">Ponto de Referencia:</label>{{form.pReferencia}}</br>
-	    	<label for="id_Usuario">Usuario:</label><div class="div_texbox">{{form.usuario}}</div><br/>
-            <label for="id_Status">Status:</label><div class="div_texbox">{{form.status}}</div><br/>
-	    	
+   		<div class="coluna">
+   		   <label for="id_solicitante">Solicitante:</label>{{form.solicitante}}
+           <label for="id_endereco">Endereço:</label>{{form.enderecoSolicitante}}
+           
+        </div> 
+        <div class="coluna">  
+           <label for="id_bairro">Bairro:</label>{{form.bairro}}<a href="/admin/ocorrencias/bairro/add/"class="addLink" id="add_id_tipoObra" onclick="return showAddAnotherPopup(this);"> <img src="/site_media/images/add.png" width="10" height="10" alt="Adicionar Outro(a)"/></a>
+          
+           <label for="id_numero">Numero:</label>{{form.numero}}
+	    	<label for="id_pReferencia">Ponto Referencia:</label>{{form.pReferencia}}</br>
+	    </div>
+	    <div class="coluna">
+	    	<label for="id_Usuario">Usuario:</label>{{form.usuario}}
+            <label for="id_Status">Status:</label>{{form.status}}
+	    	 <label for="situacao" class="label2">Situacao:</label>{{form.situacao}}
+	   </div>
 	    </fieldset>	
 	    	
 	<fieldset>
-		<legend>Dados da Ocorrencia</legend>    	
-	    <label for="end_ocorrencia">Endereço da Ocorrencia:</label>{{form.endRua}}<br/>
-	    <label for="num_end_ocorr">Numero:</label>{{form.endNumero}}<br/>
-	    <label for="assunto">Assunto:</label>{{form.assunto}}<a href="/admin/ocorrencias/assunto/add/" class="add-another" id="add_id_assunto" onclick="return showAddAnotherPopup(this);"> <img src="/media/img/admin/icon_addlink.gif" width="10" height="10" alt="Adicionar Outro(a)"/></a><br/>
-	    <label for="num_end_ocorr">Origem:</label>{{form.origem}}<br/>
-            <label for="data_ocorrencia">Data da Ocorrencia:</label>{{form.dataOcorrencia}}<span class="datetimeshortcuts"><a href="javascript:DateTimeShortcuts.openCalendar(0);" id="calendarlink0"></span></a><br/>
-	    <label for="id_solicitante">Finalizada Em:</label>{{form.dataFinal}}<span class="datetimeshortcuts"><a href="javascript:DateTimeShortcuts.openCalendar(0);" id="calendarlink0"><img src="/media/img/admin/icon_calendar.gif" alt="Calendário"></a></span><br/>
+		<legend>Dados da Ocorrencia</legend> 
+		<div class="coluna">   	
+	    	<label for="end_ocorrencia">Endereço:</label>{{form.endRua}}
+	    	<label for="assunto">Assunto:</label>{{form.assunto}}<a href="/admin/ocorrencias/assunto/add/" class="add-another" id="add_id_assunto" onclick="return showAddAnotherPopup(this);"> <img src="/media/img/admin/icon_addlink.gif" width="10" height="10" alt="Adicionar Outro(a)"/></a>
+	    	<label for="data_ocorrencia">Data Ocorrencia:</label>{{form.dataOcorrencia}}<span class="datetimeshortcuts"><a href="javascript:DateTimeShortcuts.openCalendar(0);" id="calendarlink0"></span></a>
+	   
+	    </div>
+	    <div class="coluna">
+	    	<label for="num_end_ocorr">Numero:</label>{{form.endNumero}}
+	   		<label for="num_end_ocorr">Origem:</label>{{form.origem}}
+	   		 <label for="id_solicitante">Finalizada Em:</label>{{form.dataFinal}}<span class="addLink"><a href="javascript:DateTimeShortcuts.openCalendar(0);" id="calendarlink0"><img src="/media/img/admin/icon_calendar.gif" alt="Calendário"></a></span>
+	    </div>
+         
 	</fieldset>
 	
 	

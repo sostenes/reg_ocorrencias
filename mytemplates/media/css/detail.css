@@ -1,0 +1,64 @@
+#header{
+width:750px;
+height:100px;
+background:#FFF;
+border:2px solid;
+text-align:center;
+font-size:12px;
+display:block;
+}
+
+body{
+margin:0;
+padding:0;
+background:#fff;
+}
+
+.todo{
+margin:0 auto;
+width:760px;
+}
+
+
+h1{
+padding:5px;
+}
+
+h2{
+font-size:13px;
+text-decoration:underline;
+}
+
+.caixa{
+display:inline;
+border:1px;
+}
+
+.tabela{
+border: 0px;
+text-align:left;
+font-size:11px;
+padding-left: 10px; 
+}
+
+.tabela2{
+border:1px solid;
+ padding-left: 10px;
+  border:1px solid #000;  
+}
+.tabela3{
+width:750px;
+font-size:11px;
+ padding-left: 10px;
+ border:1px solid #000; 
+}
+
+.imagem{
+align:right;
+}
+
+.rodape{
+font-size:10px;
+text-align:center
+}
+

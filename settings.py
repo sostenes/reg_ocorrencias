@@ -102,4 +102,5 @@ INSTALLED_APPS = (
 SESSION_ENGINE ='django.contrib.sessions.backends.file'
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 LOGIN_REDIRECT_URL = '/ocorrencia/buscar'
+LOGIN_URL = '/'
 
