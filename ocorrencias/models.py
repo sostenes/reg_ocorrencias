@@ -36,6 +36,13 @@ class Bairro(models.Model):
   def __unicode__(self):
     return self.nome
     
+class Bairro2(models.Model):
+  nome=models.CharField(max_length=50)
+  def __unicode__(self):
+    return self.nome
+    
+
+
 class Cobertura(models.Model):
   nome=models.CharField(max_length=50)
   def __unicode__(self):
@@ -139,6 +146,7 @@ class Ocorrencia(models.Model):
   #propriedades da ocorrencia
   endRua=models.CharField(max_length=100)
   endNumero=models.IntegerField()
+  bairroOcorrencia=models.ForeignKey(Bairro2, null=True, blank=True)
   dataOcorrencia=models.DateField()
   dataFinal=models.DateField(null=True, blank=True)
 

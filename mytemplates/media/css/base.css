@@ -83,17 +83,16 @@ width:100%;
 .menuLink{
 text-decoration:none;
 
-border: 1px solid;
+border: 0px;
 padding:2px;
-
+background-color:#483D8B;
 border-color: #ccc;
-color: #ccc
+color: #fff;
+font-size:12px;
 }
 
 .menuLink:hover{
-border-color: #000;
-color: #000
-
+background-color:#9C9;
 }
 
 table{
@@ -131,7 +130,11 @@ color:#000;
 }
 
 
+.mensagem{
+	font-size:11px;
+	color:#008B8B;
 
+}
 
 #aux{
 

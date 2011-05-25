@@ -13,7 +13,6 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404
 from django.db.models import Count
 from datetime import datetime
-from django.core.paginator import Paginator
 
 
 
@@ -114,10 +113,15 @@ def Imprimir(request, object_id):
 @login_required()
 def registrarParecer(request, object_id):
 	if request.method == 'POST':
-		ocorrencia = get_object_or_404(Ocorrencia, pk=object_id)
-		ocorrencia.pareceres.create(texto=request.POST['texto'], usuarioRegistrador =Parecer.objects.get(id=request.POST['registrador']),data = datetime.now(), status = ocorrencia.status)
-		return HttpResponseRedirect("/ocorrencias/"+object_id+"/parecer/")
-			
+		try:
+		
+			ocorrencia = get_object_or_404(Ocorrencia, pk=object_id)
+			ocorrencia.pareceres.create(texto=request.POST['texto'], usuarioRegistrador = UsuarioRegistrador.objects.get(id=request.POST['registrador']),data = datetime.now(), status = ocorrencia.status)
+			return HttpResponseRedirect("/ocorrencias/"+object_id+"/parecer/")
+		
+		except Exception, e:
+			print str(e)
+			return HttpResponseRedirect("/ocorrencias/"+object_id+"/parecer/")
 	else:		
 		ocorrencia = get_object_or_404(Ocorrencia, pk=object_id)
 		ocorrencia_id = object_id
@@ -130,7 +134,6 @@ def registrarParecer(request, object_id):
 			'lista_parecer' :lista_parecer,
 			'registradores' :registradores,
 			'ocorrencia_id' :ocorrencia_id,}
-	
 		return render_to_response('ocorrencias/parecer.html', dados_template)
 
 
@@ -287,6 +290,8 @@ def Consulta(request):
 	mensagem='Mostrando as ultimas Ocorrencias'
 	n_registros =lista_ocorrencias.count()
 
+	usuario = request.user.first_name
+				
 
 	if request.method == 'POST':
 		try:
@@ -351,7 +356,7 @@ def Consulta(request):
 				mensagem = "Nenhum Registro Encontrado."
 			else:	
 				mensagem =  str(n_registros) + " Registro(s) Encontrado(s)."
-
+				
 			if request.POST['saida'] == "1":
 				dados_template = {'titulo' :'Consulta Ocorrencias',
 				'mensagem' :mensagem,
@@ -361,7 +366,8 @@ def Consulta(request):
 				'n_registros' :n_registros,
 				'lista_bairros' :lista_bairros,
 				'lista_situacao' :lista_situacao,
-				'lista_assunto' :lista_assunto,}
+				'lista_assunto' :lista_assunto,
+				'usuario' :usuario,}
 	
 				return render_to_response('ocorrencias/ocorrencia_relatorio.html', dados_template)
 
@@ -371,9 +377,6 @@ def Consulta(request):
 			mensagem ='Nenhum resultado encontrado!'
 			n_registros = '0'	 
 
-
-	
-	
 	dados_template = {'titulo' :'Consulta Ocorrencias',
 		'mensagem' :mensagem,
 		'lista_ocorrencias' :lista_ocorrencias,
@@ -383,8 +386,7 @@ def Consulta(request):
 		'lista_bairros' :lista_bairros,
 		'lista_situacao' :lista_situacao,
 		'lista_assunto' :lista_assunto,
-	
-		}
+		'usuario' :usuario,}
 	
 	return render_to_response('ocorrencias/ocorrencia_consulta.html', dados_template)
 

@@ -5,71 +5,68 @@
 {% block "conteudo" %}
    	<form action="" method="post" class="form">
    	
-   		<fieldset>
-   			<legend>Dados do Solicitante</legend>
-   		<div class="coluna">
-   		   <label for="id_solicitante">Solicitante:</label>{{form.solicitante}}
-           <label for="id_endereco">Endereço:</label>{{form.enderecoSolicitante}}
-           
-        </div> 
-        <div class="coluna">  
-           <label for="id_bairro">Bairro:</label>{{form.bairro}}<a href="/admin/ocorrencias/bairro/add/"class="addLink" id="add_id_tipoObra" onclick="return showAddAnotherPopup(this);"> <img src="/site_media/images/add.png" width="10" height="10" alt="Adicionar Outro(a)"/></a>
-          
-           <label for="id_numero">Numero:</label>{{form.numero}}
-	    	<label for="id_pReferencia">Ponto Referencia:</label>{{form.pReferencia}}</br>
-	    </div>
-	    <div class="coluna">
-	    	<label for="id_Usuario">Usuario:</label>{{form.usuario}}
-            <label for="id_Status">Status:</label>{{form.status}}
-	    	 <label for="situacao" class="label2">Situacao:</label>{{form.situacao}}
-	   </div>
-	    </fieldset>	
+   <fieldset>
+	<legend>Dados Solicitante</legend>
+   		<table class="tableForm" >
+   		  <tr><td><label for="id_solicitante">Solicitante:</label>{{form.solicitante}}</td>
+   		   	<td><label for="id_Usuario" class="label2">Usuario:</label>{{form.usuario}}</td>
+   		   	<td><label for="situacao" class="label2">Situacao:</label>{{form.situacao}}</td>
+   		   </tr>
+           <tr><td><label for="id_endereco">Endereço:</label>{{form.enderecoSolicitante}}</td>
+           <td><label for="id_numero">Numero:</label>{{form.numero}}</td>
+           <td><label for="id_bairro">Bairro:</label>{{form.bairro}}<a href="/admin/ocorrencias/bairro/add/"class="addLink" id="add_id_tipoObra" onclick="return showAddAnotherPopup(this);"> <img src="/site_media/images/add.png" width="10" height="10" alt="Adicionar Outro(a)"/></a>
+           </td>
+           </tr>
+           <tr><td><label for="id_pReferencia">Ponto Referencia:</label>{{form.pReferencia}}</br></td>
+           		<td> <label for="id_Status">Status:</label>{{form.status}}</td>
+           </tr>
+        </table>    	 
+
+	    </fieldset>
+<fieldset>
+		<legend>Dados da Ocorrencia</legend>	    
+		<table class="tableForm">
+			<tr><td><label for="end_ocorrencia">Endereço:</label>{{form.endRua}}</td>
+	    	<td><label for="num_end_ocorr">Numero:</label>{{form.endNumero}}</td>
+	   		<td><label for="bairro_ocorrencia">Bairro:</label>{{form.bairroOcorrencia}}
+	   		<a href="/admin/ocorrencias/bairro2/add/"class="addLink" id="add_id_tipoObra" onclick="return showAddAnotherPopup(this);"> <img src="/site_media/images/add.png" width="10" height="10" alt="Adicionar Outro(a)"/></a>
+	   		</td>
+	    	</tr>
+	    	<tr><td><label for="num_end_ocorr">Origem:</label>{{form.origem}}</td>
+	    	<td><label for="assunto">Assunto:</label>{{form.assunto}}<a href="/admin/ocorrencias/assunto/add/" class="add-another" id="add_id_assunto" onclick="return showAddAnotherPopup(this);"> <img src="/media/img/admin/icon_addlink.gif" width="10" height="10" alt="Adicionar Outro(a)"/></a></td></tr>
+	    	<tr><td><label for="data_ocorrencia">Data Ocorrencia:</label>{{form.dataOcorrencia}}<span class="datetimeshortcuts"><a href="javascript:DateTimeShortcuts.openCalendar(0);" id="calendarlink0"></span></a>
+	   			</td>
 	    	
-	<fieldset>
-		<legend>Dados da Ocorrencia</legend> 
-		<div class="coluna">   	
-	    	<label for="end_ocorrencia">Endereço:</label>{{form.endRua}}
-	    	<label for="assunto">Assunto:</label>{{form.assunto}}<a href="/admin/ocorrencias/assunto/add/" class="add-another" id="add_id_assunto" onclick="return showAddAnotherPopup(this);"> <img src="/media/img/admin/icon_addlink.gif" width="10" height="10" alt="Adicionar Outro(a)"/></a>
-	    	<label for="data_ocorrencia">Data Ocorrencia:</label>{{form.dataOcorrencia}}<span class="datetimeshortcuts"><a href="javascript:DateTimeShortcuts.openCalendar(0);" id="calendarlink0"></span></a>
-	   
-	    </div>
-	    <div class="coluna">
-	    	<label for="num_end_ocorr">Numero:</label>{{form.endNumero}}
-	   		<label for="num_end_ocorr">Origem:</label>{{form.origem}}
-	   		 <label for="id_solicitante">Finalizada Em:</label>{{form.dataFinal}}<span class="addLink"><a href="javascript:DateTimeShortcuts.openCalendar(0);" id="calendarlink0"><img src="/media/img/admin/icon_calendar.gif" alt="Calendário"></a></span>
-	    </div>
-         
+	   		 <td><label for="id_solicitante">Finalizada Em:</label>{{form.dataFinal}}
+	     </td></tr>
+	 </table>   
 	</fieldset>
-	
 	
 	<fieldset>
 		<legend>Dados da Edificação</legend>
-	    <label for="num_pavimentos">Numero de Pavimentos:</label>{{form.numeroPavimentos}}<br/>
-	    <label for="area_const">Área Construída:</label>{{form.areaConstruida}}</br>
-	    <label for="area_const">Modo Construtivo:</label>{{form.modoConstrutivo}}<a href="/admin/ocorrencias/modoconstrutivo/add/" class="add-another" id="add_id_modoConstrutivo" onclick="return showAddAnotherPopup(this);"> <img src="/media/img/admin/icon_addlink.gif" width="10" height="10" alt="Adicionar Outro(a)"/></a><br/>
-	    <label for="tipo_obra">Tipo de Obra:</label>{{form.tipoObra}}<a href="/admin/ocorrencias/tipoobra/add/" class="add-another" id="add_id_tipoObra" onclick="return showAddAnotherPopup(this);"> <img src="/media/img/admin/icon_addlink.gif" width="10" height="10" alt="Adicionar Outro(a)"/></a><br/>   
-	    <label for="cobertura">cobertura:</label>{{form.cobertura}}<a href="/admin/ocorrencias/cobertura/add/" class="add-another" id="add_id_cobertura" onclick="return showAddAnotherPopup(this);"> <img src="/media/img/admin/icon_addlink.gif" width="10" height="10" alt="Adicionar Outro(a)"/></a><br/>
-          <label for="constr_encosta">Construção em Encosta:</label>{{form.construcaoEncosta}}<a href="/admin/ocorrencias/construcaoencosta/add/" class="add-another" id="add_id_construcaoEncosta" onclick="return showAddAnotherPopup(this);"> <img src="/media/img/admin/icon_addlink.gif" width="10" height="10" alt="Adicionar Outro(a)"/></a><br/>
-	    <label for="estado_constr">Estado da Construção:</label>{{form.estadoConstrucao}}<a href="/admin/ocorrencias/estadoconstrucao/add/" class="add-another" id="add_id_estadoConstrucao" onclick="return showAddAnotherPopup(this);"> <img src="/media/img/admin/icon_addlink.gif" width="10" height="10" alt="Adicionar Outro(a)"/></a><br/>
-
-
+	    <table class="tableForm">
+	    <tr><td><label for="num_pavimentos">N° de Pavimentos:</label>{{form.numeroPavimentos}}<br/></td>
+	    <td><label for="area_const">Área Construída:</label>{{form.areaConstruida}}</td>
+	    <td><label for="area_const">Modo Construtivo:</label>{{form.modoConstrutivo}}<a href="/admin/ocorrencias/modoconstrutivo/add/" class="add-another" id="add_id_modoConstrutivo" onclick="return showAddAnotherPopup(this);"> <img src="/media/img/admin/icon_addlink.gif" width="10" height="10" alt="Adicionar Outro(a)"/></a></td></tr>
+	    
+	    <tr><td><label for="tipo_obra">Tipo de Obra:</label>{{form.tipoObra}}<a href="/admin/ocorrencias/tipoobra/add/" class="add-another" id="add_id_tipoObra" onclick="return showAddAnotherPopup(this);"> <img src="/media/img/admin/icon_addlink.gif" width="10" height="10" alt="Adicionar Outro(a)"/></a></td>   
+	    <td><label for="cobertura">Cobertura:</label>{{form.cobertura}}<a href="/admin/ocorrencias/cobertura/add/" class="add-another" id="add_id_cobertura" onclick="return showAddAnotherPopup(this);"> <img src="/media/img/admin/icon_addlink.gif" width="10" height="10" alt="Adicionar Outro(a)"/></a></td>
+          <td><label for="constr_encosta">Constr. em Encosta:</label>{{form.construcaoEncosta}}<a href="/admin/ocorrencias/construcaoencosta/add/" class="add-another" id="add_id_construcaoEncosta" onclick="return showAddAnotherPopup(this);"> <img src="/media/img/admin/icon_addlink.gif" width="10" height="10" alt="Adicionar Outro(a)"/></a></td></tr>
+	    <tr><td><label for="estado_constr">Estado da Construção:</label>{{form.estadoConstrucao}}<a href="/admin/ocorrencias/estadoconstrucao/add/" class="add-another" id="add_id_estadoConstrucao" onclick="return showAddAnotherPopup(this);"> <img src="/media/img/admin/icon_addlink.gif" width="10" height="10" alt="Adicionar Outro(a)"/></a></td></tr>
+</table>
  </fieldset>
 
 <fieldset>
 	<legend>Patologias Estruturais</legend>
-        <label for="parede">Paredes:</label>{{form.parede}}<a href="/admin/ocorrencias/parede/add/" class="add-another" id="add_id_parede" onclick="return showAddAnotherPopup(this);"> <img src="/media/img/admin/icon_addlink.gif" width="10" height="10" alt="Adicionar Outro(a)"/></a><br/>
+        <table class="tableForm">
+        <tr><td><label for="parede">Paredes:</label>{{form.parede}}<a href="/admin/ocorrencias/parede/add/" class="add-another" id="add_id_parede" onclick="return showAddAnotherPopup(this);"> <img src="/media/img/admin/icon_addlink.gif" width="10" height="10" alt="Adicionar Outro(a)"/></a></td>
 
-<label for="viga">Viga:</label>{{form.viga}}<a href="/admin/ocorrencias/viga/add/" class="add-another" id="add_id_parede" onclick="return showAddAnotherPopup(this);"> <img src="/media/img/admin/icon_addlink.gif" width="10" height="10" alt="Adicionar Outro(a)"/></a><br/>
-
-
-
-	    <label for="piso">Pisos:</label>{{form.piso}}<a href="/admin/ocorrencias/piso/add/" class="add-another" id="add_id_piso" onclick="return showAddAnotherPopup(this);"> <img src="/media/img/admin/icon_addlink.gif" width="10" height="10" alt="Adicionar Outro(a)"/></a><br/>
-
-	    <label for="laje">Laje:</label>{{form.laje}}<a href="/admin/ocorrencias/laje/add/" class="add-another" id="add_id_laje" onclick="return showAddAnotherPopup(this);"> <img src="/media/img/admin/icon_addlink.gif" width="10" height="10" alt="Adicionar Outro(a)"/></a><br/>
-
-	    <label for="coluna">Coluna:</label>{{form.coluna}}<a href="/admin/ocorrencias/coluna/add/" class="add-another" id="add_id_coluna" onclick="return showAddAnotherPopup(this);"> <img src="/media/img/admin/icon_addlink.gif" width="10" height="10" alt="Adicionar Outro(a)"/></a><br/>
-	    <label for="telhado">Telhado:</label>{{form.telhado}}<a href="/admin/ocorrencias/telhado/add/" class="add-another" id="add_id_telhado" onclick="return showAddAnotherPopup(this);"> <img src="/media/img/admin/icon_addlink.gif" width="10" height="10" alt="Adicionar Outro(a)"/></a><br/>
-
+			<td><label for="viga">Viga:</label>{{form.viga}}<a href="/admin/ocorrencias/viga/add/" class="add-another" id="add_id_parede" onclick="return showAddAnotherPopup(this);"> <img src="/media/img/admin/icon_addlink.gif" width="10" height="10" alt="Adicionar Outro(a)"/></a></td>
+	    	<td><label for="piso">Pisos:</label>{{form.piso}}<a href="/admin/ocorrencias/piso/add/" class="add-another" id="add_id_piso" onclick="return showAddAnotherPopup(this);"> <img src="/media/img/admin/icon_addlink.gif" width="10" height="10" alt="Adicionar Outro(a)"/></a></td></tr>
+	    	<tr><td><label for="laje">Laje:</label>{{form.laje}}<a href="/admin/ocorrencias/laje/add/" class="add-another" id="add_id_laje" onclick="return showAddAnotherPopup(this);"> <img src="/media/img/admin/icon_addlink.gif" width="10" height="10" alt="Adicionar Outro(a)"/></a></td>
+				<td><label for="coluna">Coluna:</label>{{form.coluna}}<a href="/admin/ocorrencias/coluna/add/" class="add-another" id="add_id_coluna" onclick="return showAddAnotherPopup(this);"> <img src="/media/img/admin/icon_addlink.gif" width="10" height="10" alt="Adicionar Outro(a)"/></a></td>
+	   			<td> <label for="telhado">Telhado:</label>{{form.telhado}}<a href="/admin/ocorrencias/telhado/add/" class="add-another" id="add_id_telhado" onclick="return showAddAnotherPopup(this);"> <img src="/media/img/admin/icon_addlink.gif" width="10" height="10" alt="Adicionar Outro(a)"/></a></td></tr>
+</table>
 </fieldset>
 <fieldset>
 
@@ -125,7 +122,7 @@ font-weight: bold;
 
 .label2{
 float:center;
-width:120px;
+width:140px;
 font-weight:bold;
 
 }
@@ -156,6 +153,23 @@ width: 90px;
 br{
 clear: left;
 }
+
+.tableForm{
+border:0px;
+padding:0px;
+background:#fff;
+}
+.tableForm td{
+width:110px;
+background:#fff;
+
+}
+
+.formDiv{
+background:#fff;
+
+}
+
 
 </style>  
 

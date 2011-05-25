@@ -3,7 +3,7 @@
 {% block "titulo" %}{{titulo}} - {{ block.super }}{% endblock "titulo" %}
 
 {% block "conteudo" %}
-
+<p class ="mensagem"> Olá {{usuario}}, Seja Bem Vindo!</p>
 
 	<form  action="" method="POST">
 	<div class="coluna">
@@ -104,11 +104,12 @@
 		<td>{{ object.usuario}}</td>
 	    <td><a class="link" href="{% url editar_ocorrencia object.id %}">Editar</a></td>
 		<td><a class="link" href="{% url ver_ocorrencia object.id %}">Imprimir</a></td>
+		<td><a class="link" href="/ocorrencias/{{object.id }}/parecer/">Adicionar Parecer</a></td>
 	</tr>
 	{% endfor %}
     </table>
-	{% endifnotequal %}
-
+	{% endifnotequal %}<br/>
+	
 <br/>
 <form><INPUT TYPE="BUTTON" VALUE="Cadastrar Nova Ocorrencia" ONCLICK="window.location.href='{% url nova_ocorrencia %}'"></td></tr></th> </form>
 

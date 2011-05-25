@@ -20,3 +20,5 @@ admin.site.register(Viga)
 admin.site.register(Origem)
 admin.site.register(UsuarioRegistrador)
 admin.site.register(Parecer)
+admin.site.register(Bairro2)
+
