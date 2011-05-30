@@ -1,5 +1,5 @@
 from django.http import HttpResponse,HttpResponseRedirect
-from django.template import Context, loader
+from django.template import Context, loader, RequestContext
 from django.shortcuts import render_to_response
 from datetime import datetime
 from defesaCivil.ocorrencias.models import *
@@ -397,3 +397,23 @@ def RelatorioPorBairro(request):
 	lista_ocorrencias= Ocorrencias.objects.all()
 	
 
+
+
+
+
+@login_required()
+def ItemOcorrencia(request, ocorrencia_id):
+	ocorrencia = get_object_or_404(Ocorrencia,pk=ocorrencia_id)
+	if request.method == "POST":
+		form = ocorrenciaForm(request.POST, request.FILES, instance=ocorrencia)
+		if form.is_valid():
+			form.save()
+			return HttpResponseRedirect('/ocorrencia/buscar')
+		else:
+			form = OcorrenciaForm(instance=ocorrencia)
+			return render_to_response("ocorrencia_form.html",{'form': form},
+			context_instance=RequestContext(request))
+		
+		form = OcorrenciaForm(instance=ocorrencia)
+		return render_to_response("ocorrencia_form.html",{'form': form},
+		context_instance=RequestContext(request))
