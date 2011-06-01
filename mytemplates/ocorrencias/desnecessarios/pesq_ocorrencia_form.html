@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block "titulo" %}Cadastro de nova Ocorrencia - {{ block.super }}{% endblock "titulo" %}
+
+{% block "conteudo" %}
+    <form action="" method="post">
+        <table border="0" width="60%">
+            <tr><th><label for="id_solicitante">Nome do Solicitante:</label></th><td>{{form.solicitante}}</td>
+	    <th><label for="id_solicitante">Status:</label></th><td>{{form.status}}</td>
+	    <th><label for="id_solicitante">Usuario:</label></th><td>{{form.usuario}}</td></tr>
+	    <tr><th><label for="id_solicitante">Endereço:</label></th><td>{{form.enderecoSolicitante}}</td>
+	    <th><label for="id_solicitante">Numero:</label></th><td>{{form.numero}}</td></tr>
+	    <tr><th><label for="id_solicitante">Endereço da Ocorrencia:</label></th><td>{{form.endRua}}</td>
+	    <th><label for="id_solicitante">Numero:</label></th><td>{{form.endNumero}}</td></tr>
+            <tr><th><label for="id_solicitante">Data da Ocorrencia:</label></th><td>{{form.dataOcorrencia}}</td>
+	    <th><label for="id_solicitante">Finalizada Em:</label></th><td>{{form.dataFinal}}</td></tr>
+	    <tr><th><label for="id_solicitante">Numero de Pavimentos:</label></th><td>{{form.numeroPavimentos}}</td>
+	    <th><label for="id_solicitante">Área Construída:</label></th><td>{{form.areaConstruida}}</td></tr>
+	    <tr><th><label for="id_solicitante">Tipo de Obra:</label></th><td>{{form.tipoObra}}</td>
+	    <th><label for="id_solicitante">cobertura:</label></th><td>{{form.cobertura}}</td>
+	    <th><label for="id_solicitante">Construção em Encosta:</label></th><td>{{form.construcaoEncosta}}</td></tr>
+	    <tr><th><label for="id_solicitante">Estado da Construção:</label></th><td>{{form.estadoConstrucao}}</td>
+	    <th><label for="id_solicitante">Paredes:</label></th><td>{{form.parede}}</td>
+	    <th><label for="id_solicitante">Pisos:</label></th><td>{{form.piso}}</td></tr>
+	    <tr><th><label for="id_solicitante">Laje:</label></th><td>{{form.laje}}</td>
+	    <th><label for="id_solicitante">Coluna:</label></th><td>{{form.coluna}}</td>
+	    <th><label for="id_solicitante">Telhado:</label></th><td>{{form.telhado}}</td></tr>
+            <td><input type="submit" value="Cadastrar" /></td></tr><br/>
+	  
+        </table>
+    </form>
+{% endblock "conteudo" %}

@@ -3,6 +3,7 @@ from django.template import Context, loader, RequestContext
 from django.shortcuts import render_to_response
 from datetime import datetime
 from defesaCivil.ocorrencias.models import *
+from defesaCivil.ocorrencias.forms import *
 from django.forms.models import modelformset_factory
 
 from django.core.exceptions import ObjectDoesNotExist
@@ -402,18 +403,43 @@ def RelatorioPorBairro(request):
 
 
 @login_required()
-def ItemOcorrencia(request, ocorrencia_id):
+def EditarOcorrencia(request, ocorrencia_id):
 	ocorrencia = get_object_or_404(Ocorrencia,pk=ocorrencia_id)
 	if request.method == "POST":
-		form = ocorrenciaForm(request.POST, request.FILES, instance=ocorrencia)
+		form = OcorrenciaForm(request.POST, request.FILES, instance=ocorrencia)
 		if form.is_valid():
 			form.save()
-			return HttpResponseRedirect('/ocorrencia/buscar')
-		else:
-			form = OcorrenciaForm(instance=ocorrencia)
-			return render_to_response("ocorrencia_form.html",{'form': form},
-			context_instance=RequestContext(request))
+			return render_to_response('ocorrencias/salvo.html',{})
+			
 		
+	try:	
 		form = OcorrenciaForm(instance=ocorrencia)
-		return render_to_response("ocorrencia_form.html",{'form': form},
-		context_instance=RequestContext(request))
+		return render_to_response("ocorrencias/formulario.html",{'form': form,'ocorrencia_id':ocorrencia_id },context_instance=RequestContext(request))
+		
+	except Exception, e:
+		print str(e)
+		print "oi"
+		form = OcorrenciaForm(instance=ocorrencia)
+		return render_to_response("ocorrencias/formulario.html",{'form': form,'ocorrencia_id':ocorrencia_id},context_instance=RequestContext(request))
+
+
+
+@login_required()
+def AddOcorrencia(request):
+	if request.method=="POST":
+		form = OcorrenciaForm(request.POST, request.FILES)
+		if form.is_valid():
+			form.save()
+			return render_to_response('ocorrencias/salvo.html',{})
+			
+		else:
+			#form = OcorrenciaForm()
+			return render_to_response("ocorrencias/formulario.html", {'form':form}, 
+			context_instance = RequestContext(request))
+			
+			
+	form = OcorrenciaForm()
+	return render_to_response("ocorrencias/formulario.html", {'form':form},context_instance = RequestContext(request))
+
+
+

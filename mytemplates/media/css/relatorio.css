@@ -1,0 +1,41 @@
+#relatorio
+{
+	width: 100%;
+	margin: 10px;
+	display:block;
+	background:#ccc;
+}
+
+
+
+.TreeView LI
+{
+padding: 0 0 0 18px;
+float: left;
+width: 100%;
+list-style: none;
+} 
+
+
+LI.Expanded
+{
+background: url("/site/media/images/minus.png") no-repeat left top;
+}
+
+LI.Expanded ul
+{
+display: block;
+}
+
+LI.Collapsed
+{
+background: url("/site_media/images/plus.png") no-repeat left top;
+}
+
+LI.Collapsed ul
+{
+display: none;
+} 
+
+
+

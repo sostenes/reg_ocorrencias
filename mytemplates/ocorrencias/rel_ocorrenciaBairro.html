@@ -21,22 +21,24 @@
     
     
     
-               
+     <table class="tblrelatorio">
+     	          
     {%for b in lista_bairros%}
          
-      <div class="texto1"><b>Bairro: {{b}}</b> - N° de Ocorrencias: {{b.ocorrencias}}</div>  
-          
+      <tr class="trrelatorio"><th class="threlatorio">Bairro: {{b}}</th><th>Ocorrencias: {{b.ocorrencias}}</th></tr>  
+          <tr class="trrelatorio">
       	 {%for o in ocorrencias%}
        		{%if o.bairro = b%}
-       		<div class="texto2">Assunto: {{o.assunto}} N° de Ocorrencias: {{o.ocorrencias}} </div> 
+       		<tr class="trrelatorio"><td class="tdrelatorio">Assunto: {{o.assunto}}</td><td class="tdrelatorio">Ocorrencias: {{o.ocorrencias}}</td></tr>
         	   
        		{%endif%}
     	{%endfor%}
-    	   
+    	   </tr>
+    
     	
     	      
     {%endfor%}  
        
-           
+         </table>  
     
 {% endblock "conteudo" %}

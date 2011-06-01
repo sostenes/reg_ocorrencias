@@ -102,8 +102,8 @@
 		<td>{{ object.situacao}}</td>
 		<td>{{ object.dataOcorrencia}}</td>
 		<td>{{ object.usuario}}</td>
-	    <td><a class="link" href="{% url editar_ocorrencia object.id %}">Editar</a></td>
-		<td><a class="link" href="{% url ver_ocorrencia object.id %}">Imprimir</a></td>
+	    <td><a class="link" href="/ocorrencia/{{object.id}}/editar">Editar</a></td>
+		<td><a class="link" href="/ocorrencia/{{object.id}}/imprimir">Imprimir</a></td>
 		<td><a class="link" href="/ocorrencias/{{object.id }}/parecer/">Adicionar Parecer</a></td>
 	</tr>
 	{% endfor %}
@@ -111,7 +111,7 @@
 	{% endifnotequal %}<br/>
 	
 <br/>
-<form><INPUT TYPE="BUTTON" VALUE="Cadastrar Nova Ocorrencia" ONCLICK="window.location.href='{% url nova_ocorrencia %}'"></td></tr></th> </form>
+<form><INPUT TYPE="BUTTON" VALUE="Cadastrar Nova Ocorrencia" ONCLICK="window.location.href='/ocorrencia/nova/'"></td></tr></th> </form>
 
 
 
