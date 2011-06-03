@@ -161,17 +161,44 @@ class ObjetoRelatorio1:
 	
 @login_required
 def rel_ocorrenciaBairro(request):
-	
+
 	lista_bairros = Bairro.objects.all().annotate(ocorrencias = Count('ocorrencia'))
 	lista_ocorrencias = Ocorrencia.objects.all()
 	lista_assuntos = Assunto.objects.all()
 	
-	ocorrencias = [] 		
+	ocorrencias = []
 	
+	if request.method == 'POST':
+		data1=request.POST['data1']
+		data2=request.POST['data2']
+		if data1 != "" and data2 != "":
+			dia = data1[0:2]
+			mes = data1[3:5]
+			ano = data1[6:10]
+			data1 = ano+"-"+mes+"-"+dia
+			dia = data2[0:2]
+			mes = data2[3:5]
+			ano = data2[6:10]
+			data2 = ano+"-"+mes+"-"+dia
+			lista_ocorrencias = lista_ocorrencias.filter(dataOcorrencia__gte=data1, dataFinal__lte=data2)
+		elif data1 !="":
+			dia = data1[0:2]
+			mes = data1[3:5]
+			ano = data1[6:10]
+			data1 = ano+"-"+mes+"-"+dia
+			lista_ocorrencias = lista_ocorrencias.filter(dataOcorrencia__gte=data1)
+		elif data2 !="":
+			dia = data2[0:2]
+			mes = data2[3:5]
+			ano = data2[6:10]
+			data2 = ano+"-"+mes+"-"+dia
+			lista_ocorrencias = lista_ocorrencias.filter(dataFinal__lte=data2)
+	
+
 	
 	for bairro in lista_bairros:
 		for assunto in lista_assuntos:
-			o = len(Ocorrencia.objects.filter(bairro=bairro,assunto=assunto))
+			o = len(lista_ocorrencias.filter(bairro=bairro,assunto=assunto))
 			ocorrencias = ocorrencias + [ObjetoRelatorio1(bairro,assunto,o)]
 	
 	
@@ -198,57 +225,41 @@ def rel_ocorrenciaAssunto(request):
 	
 	
 	if request.method == 'POST':
-	
-		data1 = request.POST['data1']
-		data2 = request.POST['data2']
 		
+		lista_ocorrencias = Ocorrencia.objects.all()
+		
+		data1=request.POST['data1']
+		data2=request.POST['data2']
 		if data1 != "" and data2 != "":
-		
 			dia = data1[0:2]
 			mes = data1[3:5]
 			ano = data1[6:10]
 			data1 = ano+"-"+mes+"-"+dia
-			
 			dia = data2[0:2]
 			mes = data2[3:5]
 			ano = data2[6:10]
 			data2 = ano+"-"+mes+"-"+dia
-			
-			for bairro in lista_bairros:
-				for assunto in lista_assuntos:
-					o = len(Ocorrencia.objects.filter(bairro=bairro,assunto=assunto, dataOcorrencia__gte=data1, dataOcorrencia__lte=data2))
-					ocorrencias = ocorrencias + [ObjetoRelatorio1(bairro,assunto,o)]
-		
-			
-		elif data1 != "":
-			dia = data2[0:2]
-			mes = data2[3:5]
-			ano = data2[6:10]
+			lista_ocorrencias = lista_ocorrencias.filter(dataOcorrencia__gte=data1, dataFinal__lte=data2)
+		elif data1 !="":
+			dia = data1[0:2]
+			mes = data1[3:5]
+			ano = data1[6:10]
 			data1 = ano+"-"+mes+"-"+dia
-			
-			for bairro in lista_bairros:
-				for assunto in lista_assuntos:
-					o = len(Ocorrencia.objects.filter(bairro=bairro,assunto=assunto, dataOcorrencia__gte=data1))
-					ocorrencias = ocorrencias + [ObjetoRelatorio1(bairro,assunto,o)]
-			
-		elif data2 != "":
+			lista_ocorrencias = lista_ocorrencias.filter(dataOcorrencia__gte=data1)
+		elif data2 !="":
 			dia = data2[0:2]
 			mes = data2[3:5]
 			ano = data2[6:10]
 			data2 = ano+"-"+mes+"-"+dia
-			
-			for bairro in lista_bairros:
-				for assunto in lista_assuntos:
-					o = len(Ocorrencia.objects.filter(bairro=bairro,assunto=assunto, dataOcorrencia__lte=data2))
-					ocorrencias = ocorrencias + [ObjetoRelatorio1(bairro,assunto,o)]
+			lista_ocorrencias = lista_ocorrencias.filter(dataFinal__lte=data2)
 	
-	else:
-		
-		for bairro in lista_bairros:
-			for assunto in lista_assuntos:
-				o = len(Ocorrencia.objects.filter(bairro=bairro,assunto=assunto))
-				#adicao de elementos ocorrencia a lista...
-				ocorrencias = ocorrencias + [ObjetoRelatorio1(bairro,assunto,o)]
+			
+	for bairro in lista_bairros:
+		for assunto in lista_assuntos:
+			o = len(lista_ocorrencias.filter(bairro=bairro,assunto=assunto))
+			ocorrencias = ocorrencias + [ObjetoRelatorio1(bairro,assunto,o)]
+	
+	
 	
 	t = loader.get_template('ocorrencias/rel_ocorrenciaAssunto.html')
 	c = Context({'lista_assuntos' :lista_assuntos,'ocorrencias' : ocorrencias,

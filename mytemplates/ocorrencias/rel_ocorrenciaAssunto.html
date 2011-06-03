@@ -4,7 +4,7 @@
 
 {% block "conteudo" %}
 <script type="text/javascript"src="/site_media/js/relatorio.js"></script>
-<form>
+<form action ="" method="POST">
 
 <label for="data1" >De:</label>
 <input class="texto" type="textbox" size="10" name="data1" id="data1"/>
@@ -13,29 +13,28 @@
 
 <input type="SUBMIT" value="Buscar">
 <input type="BUTTON" value="Voltar" ONCLICK="window.location.href='/ocorrencias/relatorios'"/>
-
-
-
-
-
-
-
 </form>
 
-     {%for a in lista_assuntos%}
-                <div class="texto1">Assunto: {{a}} - N° de Chamados: {{a.ocorrencias}}</div>
+
+
+	 <table class="tblrelatorio">
+ 	    {%for a in lista_assuntos%}
+                <tr class="trrelatorio"><th class="threlatorio">Assunto: {{a}} </th><th>Ocorrencias: {{a.ocorrencias}}
+                </th></tr>  
+          <tr class="trrelatorio">
        		
      	 {%for o in ocorrencias%}
        		{%if o.assunto = a%}
-       		    <div class="texto2"><div class=col1>Bairro: {{o.bairro}}</div><div class=col2> N° de Chamados: {{o.ocorrencias}}</div></div>
+       		    <tr class="trrelatorio"><td class="tdrelatorio">Bairro: {{o.bairro}}</td>
+       		    <td class="tdrelatorio">Ocorrencias: {{o.ocorrencias}}</div></div>
         	
        		{%endif%}
     	{%endfor%}
     	
     {%endfor%}  
-        
+       
 
-    
+    </table>
     
     
 {% endblock "conteudo" %}       
