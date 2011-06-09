@@ -8,9 +8,11 @@
     
     {%for object in lista_parecer%}
 		<div class="textoParecer">	
-        <p >{{ object.texto }}</p>		
+        <p >{{ object.texto }} ID:{{object.id}}</p>		
         <p class="parecerStatus">Status: {{ object.status}}</br>
            Registrado Por {{object.usuarioRegistrador}} em {{ object.data}}</p>
+           
+           <a href="/ocorrencia/{{ocorrencia_id}}/parecer/{{object.id}}/deletar">Apagar</a>
         </div>
 	{% endfor %}
     

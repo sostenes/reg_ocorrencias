@@ -116,29 +116,43 @@ class Origem(models.Model):
 	def __unicode__(self):
 		return self.nome
 
-#depois tenho que terminar essa questao do protocolo
+
+
+
+
+#Guarda o ultimo protocolo inserido...
+#Quando o ano muda zera o numero e o itera(i++)
+#A string num Protocolo e composta de numero/Ano
 class Protocolo(models.Model):
 	numero = models.IntegerField()
 	ano = models.IntegerField()
 	
+	def __init__(self):
+		numero = 1
+		ano = 2011
+		
+	
 	def __unicode__(self):
 		return str(self.numero)+"/"+str(self.ano)
 	
+
+
+
 
 class Ocorrencia(models.Model):
   solicitante=models.CharField( max_length=50, null=True, blank=True)
   enderecoSolicitante=models.CharField(max_length=100, null=True, blank=True)
   numero=models.IntegerField(null=True, blank=True)
   bairro=models.ForeignKey(Bairro, null=True, blank=True)
-  pReferencia = models.CharField(max_length = 200, null=True, blank=True)
+  pReferencia = models.TextField( null=True, blank=True)
   usuario=models.ForeignKey(User)
   status=models.ForeignKey(Status)
   situacao=models.ForeignKey(Situacao)
   assunto=models.ForeignKey(Assunto)
   
-  #Se a ocorrencia eh espontanea ou dirigida
-  origem = models.ForeignKey(Origem)
+  protocolo = models.CharField(max_length=50, null=True, blank = True)
   
+  #Se a ocorrencia eh espontanea ou dirigida
   #coloquei como charfield para guardar no formato DDD/DDDDD
   #onde DDD eh o numero da ocorrencia e DDDDD eh o ano em que ela ocorreu
   #numOcorrencia = models.ForeignKey(Protocolo, unique=True, null=True, blank=True)
@@ -149,7 +163,7 @@ class Ocorrencia(models.Model):
   bairroOcorrencia=models.ForeignKey(Bairro2, null=True, blank=True)
   dataOcorrencia=models.DateField()
   dataFinal=models.DateField(null=True, blank=True)
-  
+  origem = models.ForeignKey(Origem, null=True, blank=True)
   NUM_PAVIMENTOS = ((1,1),(2,2),(3,3), (4,4), 
   					(5,5),(6,6),(7,7),(8,8),
   					(9,9),(10,10),(11,11),(12,12),

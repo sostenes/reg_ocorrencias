@@ -100,6 +100,25 @@ def novoHistorico(request, object_id):
 	formset = historicoFormSet()
 	return render_to_response('ocorrencias/historico_novo.html', {'formset':formset})	
 
+
+@login_required()
+def apagarParecer(request ,ocorrencia_id, object_id):
+	mensagem = "Deseja mesmo apagar o parecer numero:" + object_id + "?"
+	if request.method == 'POST':
+	
+		try:
+			p = Parecer.objects.get(pk=object_id, ocorrencia=Ocorrencia.objects.get(pk=ocorrencia_id))
+			p.delete()
+			mensagem = "Parecer deletado com sucesso!"
+		except Exception , e:
+			print(e)
+			mensagem = "Erro" + e
+		
+
+	return render_to_response('ocorrencias/apagar_parecer.html',{'mensagem':mensagem})
+	
+
+
 @login_required()
 def Imprimir(request, object_id):
 	ocorrencia = get_object_or_404(Ocorrencia, pk=object_id)
@@ -298,6 +317,7 @@ def Consulta(request):
 	lista_bairros = Bairro.objects.all()
 	lista_situacao = Situacao.objects.all()
 	lista_assunto = Assunto.objects.all()
+	lista_origem = Origem.objects.all()
 	lista_ocorrencias  = Ocorrencia.objects.all().order_by('-dataOcorrencia','solicitante')[:24]
 	mensagem='Mostrando as ultimas Ocorrencias'
 	n_registros =lista_ocorrencias.count()
@@ -311,6 +331,9 @@ def Consulta(request):
 			
 			if request.POST['status'] != "0":
 				lista_ocorrencias =lista_ocorrencias.filter(status=request.POST['status'])
+				
+			if request.POST['origem'] !="0":
+				lista_ocorrencias = lista_ocorrencias.filter(origem = request.POST['origem'])
 				
 			if request.POST['endNum'] !="":
 			   lista_ocorrencias = lista_ocorrencias.filter(endNumero__contains=int(request.POST['endNum']))	
@@ -379,7 +402,8 @@ def Consulta(request):
 				'lista_bairros' :lista_bairros,
 				'lista_situacao' :lista_situacao,
 				'lista_assunto' :lista_assunto,
-				'usuario' :usuario,}
+				'usuario' :usuario,
+				'lista_origem' :lista_origem,}
 	
 				return render_to_response('ocorrencias/ocorrencia_relatorio.html', dados_template)
 
@@ -398,7 +422,8 @@ def Consulta(request):
 		'lista_bairros' :lista_bairros,
 		'lista_situacao' :lista_situacao,
 		'lista_assunto' :lista_assunto,
-		'usuario' :usuario,}
+		'usuario' :usuario,
+		'lista_origem' :lista_origem,}
 	
 	return render_to_response('ocorrencias/ocorrencia_consulta.html', dados_template)
 

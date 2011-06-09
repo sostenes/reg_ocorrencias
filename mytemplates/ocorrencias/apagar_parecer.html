@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block "titulo" %}{{titulo}} - {{ block.super }}{% endblock "titulo" %}
+
+{% block "conteudo" %}
+
+
+<p>{{mensagem}}</p>
+
+<form action ="" method="POST">
+
+	<table>
+		<tr><td><input type="submit" value="Sim"></td>
+		<td><INPUT TYPE="BUTTON" VALUE="Não" ONCLICK="window.location.href='/ocorrencia/buscar/'"></td></tr>
+	</table>
+
+</form>
+
+
+{%endblock "conteudo"%}

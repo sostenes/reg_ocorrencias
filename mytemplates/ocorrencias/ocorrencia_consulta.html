@@ -13,11 +13,26 @@
 			<label for="datas">Entre as datas:</label></br>
 				<input type="text" id="dataOcorrencia" name="dataOcorrencia" value="" size="7">
 				<input type="text" id="dataFinal" name="dataFinal" value="" size="7">
-				
+			
+			
+			
+			<br/>
+			<label for="status">Bairro:</label>
+			<SELECT id ="bairro" name="bairro" title="bairro">
+				<option value="0">-------------Todos---------------</option>
+				{%for bairro in lista_bairros%}		
+					<option value="{{bairro.id}}">{{bairro.nome}}</option>
+				{%endfor%}
+			</SELECT>
+			
+			
+			
 			<SELECT id ="saida" name="saida" title="saida" class="selectMargem">
 				<option value="0">Pesquisa Comum</option>
 				<option value="1">Tabela de Relatorio</option>
 			</SELECT>
+			
+			
 	</div>
 	
 	
@@ -39,6 +54,15 @@
 						<option value="{{usuario.id}}">{{usuario.username}}</option>
 					{%endfor%}
 			</SELECT></br>
+			
+			
+			<label for="status">Origem:</label>
+			<SELECT id ="origem" name="origem" title="origem">
+				<option value="0">-------------Todos---------------</option>
+				{%for origem in lista_origem%}		
+					<option value="{{origem.id}}">{{origem.nome}}</option>
+				{%endfor%}
+			</SELECT>
 			
 			
 	</div>
@@ -72,6 +96,8 @@
 				{%endfor%}
 			</SELECT>
 			
+			
+			</br>
 			<br/><input type="submit" class="botao" size="10" value="Buscar" />
 	</div>
 
