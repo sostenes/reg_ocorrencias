@@ -104,6 +104,7 @@ def novoHistorico(request, object_id):
 @login_required()
 def apagarParecer(request ,ocorrencia_id, object_id):
 	mensagem = "Deseja mesmo apagar o parecer numero:" + object_id + "?"
+	ocorrencia_id = ocorrencia_id
 	if request.method == 'POST':
 	
 		try:
@@ -115,14 +116,14 @@ def apagarParecer(request ,ocorrencia_id, object_id):
 			mensagem = "Erro" + e
 		
 
-	return render_to_response('ocorrencias/apagar_parecer.html',{'mensagem':mensagem})
+	return render_to_response('ocorrencias/apagar_parecer.html',{'mensagem':mensagem, 'ocorrencia_id':ocorrencia_id})
 	
 
 
 @login_required()
 def Imprimir(request, object_id):
 	ocorrencia = get_object_or_404(Ocorrencia, pk=object_id)
-	lista_pareceres = Parecer.objects.filter(ocorrencia = ocorrencia)
+	lista_pareceres = Parecer.objects.filter(ocorrencia = ocorrencia).order_by('data')
 
 	dados_template = {'titulo' :'Lista de Pareceres',
 			'lista_pareceres' :lista_pareceres,
@@ -145,7 +146,7 @@ def registrarParecer(request, object_id):
 	else:		
 		ocorrencia = get_object_or_404(Ocorrencia, pk=object_id)
 		ocorrencia_id = object_id
-		lista_parecer = Parecer.objects.filter(ocorrencia=ocorrencia)
+		lista_parecer = Parecer.objects.filter(ocorrencia=ocorrencia).order_by('data','id')
 		registradores = UsuarioRegistrador.objects.all()
 		mensagem = "Hello World"
 	
@@ -477,5 +478,17 @@ def AddOcorrencia(request):
 	form = OcorrenciaForm()
 	return render_to_response("ocorrencias/formulario.html", {'form':form},context_instance = RequestContext(request))
 
+class Solicitantes:
+	nome = None
+	numOcorrencias = None
+	
+	def __init__(nome,numOcorrencias ):
+		nome=nome
+		numOcorrencias = numOcorrencias
+
+@login_required()
+def RankingSolicitantes(request):
+	ocorrencias = Ocorrencia.objects.all()
+	
 
 

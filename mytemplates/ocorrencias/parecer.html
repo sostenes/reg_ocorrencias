@@ -8,29 +8,24 @@
     
     {%for object in lista_parecer%}
 		<div class="textoParecer">	
-        <p >{{ object.texto }} ID:{{object.id}}</p>		
-        <p class="parecerStatus">Status: {{ object.status}}</br>
-           Registrado Por {{object.usuarioRegistrador}} em {{ object.data}}</p>
+        {{ object.texto|safe }}	
+        <p class="parecerStatus">Status: {{ object.status}}  ID: {{object.id}}</br>
+           Registrado Por {{object.usuarioRegistrador}} em {{ object.data}} </p>
            
            <a href="/ocorrencia/{{ocorrencia_id}}/parecer/{{object.id}}/deletar">Apagar</a>
         </div>
 	{% endfor %}
-    
+    <p class="parecerStatus">Cadastrar Novo Parecer:</p>
 	<form action ="" method="POST">
-	<fieldset><legend>Cadastrar Novo Parecer</legend>
-	<table border="0">
-		<tr><textarea rows = "20" cols="100" id="texto" name="texto"></textarea><tr/>
-		<tr><th><label for="txt_Parecer">Usuario Registrador:</label></th>
-		<td><SELECT id ="registrador" name="registrador" title="registrador">
+		<textarea rows = "10" cols="77" id="texto" name="texto" ></textarea></br>
+		<label for="txt_Parecer">Usuario Registrador:</label>
+		<SELECT id ="registrador" name="registrador" title="registrador">
 		{%for user in registradores%}
-		<option value={{user.id}}>{{user.nome}}</option>
-		{% endfor %}</td></tr>
+			<option value={{user.id}}>{{user.nome}}</option>
+		{% endfor %}
+		<a href="/admin/ocorrencias/usuarioregistrador/add/" class="add-another" id="add_id_usuarioRegistrador" onclick="return showAddAnotherPopup(this);"> <img src="/site_media/images/add.png" width="10" height="10" alt="Adicionar Outro(a)"/></a>
 		
-		<tr><td><input type="submit" value="Cadastrar"></input></td></tr>
-		
-		</table>
-		
-	</fieldset>
+		<input type="submit" value="Cadastrar"  ></input>		
 	</form>
 
 {% endblock "conteudo" %}

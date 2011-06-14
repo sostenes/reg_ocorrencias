@@ -82,10 +82,11 @@ text-align:center
     <thead><h2>Dados do Solicitante</h2></thead>
     <tr><th>Numero:</th><td>{{ ocorrencia.id }}</td></tr>
 	<tr><th>Solicitante:</th><td>{{ ocorrencia.solicitante }}</td></tr>
+	<tr><th>Endereço:</th><td>{{ ocorrencia.enderecoSolicitante }}</td><td>N°: {{ ocorrencia.numero }}<td></tr>
 	<tr><th>Bairro:</th><td>{{ ocorrencia.bairro }}</td></tr>
-	<tr><th>Endereço:</th><td>{{ ocorrencia.enderecoSolicitante }}</td><th>Numero:</th><td>{{ ocorrencia.numero }}</td></tr>
+	<tr><th>Ponto de Referencia:</th><td>{{ ocorrencia.pReferencia|safe }}</td></tr>
 	<tr><th>Status:</th><td>{{ ocorrencia.status }}</td><th>Situação:</th><td>{{ ocorrencia.situacao }}</td></tr>
-	<tr><th>Endereço da Ocorrencia:</th><td>{{ ocorrencia.endRua }}</td><th>Numero:</th><td>{{ ocorrencia.endNumero }}</td></tr>
+	<tr><th>Endereço da Ocorrencia:</th><td>{{ ocorrencia.endRua }}</td><td>N°: {{ ocorrencia.endNumero }}</td></tr>
 	<tr><th>Registrada no Sistema por:</th><td>{{ ocorrencia.usuario }}</td></tr>
 	<tr><th>Data da Ocorrencia:</th><td>{{ ocorrencia.dataOcorrencia }}</td></tr>
 	<tr><th>Data de Finalização:</th><td>{{ ocorrencia.dataFinal }}</td></tr>
@@ -122,10 +123,13 @@ text-align:center
 </td>
 </table>
 </table>
+<table class="tabela">
+<tr><th>Historico:</th></tr><tr><td>{{ ocorrencia.assunto }}</td></tr>
+</table>
 <table class="tabela3">
-<thead><h2>Historico</h2></thead>
+<thead><h2>Pareceres</h2></thead>
 {%for parecer in lista_pareceres%}
-<tr><td class="tabela2"><p>	{{ parecer.texto}}</p></td></tr>
+<tr><td class="tabela2"><p>	{{ parecer.texto|safe}}</p></td></tr>
 <tr><td>{{ parecer.data}}</td></tr>
 <tr><td>Status: {{parecer.status}}</td></tr>
 <tr><td><p>Registrado Por:	{{ parecer.usuarioRegistrador}}</p></td></tr>
