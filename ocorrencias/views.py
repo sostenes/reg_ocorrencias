@@ -118,6 +118,30 @@ def apagarParecer(request ,ocorrencia_id, object_id):
 
 	return render_to_response('ocorrencias/apagar_parecer.html',{'mensagem':mensagem, 'ocorrencia_id':ocorrencia_id})
 	
+@login_required()
+def editarParecer(request, parecer_id):
+	parecer = get_object_or_404(Parecer,pk=parecer_id)	
+	if request.method == 'POST':
+		try:
+			
+			form = ParecerForm(request.POST, request.FILES,instance=parecer)
+			if form.is_valid():
+				form.save() 
+				print "oi1"
+				return render_to_response('ocorrencias/salvo.html',{})
+			
+			else:
+				print "oi2"
+				return render_to_response("ocorrencias/editarParecer.html", {'form':form}, 
+				context_instance = RequestContext(request))
+		
+		except Exception, e:
+			print str(e)
+	
+	else:
+		parecer = get_object_or_404(Parecer,pk=parecer_id)
+		form = ParecerForm(instance=parecer)	
+		return render_to_response("ocorrencias/editarParecer.html", {'form':form},context_instance = RequestContext(request))
 
 
 @login_required()

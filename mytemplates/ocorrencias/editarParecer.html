@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block "titulo" %}{{titulo}} - {{ block.super }}{% endblock "titulo" %}
+
+{% block "conteudo" %}
+
+
+    <p class="parecerStatus">Editar Parecer:</p>
+	<form action ="" method="POST">
+		<label for="texto">Texto: </label><br/>{{form.texto}}<br/>
+		<label for="Usuario">Usuario Registrador:</label><br/>{{form.usuarioRegistrador}}
+		
+		<a href="/admin/ocorrencias/usuarioregistrador/add/" class="add-another" id="add_id_usuarioRegistrador" onclick="return showAddAnotherPopup(this);"> <img src="/site_media/images/add.png" width="10" height="10" alt="Adicionar Outro(a)"/></a><br/>
+		
+		<label for="data">Data: </label><br/>{{form.data}}</br>
+		
+		<input type="submit" value="Salvar"  ></input>		
+	</form>
+
+{% endblock "conteudo" %}

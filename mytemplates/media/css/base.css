@@ -162,6 +162,7 @@ font-size:11px;
 width:80%;
 padding:10px;
 margin:0 auto;
+ overflow: hidden;
 }
 .textoParecer:hover{
 background-color:#FFA500;
