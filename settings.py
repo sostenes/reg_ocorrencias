@@ -11,12 +11,12 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'dcivil',                      # Or path to database file if using sqlite3.
-        'USER': 'dcivil',                      # Not used with sqlite3.
-        'PASSWORD': 'dcivil',                  # Not used with sqlite3.
+        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': '/home/bender/Projetos/defesaCivil/db/defesaCivildb',                      # Or path to database file if using sqlite3.
+        'USER': '',                      # Not used with sqlite3.
+        'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
+        'PORT': '1521',                      # Set to empty string for default. Not used with sqlite3.
     }
 }
 
@@ -46,7 +46,7 @@ USE_L10N = True
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/"
 # Ao instalar no servidor alterar esse caminho
-MEDIA_ROOT = '/home/bender/Projetos/django/defesaCivil/mytemplates/media/'
+MEDIA_ROOT = '/home/bender/Projetos/defesaCivil/mytemplates/media'
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
@@ -79,7 +79,7 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'defesaCivil.urls'
 
 TEMPLATE_DIRS = (
-    "/home/bender/Projetos/django/defesaCivil/mytemplates"
+    "/home/bender/Projetos/defesaCivil/mytemplates"
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
