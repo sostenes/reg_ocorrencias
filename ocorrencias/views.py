@@ -120,30 +120,35 @@ def apagarParecer(request ,ocorrencia_id, object_id):
 	
 @login_required()
 def editarParecer(request, parecer_id):
-	parecer = get_object_or_404(Parecer,pk=parecer_id)	
+	parecer = get_object_or_404(Parecer,pk=parecer_id)
+	form = ParecerForm(request.POST, request.FILES,instance=parecer)
+	
 	if request.method == 'POST':
+
 		try:
 			
-			form = ParecerForm(request.POST, request.FILES,instance=parecer)
-			if form.is_valid():
-				form.save() 
-				print "oi1"
-				return render_to_response('ocorrencias/salvo.html',{})
+			parecer.texto = request.POST['texto']
+			data=request.POST['data']
+			if data != "":
+				dia = data[0:2]
+				mes = data[3:5]
+				ano = data[6:10]
+				data = ano+"-"+mes+"-"+dia
+				parecer.data = data
 			
-			else:
-				print "oi2"
-				return render_to_response("ocorrencias/editarParecer.html", {'form':form}, 
-				context_instance = RequestContext(request))
-		
+			parecer.save()
+			return render_to_response('ocorrencias/salvo.html',{})
+			
 		except Exception, e:
-			print str(e)
+			mensagem = "Informe uma data valida no formato dd/mm/aaaa. *"
+			return render_to_response("ocorrencias/editarParecer.html", {'form':form, 'mensagem':mensagem},context_instance = RequestContext(request))
+
 	
 	else:
-		parecer = get_object_or_404(Parecer,pk=parecer_id)
-		form = ParecerForm(instance=parecer)	
+		form = ParecerForm2(instance=parecer)	
 		return render_to_response("ocorrencias/editarParecer.html", {'form':form},context_instance = RequestContext(request))
-
-
+	
+	
 @login_required()
 def Imprimir(request, object_id):
 	ocorrencia = get_object_or_404(Ocorrencia, pk=object_id)

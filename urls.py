@@ -30,6 +30,12 @@ params_novo_ocorrencia2 = {
 }
 
 
+params_parecer = {
+		'model': Parecer,
+		'post_save_redirect': 'ocorrencia/buscar',
+}
+
+
 
 urlpatterns = patterns('',
     # Example:

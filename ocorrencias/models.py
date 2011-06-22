@@ -213,7 +213,7 @@ class Parecer(models.Model):
 #o.parecer.create("aqui colocando todos os campos do parecer")
   ocorrencia = models.ForeignKey(Ocorrencia, related_name='pareceres')
   texto=models.TextField(max_length=1000)
-  data=models.DateField()
+  data=models.DateField(null=True, blank=True,)
   status=models.ForeignKey(Status)
   usuarioRegistrador = models.ForeignKey(UsuarioRegistrador)
   

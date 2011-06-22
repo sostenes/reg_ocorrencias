@@ -25,3 +25,12 @@ class ParecerForm(ModelForm):
 	class Meta:
 		model = Parecer
 		
+class ParecerForm2(ModelForm):
+	data = forms.DateField(
+					widget =  forms.DateInput(format="%d/%m/%Y"),
+							  input_formats = ['%d/%m/%Y','%d/%m/%Y'],)
+
+	
+	class Meta:
+		model = Parecer
+		
