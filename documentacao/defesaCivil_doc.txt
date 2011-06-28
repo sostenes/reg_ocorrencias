@@ -13,3 +13,11 @@ DOCUMENTAÇÃO DO SISTEMA DE REGISTRO DE OCORRÊNCIAS DA DEFESA CIVIL
 		/ocorrencias [templates da aplicação ocorrencias]
 		/registration [templates de login/logout]
 		/media [arquivos estáticos (*.css,*.js,imagens, etc )]
+		/admin [templates da parte de administração do site]
+		
+		
+		
+
+INSTALAÇÃO
+
+
