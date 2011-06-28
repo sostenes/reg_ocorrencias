@@ -120,7 +120,7 @@
 		</tr>
 	</thead>
 	{% ifnotequal n_registros '0'%}
-	{%for object in lista_ocorrencias%}
+	{%for object in ocorrencias.object_list%}
 	<tr>			
         <td>{{ object.id }}</td>
 		<td>{{ object.solicitante }}</td>
@@ -137,6 +137,22 @@
 	{% endifnotequal %}<br/>
 	
 <br/>
+<span class="pages">
+ {% if ocorrencias.has_previous %}
+            <a href="?page={{ ocorrencias.previous_page_number }}">anterior</a>
+        {% endif %}
+
+        <span class="current">
+            Página {{ ocorrencias.number }} de {{ ocorrencias.paginator.num_pages }}.
+        </span>
+
+        {% if ocorrencias.has_next %}
+            <a href="?page={{ ocorrencias.next_page_number }}">próxima</a>
+        {% endif %}
+
+</span>
+</br>
+</br>
 <form><INPUT TYPE="BUTTON" VALUE="Cadastrar Nova Ocorrencia" ONCLICK="window.location.href='/ocorrencia/nova/'"></td></tr></th> </form>
 
 

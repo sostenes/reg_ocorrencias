@@ -1,0 +1,15 @@
+DOCUMENTAÇÃO DO SISTEMA DE REGISTRO DE OCORRÊNCIAS DA DEFESA CIVIL
+
+ÁRVORE DE ARQUIVOS DA APLICAÇÃO
+
+
+./defesaCivil [pasta raiz do projeto]
+
+	/ocorrencias [pasta que contém os arquivos de código que contém as regras de negócio da aplicação -> camadas Controller e Model do MVC]
+		/views.py   [arquivo de código de regras de negócio ->Controller do MVC]
+		/models.py  [arquivo de código do mapeamento objeto-relacional (descreve as classes usadas para acessar as tabelas do bd da aplicação) ->Model do 						 MVC ]
+	/mytemplates [pasta que contém os arquivos de template (html) -> camada View do MVC]
+		/base.html [arquivo pai de todos os outros templates (exceto os de admin, e de login/logout)]
+		/ocorrencias [templates da aplicação ocorrencias]
+		/registration [templates de login/logout]
+		/media [arquivos estáticos (*.css,*.js,imagens, etc )]

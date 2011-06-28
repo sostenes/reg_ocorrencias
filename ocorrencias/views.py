@@ -15,6 +15,7 @@ from django.shortcuts import get_object_or_404
 from django.db.models import Count
 from datetime import datetime
 
+from django.core.paginator import Paginator, InvalidPage, EmptyPage
 
 
 
@@ -443,17 +444,37 @@ def Consulta(request):
 			mensagem ='Nenhum resultado encontrado!'
 			n_registros = '0'	 
 
+	paginas = Paginator(lista_ocorrencias, 2)
+	
+	try:
+		page = int(request.GET.get('page', '1'))
+	except ValueError:
+		page = 1
+
+	try:
+		ocorrencias = paginas.page(page)
+	except (EmptyPage, InvalidPage):
+		ocorrencias = paginas.page(paginas.num_pages)
+
+
+	
+	
+#	num_pagina = int(page)
+#	ocorrencias = paginas.page(num_pagina)  
+#	total_paginas = paginas.count
+
 	dados_template = {'titulo' :'Consulta Ocorrencias',
-		'mensagem' :mensagem,
-		'lista_ocorrencias' :lista_ocorrencias,
-		'lista_status' :lista_status,
-		'lista_users' :lista_users,
-		'n_registros' :n_registros,
-		'lista_bairros' :lista_bairros,
-		'lista_situacao' :lista_situacao,
-		'lista_assunto' :lista_assunto,
-		'usuario' :usuario,
-		'lista_origem' :lista_origem,}
+				'mensagem' :mensagem,
+				'ocorrencias' :ocorrencias,
+				'lista_status' :lista_status,
+				'lista_users' :lista_users,
+				'n_registros' :n_registros,
+				'lista_bairros' :lista_bairros,
+				'lista_situacao' :lista_situacao,
+				'lista_assunto' :lista_assunto,
+				'usuario' :usuario,
+				'lista_origem' :lista_origem,}
+	
 	
 	return render_to_response('ocorrencias/ocorrencia_consulta.html', dados_template)
 
